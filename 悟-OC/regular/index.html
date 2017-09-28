@@ -1,0 +1,789 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java,H5,CSS3" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/uploads/images/dengta.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="“正则表达式&amp;lt;一&amp;gt;”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://qingxian.com/blog/悟-OC/regular/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="“正则表达式&amp;lt;一&amp;gt;”">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-24T02:56:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="“正则表达式&amp;lt;一&amp;gt;”">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingxian.com/blog/悟-OC/regular/"/>
+
+
+
+
+
+  <title>正则表达式 | Mc</title>
+</head>
+<!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 网络崩溃欺诈 -->
+<script type="text/javascript" src="/js/src/dytitle.js"></script>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingxian.com/blog/blog/悟-OC/regular/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T08:00:00+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/悟-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-OC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><br><br><strong>“正则表达式&lt;一&gt;”</strong><br><br></blockquote>
+
+<a id="more"></a>
+<h2 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h2><hr>
+<blockquote>
+<p>正则表达式就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，用来表达对字符串的一种过滤逻辑。</p>
+<p>通过正则表达式可以达到如下的目的：<br>    给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；<br>    可以通过正则表达式，从字符串中获取我们想要的特定部分。</p>
+</blockquote>
+<h6 id="匹配普通文本字符"><a href="#匹配普通文本字符" class="headerlink" title="匹配普通文本字符"></a>匹配普通文本字符</h6><p>正则表达式可以只包含普通的文本，代表去精确匹配这个文本。例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：song</div><div class="line">待匹配文本：xiaosongge，xiaoSongge</div><div class="line">匹配后结果：xiaosongge，xiaoSongge</div></pre></td></tr></table></figure></p>
+<p>正则表达式默认是区分大小写的，所以song不会匹配 “Song” 。但是大部分的正则表达式实现都提供了一个选项表示不区分大小写。</p>
+<h6 id="匹配任意字符"><a href="#匹配任意字符" class="headerlink" title="匹配任意字符"></a>匹配任意字符</h6><p>.用来匹配一个任意字符，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">正则表达式：c.t</div><div class="line">待匹配文本：cat cet caaat dog</div><div class="line">匹配后结果：cat cet caaat dog</div><div class="line">分析: c.t会匹配以&quot; c &quot;开头，以&quot; t &quot;结尾，中间为任意字符的字符串。</div></pre></td></tr></table></figure></p>
+<p>同理，多个连续的.可以匹配多个连续的任意字符：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：c..t</div><div class="line">待匹配文本：cat cet caat dog</div><div class="line">匹配后结果：cat cet caat dog</div></pre></td></tr></table></figure></p>
+<h6 id="匹配特殊字符"><a href="#匹配特殊字符" class="headerlink" title="匹配特殊字符"></a>匹配特殊字符</h6><p>.在正则表达式中含有特殊的意义，是一个特殊的字符。\也是特殊字符，可以对特殊字符起到转义作用。如果你想匹配的是一个真正的” . “字符，需要在.前面加上\对字符进行转义。所以，.表示真正的” . “字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：c\.t</div><div class="line">待匹配文本：cat c.t dog</div><div class="line">匹配后结果：cat c.t dog</div></pre></td></tr></table></figure></p>
+<p>注意：因为\也是特殊字符，所以想要匹配一个真正的” \ “字符，需要使用两个反斜线\：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：c\\t</div><div class="line">待匹配文本：cat c\t dog</div><div class="line">匹配后结果：cat c\t dog</div></pre></td></tr></table></figure></p>
+<p>使用字符集合</p>
+<p>上面说到.能匹配一个任意字符，但是如果我想匹配几个特定字符怎么办？匹配一组特定的字符可以使用[和]元字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：c[ab]t</div><div class="line">待匹配文本：cat cbt cet</div><div class="line">匹配后结果：cat cbt cet</div></pre></td></tr></table></figure></p>
+<p>分析：[ab]会匹配” a “或者” b “。所以c[ab]t会匹配” cat “和” cbt “而不会匹配” cet “。</p>
+<p>使用字符组区间</p>
+<p>在上面的例子中，假如我想匹配cet怎么办，在[]里面多加一个吗？那如果我想匹配任意小写字母呢，往里面写几十个吗？虽然是可以的，但是太长了。这里我们可以用到[a-z]：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：c[a-z]t</div><div class="line">待匹配文本：cat cbt czt c2t</div><div class="line">匹配后结果：cat cbt czt c2t</div></pre></td></tr></table></figure></p>
+<p>分析：c[a-z]t表示以” c “开头，” t “结尾，中间为字母 “ a “ - “ z “ 的任意一个字母。</p>
+<p>类似的区间还有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">1. [0-9] 和[0123456789]的功能一样。匹配所有的数字。</div><div class="line">2. [A-F] 匹配A到F的大写字符。</div><div class="line">3. [A-Z] 匹配所有的 A 到 Z 的大写字符。</div><div class="line">4. [a-z] 匹配所有的 a 到 z 的小写字符。</div><div class="line">5. [A-z] 匹配从 ASCII A 到 ASCII z 的所有字符（不仅仅匹配所有字母，还匹配在 ASCII 表中 A 到 z 中的字符，如 [ 和 ^ 等）。</div><div class="line">6. [A-Za-z0-9] 匹配所有的大小写字母和数字。</div><div class="line">非字符集的匹配</div></pre></td></tr></table></figure></p>
+<p>字符集合一般用于指定一组需要匹配的字符。但是有些时候，你想要排除一组你不想匹配的字符。可以通过对于字符集合的否定来实现。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：c[^a-z]t</div><div class="line">待匹配文本：cat cbt czt c2t cAt</div><div class="line">匹配后结果：cat cbt czt c2t cAt</div></pre></td></tr></table></figure></p>
+<p>分析：这个和前面一个例子完全相反。[a-z] 匹配所有的小写字母，而 [^a-z] 匹配所有的不是小写字母的字符。</p>
+<p>注意，^字符是将字符集合中的所有字符都取消匹配。</p>
+<p>元字符</p>
+<p>元字符在正则表达式中有特殊的意义，上面我们已经说了几个元字符，比如.、[和]。这些字符不能直接表示自己的含义，例如，不能直接使用[来匹配” [ “，使用.来匹配” . “。</p>
+<p>所有的元字符都可以在前面加上反斜线转义，当转义后，字符将匹配自身而不是其特殊含义。例如，[将匹配” [ “:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：a\[b</div><div class="line">待匹配文本：a[b ab a[[b</div><div class="line">匹配后结果：a[b ab a[[b</div></pre></td></tr></table></figure></p>
+<p>注意：\用来转义元字符，这也意味着\也是一个元字符。所以如果需要匹配真正的” \ “，可以使用\：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：a\\b</div><div class="line">待匹配文本：a\b a\b a[[b</div><div class="line">匹配后结果：a\b a\b a[[b</div></pre></td></tr></table></figure></p>
+<p>空白字符<br>有时候你可能需要匹配文本中不能打印的空白字符。例如，你希望能够找到所有的 Tab 字符，或者是所有的换行符。你可以使用下表中的特殊元字符：</p>
+<p><strong>元字符    描述:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line">[\b]	退格符</div><div class="line">\f	换页符</div><div class="line">\n	换行</div><div class="line">\r	回车</div><div class="line">\t	制表符</div><div class="line">\v	垂直制表符</div><div class="line"></div><div class="line">例如\r\n将匹配一个回车换行组合，在 Windows 中表示一个文件换行。在 Linux 和 Unix 系统中，只需要使用\n即可。</div><div class="line"></div><div class="line">匹配特定的字符类型</div><div class="line"></div><div class="line">有一些特殊的元字符可以用来匹配常用的字符集合。这些元字符被称为匹配字符类。你会发现使用它们是很方便的。</div><div class="line"></div><div class="line">匹配数字或者非数字</div><div class="line">上面说到，[0-9] 可以匹配所有的数字。如果不想匹配任何数字，则可以使用[^0-9]。下表中列出了数字和非数字的类元字符：</div><div class="line"></div><div class="line">元字符	描述</div><div class="line"></div><div class="line">\d	任何数字 (同 [0-9])</div><div class="line">\D	任何非数字 (同 [^0-9])</div><div class="line">正则表达式：c\dt</div><div class="line">待匹配文本：cat c2t czt c9t</div><div class="line">匹配后结果：cat c2t czt c9t</div><div class="line"></div><div class="line">正则表达式：c\Dt</div><div class="line">待匹配文本：cat c2t czt c9t</div><div class="line">匹配后结果：cat c2t czt c9t</div><div class="line">匹配字母字符和非字母字符</div><div class="line">另外一个常用的类元字符是\w和\W：</div><div class="line"></div><div class="line">元字符	描述</div><div class="line">\w	所有的文字数字式字符：大小写字母、数字和下划线 (同 [a-zA-Z0-9_])</div><div class="line">\W	(同 [^a-zA-Z0-9_])</div><div class="line">正则表达式：c\wt</div><div class="line">待匹配文本：cat c2t czt c-t c\t</div><div class="line">匹配后结果：cat c2t c-t c\t</div><div class="line"></div><div class="line">正则表达式：c\Wt</div><div class="line">待匹配文本：cat c2t c-t c\t</div><div class="line">匹配后结果：cat c2t c-t c\t</div><div class="line">匹配空白和非空白</div><div class="line">最后一个将要遇到的匹配类是空白类：</div><div class="line"></div><div class="line">元字符	描述</div><div class="line">\s	所有的空白字符 (同 [\f\n\r\t\v])</div><div class="line">\S	所有的非空白字符 (同 [^\f\n\r\t\v])</div><div class="line">正则表达式：c\st</div><div class="line">待匹配文本：cat c t c2t c\t</div><div class="line">匹配后结果：cat c t c2t c\t</div><div class="line"></div><div class="line">正则表达式：c\St</div><div class="line">待匹配文本：cat c t c2t c\t</div><div class="line">匹配后结果：cat c t c2t c\t</div><div class="line">匹配一个或者更多字符</div><div class="line"></div><div class="line">+元字符表示匹配一个或者多个字符。例如，a将匹配&quot;a&quot;，而a+则匹配一个或者多个&quot;a&quot;。</div><div class="line"></div><div class="line">正则表达式：cat</div><div class="line">待匹配文本：ct cat caat caaat</div><div class="line">匹配后结果：ct cat caat caaat</div><div class="line"></div><div class="line">正则表达式：ca+t</div><div class="line">待匹配文本：ct cat caat caaat</div><div class="line">匹配后结果：ct cat caat caaat</div><div class="line">当在字符集合上使用+的时候，需要将+符号放在集合外面：</div><div class="line"></div><div class="line">正则表达式：c[0-9]+t</div><div class="line">待匹配文本：ct c0t cat c123t</div><div class="line">匹配后结果：ct c0t cat c123t</div><div class="line">分析：c[0-9]+t表示以&quot; c &quot;开头，以&quot; t &quot;结尾，中间为一个或多个数字的字符串。</div></pre></td></tr></table></figure></p>
+<p>当然，[0-9+]也是一个合法的正则表达式，但它表示一个包含 “ 0 “ - “ 9 “ 和 “ + “ 符号的字符集合。</p>
+<p>一般的，元字符如.和+等用于字符集合的时候是作为字面含义使用的，因此没有必要转义。但是对其进行转义也没错，所以，[0-9+]和[0-9+]的功能是一样的。</p>
+<p>注意：+是一个元字符，匹配”+”需要使用转义+。</p>
+<p>匹配零个或者更多字符</p>
+<p>如果希望匹配零个或更多字符的时候，可以使用*元字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：ca*t</div><div class="line">待匹配文本：ct cat caat cbt</div><div class="line">匹配后结果：ct cat caat cbt</div></pre></td></tr></table></figure></p>
+<p>注意：<em>符号是元字符。为了能够匹配” </em> “，需要进行转义*。</p>
+<p>匹配零个或者一个字符</p>
+<p>?匹配零个或者一个字符。所以，?非常适合于在文本中匹配一个可选的字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：ca?t</div><div class="line">待匹配文本：ct cat caat cbt</div><div class="line">匹配后结果：ct cat caat cbt</div></pre></td></tr></table></figure></p>
+<p>注意：?符号是元字符。为了能够匹配” ? “，需要进行转义\?。</p>
+<p>使用匹配次数</p>
+<p>正则表达式允许指定匹配的次数。次数可以在“ { ”和“ } ”之间指定。<br>注意：{和}也是元字符，在使用字面含义的时候需要转义。</p>
+<p>精确次数匹配<br>为了指定匹配的次数，你可以在{和}之间输入数字。例如，{3}将匹配 3 次前面出现的字符或集合：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：ca&#123;3&#125;t</div><div class="line">待匹配文本：ct cat caaat cbt</div><div class="line">匹配后结果：ct cat caaat cbt</div></pre></td></tr></table></figure></p>
+<p>至少次数匹配<br>我们也可以只指定匹配的最小值。例如，{2,}意味着匹配 2次或者更多次：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：ca&#123;1,&#125;t</div><div class="line">待匹配文本：ct cat caaat cbt</div><div class="line">匹配后结果：ct cat caaat cbt</div></pre></td></tr></table></figure></p>
+<p>次数区间匹配<br>我们还可以使用最小值和最大值来确定匹配的数量。例如，{2,3}意味着最少匹配 2次，最多匹配3次。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">正则表达式：ca&#123;2,3&#125;t</div><div class="line">待匹配文本：ct cat caaat cbt</div><div class="line">匹配后结果：ct cat caaat cbt</div></pre></td></tr></table></figure></p>
+<p>所以?和{0,1}的功能是一样的，+和 {1,}的作用是一样的。</p>
+<p>非贪婪匹配</p>
+<p>先看看下面的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">正则表达式：s.*g</div><div class="line">待匹配文本：xiao song xiao song</div><div class="line">匹配后结果：xiao song xiao song</div><div class="line"></div><div class="line">分析：s.*g并没像预想中的匹配两个&quot; song &quot;，而是匹配了第一个&quot; s &quot;和最后一个 &quot; g &quot;之间的所有文本。</div><div class="line"></div><div class="line">这是因为*和+都是贪婪匹配。也就是说，正则表达式总是寻找最大的匹配，而不是最小的，这是故意设计的。</div><div class="line"></div><div class="line">但是如果你不希望贪婪匹配的时候就要使用这些量词的非贪婪匹配（匹配尽可能少的字符）。非贪婪量词是在量词后面加上?：</div></pre></td></tr></table></figure></p>
+<p>贪婪量词    非贪婪量词</p>
+<ul>
+<li>*?</li>
+</ul>
+<ul>
+<li>+?<br>{n,}    {n,}?<br><em>?是</em>的非贪婪版本，所以可以使用*?来修改上面的例子：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">正则表达式：s.*?g</div><div class="line">待匹配文本：xiao song xiao song</div><div class="line">匹配后结果：xiao song xiao song</div><div class="line">分析：可以看到s.*?g匹配到了两个&quot; song &quot;。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>定义字符串边界</p>
+<p>字符串边界匹配的元字符是^和$，分别用于字符串的开始和结束。</p>
+<p>^用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">正则表达式：^xiao</div><div class="line"></div><div class="line">待匹配文本：xiaosong</div><div class="line">匹配后结果：xiaosong</div><div class="line"></div><div class="line">待匹配文本：axiaosong</div><div class="line">匹配后结果：axiaosong</div><div class="line">分析：^xiao匹配以&quot; xiao &quot;开头的字符串。</div></pre></td></tr></table></figure></p>
+<p>$用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">正则表达式：song$</div><div class="line"></div><div class="line">待匹配文本：xiaosong</div><div class="line">匹配后结果：xiaosong</div><div class="line"></div><div class="line">待匹配文本：xiaosonga</div><div class="line">匹配后结果：xiaosonga</div><div class="line">分析：song$匹配以&quot;song &quot;结尾的字符串。</div></pre></td></tr></table></figure></p>
+<p>共同使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">正则表达式：^[0-9a-zA-Z]&#123;4,&#125;$</div><div class="line"></div><div class="line">待匹配文本：a1b234ABC</div><div class="line">匹配后结果：a1b234ABC</div><div class="line"></div><div class="line">待匹配文本：+a1b23=4ABC</div><div class="line">匹配后结果：+a1b23=4ABC</div><div class="line">分析：^[0-9a-zA-Z]&#123;4,&#125;$匹配用数字或者字母组成的，并且位数大于等于四位的字符串。</div><div class="line"></div><div class="line">注意：^如果位于集合开始处的话，则表示否定；如果在集合外面，则将匹配字符串的开始位置。大家可以试试[^0-9]和^[0-9]的区别。</div></pre></td></tr></table></figure></p>
+<p>使用多行模式</p>
+<p>但是(?m)可以启用多行模式。在多行模式下，正则表达式引擎将换行符作为字符串的分隔符，^将匹配文本的开始或者一行的开始，而$则可以匹配文本的结束或者是一行的结尾处。</p>
+<p>修改下上个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">正则表达式：(?m)^[0-9a-zA-Z]&#123;4,&#125;$</div><div class="line"></div><div class="line">待匹配文本：a1b234ABC</div><div class="line">+a1b23=4ABC</div><div class="line">ABC123456</div><div class="line"></div><div class="line">匹配后结果：a1b234ABC</div><div class="line">+a1b23=4ABC</div><div class="line">ABC123456</div><div class="line">分析：(?m)^[0-9a-zA-Z]&#123;4,&#125;$会去匹配每行用数字或者字母组成的，并且位数大于等于四位的字符串。</div><div class="line"></div><div class="line">注意：如果使用多行模式的话，(?m)必须放置在正则表达式的开始。</div><div class="line">(?m)在大部分的正则表达式实现中并不支持。有些正则表达式实现还支持使用\A匹配字符串的开始，\Z匹配字符串的结束。如果支持的话，则这些元字符的功能和^、$是一样的。但是这些元字符不能使用(?m)修饰，所以也不能用于多行模式。</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/悟-OC/regular2/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/悟-Java/Struts2/" rel="prev" title="Struts2">
+                Struts2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/blog/archives/">
+            
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="MC 简书" target="_blank">MC 简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/mcqingxian" title="MC GitHub" target="_blank">MC GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是正则表达式"><span class="nav-number">1.</span> <span class="nav-text">什么是正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#匹配普通文本字符"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">匹配普通文本字符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#匹配任意字符"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">匹配任意字符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#匹配特殊字符"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">匹配特殊字符</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,100,163"></script>
+</html>

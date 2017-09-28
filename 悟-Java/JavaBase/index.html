@@ -1,0 +1,762 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java,H5,CSS3" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/uploads/images/dengta.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java(面试)基础解答">
+<meta property="og:url" content="http://qingxian.com/blog/悟-Java/JavaBase/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="Java基础">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-05-11T05:47:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java(面试)基础解答">
+<meta name="twitter:description" content="Java基础">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingxian.com/blog/悟-Java/JavaBase/"/>
+
+
+
+
+
+  <title>Java(面试)基础解答 | Mc</title>
+</head>
+<!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 网络崩溃欺诈 -->
+<script type="text/javascript" src="/js/src/dytitle.js"></script>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingxian.com/blog/blog/悟-Java/JavaBase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java(面试)基础解答</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T15:50:58+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/悟-Java/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>Java基础<br></blockquote><br><a id="more"></a><br>1、面向对象编程的三大特性是什么?<br>(1).继承：</p>
+<p>继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表述共性的方法。对象的一个新类可以从现有的类中派生，这个过程称为类继承。新类继 承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。派生类可以从它的基类那里继承方法和实例变量，并且类可以修改或增 加新的方法使之更适合特殊的需要。</p>
+<p>(2).封装：</p>
+<p>封装是把过程和数据包围起来，对数据的访问只能通过已定义的界面。面向对象计算始于这个基本概念，即现实世界可以被描绘成一系列完全自治、封装的对象，这些对象通过一个受保护的接口访问其他对象。</p>
+<p>(3).多态：</p>
+<p>多态性是指允许不同类的对象对同一消息作出响应。多态性包括参数化多态性和包含多态性。多态性语言具有灵活、抽象、行为共享、代码共享的优势，很好的解决了应用程序函数同名问题。</p>
+<p>2、String 和StringBuffer的区别<br>JAVA平台提供了两个类:String和StringBuffer，它们可以储存和操作字符串，即包含多个字符的字符数据这个String类提供了数值不可改变字符串而这个StringBuffer类提供的字符串进行修改当你知道字符数据要改变的时候你就可以使用StringBuffer典型地，你可以使用StringBuffers来动态构造字符数据</p>
+<p>3、说出ArrayList,Vector, LinkedList的存储性能和特性<br>ArrayList和Vector都是使用数组方式存储数据，此数组元素数大于实际存储数据以便增加和插入元素，它们都允许直接按序号索引元素，但是插入元素要涉及数组元素移动等内存操作，所以索引数据快而插入数据慢，Vector由于使用了synchronized思路方法(线程安全) ，通常性能上较ArrayList差，而LinkedList使用双向链表实现存储，按序号索引数据需要进行前向或后向遍历，但是插入数据时只需要记录本项前后项即可，所以插入速度较快</p>
+<p>4、Collection 和 Collections的区别<br>Collection是集合类的上级接口，继承与他的接口主要有Set 和List. Collections是针对集合类的一个帮助类，他提供一系列静态方法实现对各种集合的搜索、排序、线程安全化等操作。</p>
+<p>5、HashMap和Hashtable的区别<br>HashMap是Hashtable的轻量级实现(非线程安全的实现)，他们都完成了Map接口，主要区别在于HashMap允许空(null)键值(key),由于非线程安全，效率上可能高于HashtableJAVA中文站社区门户oC)| g| ax ，HashMap允许将Null作为一个entryde key 或者value,而Hashtable不允许 HashMap把Hashtable的contains思路方法去掉了，改成containsvalue和containsKey因为contains思路方法容易让人引起误解Hashtable继承自Dictionary类，而HashMap是Java1.2引进的Map interface的一个实现。</p>
+<p>最大的区别是，Hashtable的思路方法是Synchronize的，而HashMap不是，在多个线程访问Hashtable时，不需要自己为它的思路方法实现同步，而HashMap 就必须为的提供外同步。</p>
+<p>Hashtable和HashMap采用的hash/rehash算法都大概一样，所以性能不会有很大的差异。</p>
+<p>6、final, finally, finalize的区别<br>final 用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。</p>
+<p>finally是异常处理语句结构的一部分，表示总是执行。</p>
+<p>finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。</p>
+<p>7、Overload和Override的区别。Overloaded的方法是否可以改变返回值的类型?<br>重载（Overload）：</p>
+<p>（1）方法重载是让类以统一的方式处理不同类型数据的一种手段。多个同名函数同时存在，具有不同的参数个数/类型。重载Overloading是一个类中多态性的一种表现。<br>（2）Java的方法重载，就是在类中可以创建多个方法，它们具有相同的名字，但具有不同的参数和不同的定义。调用方法时通过传递给它们的不同参数个数和参数类型来决定具体使用哪个方法, 这就是多态性。<br>（3）重载的时候，方法名要一样，但是参数类型和个数不一样，返回值类型可以相同也可以不相同。无法以返回型别作为重载函数的区分标准。</p>
+<p>重写（Override）：</p>
+<p>（1） 父类与子类之间的多态性，对父类的函数进行重新定义。如果在子类中定义某方法与其父类有相同的名称和参数，我们说该方法被重写 (Overriding)。在Java中，子类可继承父类中的方法，而不需要重新编写相同的方法。但有时子类并不想原封不动地继承父类的方法，而是想作一定的修改，这就需要采用方法的重写。方法重写又称方法覆盖。<br>（2） 若子类中的方法与父类中的某一方法具有相同的方法名、返回类型和参数表，则新方法将覆盖原有的方法。如需父类中原有的方法，可使用super关键字，该关键字引用了当前类的父类。<br>（3）子类函数的访问修饰权限不能少于父类的</p>
+<p>重写方法的规则:<br>1.参数列表必须完全与被重写的方法的相同,否则不能称其为重写而是重载.<br>2.返回的类型必须一直与被重写的方法的返回类型相同,否则不能称其为重写而是重载.<br>3.访问修饰符的限制一定要大于被重写方法的访问修饰符（public&gt;protected&gt;default&gt;private）<br>4.重写方法一定不能抛出新的检查异常或者比被重写方法申明更加宽泛的检查型异常．例如，<br>父类的一个方法申明了一个检查异常IOException，在重写这个方法是就不能抛出Exception，只能抛出IOException的子类异常，可以抛出非检查异常．</p>
+<p>而重载的规则：<br>1.必须具有不同的参数列表；<br>2.可以有不同的返回类型，只要参数列表不同就可以了；<br>3.可以有不同的访问修饰符；<br>4.可以抛出不同的异常；</p>
+<p>重写和重载的区别在于：</p>
+<p>重写多态性起作用，对调用被重载过的方法可以大大减少代码的输入量，同一个方法名只要往里面传递不同的参数就可以拥有不同的功能或返回值．</p>
+<p>用好重写和重载可以设计一个结构清晰而简洁的类，可以说重写和重载在编写代码过程中的作用非同一般．</p>
+<p>Overloaded的方法是可以改变返回值的类型。</p>
+<p>8、error和exception有什么区别?<br>error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况。<br>exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。</p>
+<p>9、abstract class和interface有什么区别?<br>1.abstract class 在 Java 语言中表示的是一种继承关系，一个类只能使用一次继承关系。但是，一个类却可以实现多个interface。</p>
+<p>2.在abstract class 中可以有自己的数据成员，也可以有非abstarct的成员方法，而在interface中，只能够有静态的不能被修改的数据成员(也就是必须是static final的，不过在 interface中一般不定义数据成员)，所有的成员方法都是abstract的。</p>
+<p>　　3.abstract class和interface所反映出的设计理念不同。其实abstract class表示的是”is-a”关系，interface表示的是”like-a”关系。</p>
+<p>　　4.实现抽象类和接口的类必须实现其中的所有方法。抽象类中可以有非抽象方法。接口中则不能有实现方法。</p>
+<p>　　5.接口中定义的变量默认是public static final 型，且必须给其初值，所以实现类中不能重新定义，也不能改变其值。</p>
+<p>　　6.抽象类中的变量默认是 friendly 型，其值可以在子类中重新定义，也可以重新赋值。</p>
+<p>　　7.接口中的方法默认都是 public,abstract 类型的。</p>
+<p>10、List, Set, Map是否继承自Collection接口<br>List,Set是继承自Collection，Map不是。</p>
+<p>11、swtich是否能作用在byte上，是否能作用在long上，是否能作用在String上?<br>swtich中只能用byte short int char</p>
+<p>12、char型变量中能不能存贮一个中文汉字?为什么?<br>能够定义成为一个中文的,因为java中以unicode编码,一个char占16个bit,所以放一个中文是没问题的。</p>
+<p>13、多线程有几种实现方法,都是什么?哪一种方式比较优秀?同步有几种实现方法,都是什么?<br>多线程有两种实现方法，分别是继承Thread类与实现Runnable接口</p>
+<p>实现Runnable接口比较好，因为实现类可以实现多个接口，而只能继承一个类。</p>
+<p>同步的实现方面有两种，分别是synchronized,wait与notify</p>
+<p>14、java中有几种类型的流？JDK为每种类型的流提供了一些抽象类以供继承，请说出他们分别是哪些类<br>字节流，字符流。字节流继承与inputStream/outputStream,字符流继承于inputStreamReader/outputSteamWriter。</p>
+<p>15、Java I/O中字符流和字节流的区别?<br>字节流在操作的时候本身是不会用到缓冲区（内存）的，是与文件本身直接操作的，而字符流在操作的时候是使用到缓冲区的<br>字节流在操作文件时，即使不关闭资源（close方法），文件也能输出，但是如果字符流不使用close方法的话，则不会输出任何内容，说明字符流用的是缓冲区，并且可以使用flush方法强制进行刷新缓冲区，这时才能在不close的情况下输出内容<br>在所有的硬盘上保存文件或进行传输的时候都是以字节的方法进行的，包括图片也是按字节完成，而字符是只有在内存中才会形成的，所以使用字节的操作是最多的。</p>
+<p>16、Servlet的生命周期<br>1，初始化阶段<br>调用init()方法<br>2，响应客户请求阶段<br>调用service()方法<br>3，终止阶段<br>调用destroy()方法</p>
+<p>17、Http协议是长连接,还是短连接?<br>Http协议是无状态连接,所以是短连接.</p>
+<p>18、Java的基本数据类型有哪些?String是不是基本类型?<br>boolean,int,byte,char,short,long,float,double,void,String 不是基本类型.</p>
+<p>19、JSP中有哪些重定向方法,它们的区别?</p>
+<jsp:forward page="”url”/">
+
+<jsp:include file="”url”/">
+
+<p>前者将当前页面重定向到指定的URL的页面,而后者是在当前页面中包含指定的URL的页面.</p>
+<p>20、Jsp有哪些内置对象？作用分别是什么？<br>request            请求对象　                类型 javax.servlet.ServletRequest        作用域 Request<br>response          响应对象                   类型 javax.servlet.SrvletResponse       作用域  Page<br>pageContext    页面上下文对象       类型 javax.servlet.jsp.PageContext      作用域    Page<br>session            会话对象                   类型 javax.servlet.http.HttpSession       作用域    Session<br>application       应用程序对象          类型 javax.servlet.ServletContext          作用域    Application<br>out                   输出对象                   类型 javax.servlet.jsp.JspWriter             作用域    Page<br>config              配置对象                  类型 javax.servlet.ServletConfig            作用域    Page<br>page               页面对象                  类型 javax.lang.Object                            作用域    Page<br>exception        例外对象                 类型 javax.lang.Throwable                     作用域    page</p>
+<p>1、request 对象代表的是来自客户端的请求，例如我们在FORM表单中填写的信息等，是最常用的对象<br>常用的方法有：getParameter、getParameterNames 和getParameterValues 通过调用这几个方法来获取请求对象中所包含的参数的值。</p>
+<p>2、response 对象代表的是对客户端的响应，也就是说可以通过response 对象来组织发送到客户端的数据。但是由于组织方式比较底层，所以不建议普通读者使用，需要向客户端发送文字时直接使用</p>
+<p>3、pageContext 对象直译时可以称作“页面上下文”对象，代表的是当前页面运行的一些属性<br>常用的方法有 ：findAttribute、getAttribute、getAttributesScope 和getAttributeNamesInScope<br>一般情况下pageContext对象用到得也不是很多，只有在项目所面临的情况比较复杂的情况下，才会利用到页面属性来辅助处理。</p>
+<p>4、session 对象代表服务器与客户端所建立的会话，当需要在不同的JSP页面中保留客户信息的情况下使用，比如在线购物、客户轨迹跟踪等。“session” 对象建立在cookie的基础上，所以使用时应注意判断一下客户端是否打开了cookie。常用的方法包括getId、 getValue、 getValueNames和putValue等。</p>
+<p>概要<br>HTTP是无状态（stateless）协议；<br>Web服务器对每一个客户端请求都没有历史记忆；<br>Session用来保存客户端状态信息；<br>由Web服务器写入；<br>存于客户端；<br>客户端的每次访问都把上次的session记录传递给Web Server；<br>Web服务器读取客户端提交的session来获取客户端的状态信息</p>
+<p>5、application 对象负责提供应用程序在服务器中运行时的一些全局信息，常用的方法有getMimeType和getRealPath等。</p>
+<p>6、out 对象代表了向客户端发送数据的对象，与“response” 对象不同，通过“out” 对象发送的内容将是浏览器需要显示的内容，是文本一级的，可以通过“out” 对象直接向客户端写一个由程序动态生成HTML文件。常用的方法除了pirnt和println之外，还包括clear、clearBuffer、flush、getBufferSize和getRemaining，这是因为“out” 对象内部包含了一个缓冲区，所以需要一些对缓冲区进行操作的方法</p>
+<p>7、config 对象提供一些配置信息，常用的方法有getInitParameter和getInitParameterNames，以获得Servlet初始化时的参数。</p>
+<p>8、page 对象代表了正在运行的由JSP文件产生的类对象，不建议一般读者使用。</p>
+<p>9、exception 对象则代表了JSP文件运行时所产生的例外对象，此对象不能在一般JSP文件中直接使用，而只能在使用了“&lt;%@ page isErrorPage=”true “%&gt;”的JSP文件中使用</p>
+</jsp:include></jsp:forward>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/悟- Mac快捷键/Idea/" rel="next" title="Mac idea开发快捷键">
+                <i class="fa fa-chevron-left"></i> Mac idea开发快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/悟-OC/InfoPlist/" rel="prev" title="Info.plist中 各字段详解">
+                Info.plist中 各字段详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/blog/archives/">
+            
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="MC 简书" target="_blank">MC 简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/mcqingxian" title="MC GitHub" target="_blank">MC GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,100,163"></script>
+</html>

@@ -1,0 +1,705 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java,H5,CSS3" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/uploads/images/dengta.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="JavaScript12种开发技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript12种开发技巧">
+<meta property="og:url" content="http://qingxian.com/blog/悟- Javascript/JavaScript12/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="JavaScript12种开发技巧">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-05-12T01:41:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript12种开发技巧">
+<meta name="twitter:description" content="JavaScript12种开发技巧">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingxian.com/blog/悟- Javascript/JavaScript12/"/>
+
+
+
+
+
+  <title>JavaScript12种开发技巧 | Mc</title>
+</head>
+<!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 网络崩溃欺诈 -->
+<script type="text/javascript" src="/js/src/dytitle.js"></script>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingxian.com/blog/blog/悟- Javascript/JavaScript12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript12种开发技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T08:00:00+08:00">
+                2017-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/悟-Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>JavaScript12种开发技巧<br></blockquote><br><a id="more"></a></p>
+<p><strong>1. 使用!!将变量转换成布尔类型</strong><br>有时，我们需要检查一些变量是否存在，或者它是否具有有效值，从而将它们的值视为true。对于做这样的检查，你可以使用||（双重否定运算符），它能自动将任何类型的数据转换为布尔值，只有这些变量才会返回false：0，null，””，undefined或NaN，其他的都返回true。我们来看看这个简单的例子：<br>function Account(cash) {<br>    this.cash = cash;<br>    this.hasMoney = !!cash;<br>}<br>var account = new Account(100.50);<br>console.log(account.cash); // 100.50<br>console.log(account.hasMoney); // true</p>
+<p>var emptyAccount = new Account(0);<br>console.log(emptyAccount.cash); // 0<br>console.log(emptyAccount.hasMoney); // false<br>在这个例子中，如果account.cash的值大于零，则account.hasMoney的值就是true。<br><strong>2. 使用+将变量转换成数字</strong><br>这个转换超级简单，但它只适用于数字字符串，不然就会返回NaN（ 不是数字 ）。看看这个例子：<br>function toNumber(strNumber) {<br>    return +strNumber;<br>}<br>console.log(toNumber(“1234”)); // 1234<br>console.log(toNumber(“ACB”)); // NaN<br>这个转换操作也可以作用于Date，在这种情况下，它将返回时间戳：<br>console.log(+new Date()) // 1461288164385<br><strong>3. 短路条件</strong><br>如果你看到过这种类似的代码:<br>if (conected) {<br>    login();<br>}<br>那么你可以在这两个变量之间使用&amp;&amp;（AND运算符）来缩短代码。例如，前面的代码可以缩减到一行：<br>conected &amp;&amp; login();<br>你也可以用这种方法来检查对象中是否存在某些属性或函数。类似于以下代码：<br>user &amp;&amp; user.login();<br><strong>4. 使用||设置默认值</strong><br>在ES6中有默认参数这个功能。为了在旧版浏览器中模拟此功能，你可以使用||（OR运算符），并把默认值作为它的第二个参数。如果第一个参数返回false，那么第二个参数将会被作为默认值返回。看下这个例子：<br>function User(name, age) {<br>    this.name = name || “Oliver Queen”;<br>    this.age = age || 27;<br>}<br>var user1 = new User();<br>console.log(user1.name); // Oliver Queen<br>console.log(user1.age); // 27</p>
+<p>var user2 = new User(“Barry Allen”, 25);<br>console.log(user2.name); // Barry Allen<br>console.log(user2.age); // 25<br><strong>5. 在循环中缓存array.length</strong><br>这个技巧非常简单，并且在循环处理大数组时能够避免对性能造成巨大的影响。基本上几乎每个人都是这样使用for来循环遍历一个数组的：<br>for (var i = 0; i &lt; array.length; i++) {<br>    console.log(array[i]);<br>}<br>如果你使用较小的数组，那还好，但是如果处理大数组，则此代码将在每个循环里重复计算数组的大小，这会产生一定的延迟。为了避免这种情况，你可以在变量中缓存array.length，以便在循环中每次都使用缓存来代替array.length：<br>var length = array.length;<br>for (var i = 0; i &lt; length; i++) {<br>    console.log(array[i]);<br>}<br>为了更简洁，可以这么写：<br>for (var i = 0, length = array.length; i &lt; length; i++) {<br>    console.log(array[i]);<br>}<br><strong>6. 检测对象中的属性</strong><br>当你需要检查某些属性是否存在，避免运行未定义的函数或属性时，这个技巧非常有用。如果你打算编写跨浏览器代码，你也可能会用到这个技术。例如，我们假设你需要编写与旧版Internet Explorer 6兼容的代码，并且想要使用document.querySelector()来通过ID获取某些元素。 但是，在现代浏览器中，这个函数不存在。所以，要检查这个函数是否存在，你可以使用in运算符。看下这个例子：<br>if (‘querySelector’ in document) {<br>    document.querySelector(“#id”);<br>} else {<br>    document.getElementById(“id”);<br>}<br>在这种情况下，如果在document中没有querySelector函数，它就会使用document.getElementById()作为代替。<br><strong>7. 获取数组的最后一个元素</strong><br>Array.prototype.slice（begin，end）可以用来裁剪数组。但是如果没有设置结束参数end的值的话，该函数会自动将end设置为数组长度值。我认为很少有人知道这个函数可以接受负值，如果你将begin设置一个负数的话，你就能从数组中获取到倒数的元素：<br>var array = [1, 2, 3, 4, 5, 6];<br>console.log(array.slice(-1)); // [6]<br>console.log(array.slice(-2)); // [5,6]<br>console.log(array.slice(-3)); // [4,5,6]<br><strong>8. 数组截断</strong><br>这个技术可以锁定数组的大小，这对于要删除数组中固定数量的元素是非常有用的。例如，如果你有一个包含10个元素的数组，但是你只想获得前五个元素，则可以通过设置array.length = 5来阶段数组。看下这个例子：<br>var array = [1, 2, 3, 4, 5, 6];<br>console.log(array.length); // 6<br>array.length = 3;<br>console.log(array.length); // 3<br>console.log(array); // [1,2,3]<br><strong>9. 全部替换</strong><br>String.replace()函数允许使用String和Regex来替换字符串，这个函数本身只能替换第一个匹配的串。但是你可以在正则表达式末尾添加/g来模拟replaceAll()函数：<br>var string = “john john”;<br>console.log(string.replace(/hn/, “ana”)); // “joana john”<br>console.log(string.replace(/hn/g, “ana”)); // “joana joana”<br><strong>10. 合并数组</strong><br>如果你需要合并两个数组，你可以使用Array.concat()函数：<br>var array1 = [1, 2, 3];<br>var array2 = [4, 5, 6];<br>console.log(array1.concat(array2)); // [1,2,3,4,5,6];<br>但是，这个函数对于大数组来说不并合适，因为它将会创建一个新的数组并消耗大量的内存。在这种情况下，你可以使用Array.push.apply（arr1，arr2），它不会创建一个新数组，而是将第二个数组合并到第一个数组中，以减少内存使用：<br>var array1 = [1, 2, 3];<br>var array2 = [4, 5, 6];<br>console.log(array1.push.apply(array1, array2)); // [1,2,3,4,5,6];<br><strong>11. 把NodeList转换成数组</strong><br>如果运行document.querySelectorAll(“p”)函数，它会返回一个DOM元素数组，即NodeList对象。但是这个对象并没有一些属于数组的函数，例如：sort()，reduce()，map()，filter()。为了启用这些函数，以及数组的其他的原生函数，你需要将NodeList转换为数组。要进行转换，只需使用这个函数：[] .slice.call（elements）：<br>var elements = document.querySelectorAll(“p”); // NodeList<br>var arrayElements = [].slice.call(elements); // 现在已经转换成数组了<br>var arrayElements = Array.from(elements); // 把NodeList转换成数组的另外一个方法<br><strong>12. 对数组元素进行洗牌</strong><br>如果要像外部库Lodash那样对数据元素重新洗牌，只需使用这个技巧：<br>var list = [1, 2, 3];<br>console.log(list.sort(function() {<br>    return Math.random() - 0.5<br>})); // [2,1,3]</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/悟- Mac快捷键/macORXcode/" rel="next" title="Mac和Xcode快捷键">
+                <i class="fa fa-chevron-left"></i> Mac和Xcode快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/悟-OC/regular2/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/blog/archives/">
+            
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="MC 简书" target="_blank">MC 简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/mcqingxian" title="MC GitHub" target="_blank">MC GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,100,163"></script>
+</html>

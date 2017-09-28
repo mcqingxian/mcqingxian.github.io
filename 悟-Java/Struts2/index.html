@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next gemini" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java,H5,CSS3" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/uploads/images/dengta.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Struts2入门教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Struts2">
+<meta property="og:url" content="http://qingxian.com/blog/悟-Java/Struts2/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="Struts2入门教程">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5303154-a49effc76c8ef737.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5303154-2b6b8bd339d7c413.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5303154-5754f0ac6c6e9fc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5303154-714e201ce44f1224.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5303154-57ffb1cbefd87334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5303154-789ad421b8e00244.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-26T05:49:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Struts2">
+<meta name="twitter:description" content="Struts2入门教程">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5303154-a49effc76c8ef737.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingxian.com/blog/悟-Java/Struts2/"/>
+
+
+
+
+
+  <title>Struts2 | Mc</title>
+</head>
+<!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 网络崩溃欺诈 -->
+<script type="text/javascript" src="/js/src/dytitle.js"></script>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingxian.com/blog/blog/悟-Java/Struts2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Struts2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T08:00:00+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/悟-Java/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>Struts2入门教程<br></blockquote><br><a id="more"></a></p>
+<h3 id="一，Struts2概述"><a href="#一，Struts2概述" class="headerlink" title="一，Struts2概述"></a>一，Struts2概述</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">在MVC设计模式中，Struts2作为控制器(Controller)来建立模型与视图的数据交互。</div><div class="line"></div><div class="line">Struts 2是Struts的下一代产品，是在 struts 1和WebWork的技术基础上进行了合并的全新的Struts 2框架。</div><div class="line"></div><div class="line">其全新的Struts 2的体系结构与Struts 1的体系结构差别巨大。</div><div class="line"></div><div class="line">Struts 2以WebWork为核心，采用拦截器的机制来处理用户的请求，</div><div class="line">这样的设计也使得业务逻辑控制器能够与ServletAPI完全脱离开，所以Struts 2可以理解为WebWork的更新产品。</div><div class="line"></div><div class="line">虽然从Struts 1到Struts 2有着太大的变化，但是相对于WebWork，Struts 2的变化很小。</div></pre></td></tr></table></figure>
+<h5 id="三层结构体系（来自于JavaEE的规范）："><a href="#三层结构体系（来自于JavaEE的规范）：" class="headerlink" title="三层结构体系（来自于JavaEE的规范）："></a>三层结构体系（来自于JavaEE的规范）：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">表现层（页面数据显示、页面跳转调度）jsp/servlet</div><div class="line">业务层（业务处理和功能逻辑、事务控制）-service</div><div class="line">持久层（数据存取和封装、和2交道）dao</div><div class="line"></div><div class="line">换句话说：</div><div class="line">Struts2是一个表现层框架，用来简化表现层代码开发的。</div><div class="line">而Hibernate是一个持久层框架,用来替代DBUtils来简化持久层的代码开发。</div></pre></td></tr></table></figure>
+<h3 id="二，入门案例-Hello世界"><a href="#二，入门案例-Hello世界" class="headerlink" title="二，入门案例_Hello世界"></a>二，入门案例_Hello世界</h3><h4 id="1-入门案例步骤"><a href="#1-入门案例步骤" class="headerlink" title="1.入门案例步骤"></a>1.入门案例步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1.创建网络工程</div><div class="line"></div><div class="line">2.导入的Struts2的JAR包</div><div class="line"></div><div class="line">3.配置Struts2的前端控制器</div><div class="line"></div><div class="line">4.模拟页面请求，编写hello.jsp</div><div class="line"></div><div class="line">5.编写表现层的行动，响应返回跳转到result.jsp</div><div class="line"></div><div class="line">6.根据请求与响应跳转，配置Struts2的核心配置文件struts.xml</div><div class="line"></div><div class="line">    1.找到struts2-blank.war.zip模板文件中的struts.xml配置文件，拷贝到当前项目的SRC目录下</div></pre></td></tr></table></figure>
+<h4 id="2-实现"><a href="#2-实现" class="headerlink" title="2.实现"></a>2.实现</h4><h5 id="2-1-创建Web工厂"><a href="#2-1-创建Web工厂" class="headerlink" title="2.1 创建Web工厂"></a>2.1 创建Web工厂</h5><h5 id="2-2-导入Struts2的jar包"><a href="#2-2-导入Struts2的jar包" class="headerlink" title="2.2 导入Struts2的jar包"></a>2.2 导入Struts2的jar包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1. 解压下载好的Struts2压缩包，找到apps解压Struts2提供的blank模板，更改其扩展名为zip后解压即可.</div><div class="line"></div><div class="line">2. copy其中lib包下所有jar包到当前工程,其中log4的jar包可选.</div><div class="line"></div><div class="line">3. 这里我们不使用Struts2提供的log4j 2.x的版本,自己导入log4j 1.x的版本</div></pre></td></tr></table></figure>
+<h5 id="2-3-配置Struts2的前端控制器"><a href="#2-3-配置Struts2的前端控制器" class="headerlink" title="2.3 配置Struts2的前端控制器"></a>2.3 配置Struts2的前端控制器</h5><blockquote>
+<p>Struts2的前端控制器就是一个过滤器，这里在加载Struts2的配置，将Servlet的原先的一些重复的代码在拦截器中执行了，Struts2的前端控制器需要在web.xml中进行配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">1.找到刚刚解压的struts2-blank.war.zip模板文件中的web.xml配置文件，copy其中过滤器Filter配置的那一段代码到项目中的web.xml</div><div class="line">前端控制器的类的路径和名称：</div><div class="line">    org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</div><div class="line">具体配置如下:</div><div class="line">  &lt;filter&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">  &lt;/filter&gt;</div><div class="line">  &lt;filter-mapping&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">  &lt;/filter-mapping&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="2-4-模拟页面请求，编写hello-jsp"><a href="#2-4-模拟页面请求，编写hello-jsp" class="headerlink" title="2.4 模拟页面请求，编写hello.jsp"></a>2.4 模拟页面请求，编写hello.jsp</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">这里的 hello.action 我们可以认为与 Servlet的 url-pattern 的映射路径类似,我们在struts.xml中</div><div class="line">配置该 hello.action对应的Action. 在Struts2的Action处理请求进行响应.</div><div class="line">    &lt;a href=&quot;$&#123;pageContext.request.contextPath &#125;/hello.action&quot;&gt;点我&lt;/a&gt;</div></pre></td></tr></table></figure>
+<h5 id="2-5-编写表现层Action-响应返回跳转到result-jsp"><a href="#2-5-编写表现层Action-响应返回跳转到result-jsp" class="headerlink" title="2.5. 编写表现层Action,响应返回跳转到result.jsp"></a>2.5. 编写表现层Action,响应返回跳转到result.jsp</h5><blockquote>
+<p>Action类是动作类，是Struts2的处理请求，封装数据，响应页面的核心控制器。需要自己编写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">编写Action处理请求：(实现Action接口,实现excute方法,Struts2访问Action默认执行excute方法) </div><div class="line">import com.opensymphony.xwork2.Action;</div><div class="line">public class HelloAction implements Action &#123;</div><div class="line">    @Override</div><div class="line">    public String execute() throws Exception &#123;</div><div class="line">        //------------模拟调用业务层逻辑-------------</div><div class="line">        System.out.println(&quot;Hello Struts2....&quot;);</div><div class="line">        //---------------页面跳转------------------</div><div class="line">        return SUCCESS;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="2-6-根据请求与响应跳转，配置Struts2的核心配置文件struts-xml"><a href="#2-6-根据请求与响应跳转，配置Struts2的核心配置文件struts-xml" class="headerlink" title="2.6 根据请求与响应跳转，配置Struts2的核心配置文件struts.xml"></a>2.6 根据请求与响应跳转，配置Struts2的核心配置文件struts.xml</h5><blockquote>
+<p>根据请求请求的路径，表现层动作响应的配置struts2.xml的Stuts2的核心配置文件。<br>核心这个文件配置struts.xml也。从Stuts2提供的struts2-blank.war模板中找到，多余将标签的删除留下最简单的DTD约束,package与action标签即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">1. 配置文件名称是struts.xml（名称必须是struts.xml）</div><div class="line">2. 在src下引入struts.xml配置文件（配置文件的路径必须是在src的目录下）</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;</div><div class="line">    &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;</div><div class="line">    Struts2的核心配置文件 ： </div><div class="line">    1. 建立请求与Struts2的联系,请求经过web.xml前端控制器,按照拦截器的从上而下的顺序,执行了原先Servlet中大量需要重复的代码</div><div class="line">    2. 根据struts.xml配置文件找到对应的Action</div><div class="line">    3. Action对请求做出响应,返回了一个String类型的值,我们将其称为逻辑视图,在struts.xml配置该逻辑视图对应的跳转页面</div><div class="line"> --&gt;</div><div class="line">&lt;struts&gt;</div><div class="line">    &lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</div><div class="line">        &lt;action name=&quot;hello&quot; class=&quot;com.itdream.test.HelloAction&quot;&gt;</div><div class="line">            &lt;result name=&quot;success&quot;&gt;/result.jsp&lt;/result&gt;        </div><div class="line">        &lt;/action&gt;</div><div class="line">    &lt;/package&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="三，入门案例的细节解析"><a href="#三，入门案例的细节解析" class="headerlink" title="三，入门案例的细节解析"></a>三，入门案例的细节解析</h3><p><img src="http://upload-images.jianshu.io/upload_images/5303154-a49effc76c8ef737.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h5 id="前端控制器"><a href="#前端控制器" class="headerlink" title="前端控制器"></a>前端控制器</h5><p>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter<br>它采用前端控制器模式，对用户的请求进行控制处理。在这里会默认加载Struts2的配置文件<br>我们通过查看源码可以知道,它会依次加载Struts2中的配置文件。<br>加载配置文件的顺序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1. init_DefaultProperties()。默认的properties配置。</div><div class="line">    org/apache/struts2/default.properties ：默认的配置加载项，struts2启动时加载的默认参数</div><div class="line">2. init_TraditionalXmlConfigurations()。传统的xml配置。</div><div class="line">    struts-default.xml,struts-plugin.xml,struts.xml</div><div class="line">struts2的传统xml配置：</div><div class="line">    struts-default.xml:struts框架启动时加载运行的框架默认配置。</div><div class="line">    struts-plugin.xml: struts框架允许插件集成。集成的插件配置。</div><div class="line">    struts.xml: 开发者的配置。我们配置的请求与Action等配置就在这里</div><div class="line">3. init_LegacyStrutsProperties()：加载常量配置struts.properties</div><div class="line">4. init_CustomConfigurationProviders()：struts启动核心类创建的提供者。</div><div class="line">5. init_FilterInitParameters():struts加载web.xml中的配置</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5303154-2b6b8bd339d7c413.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h5 id="Interceptor拦截器【了解】"><a href="#Interceptor拦截器【了解】" class="headerlink" title="Interceptor拦截器【了解】"></a>Interceptor拦截器【了解】</h5><blockquote>
+<p>Struts2可复用的代码功能都是基于（通过）它来实现的。struts2有很多内置拦截器，用来实现不同的功能。<br>参考 struts-core.jar 提供 struts-default.xml 配置文件<br><img src="http://upload-images.jianshu.io/upload_images/5303154-5754f0ac6c6e9fc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h5 id="在struts-xml中的配置"><a href="#在struts-xml中的配置" class="headerlink" title="在struts.xml中的配置"></a>在struts.xml中的配置</h5><p>位于工程的SRC目录下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;struts&gt;</div><div class="line">    &lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</div><div class="line">        &lt;action name=&quot;hello&quot; class=&quot;com.itdream.test.HelloAction&quot;&gt;</div><div class="line">            &lt;result name=&quot;success&quot;&gt;/result.jsp&lt;/result&gt;        </div><div class="line">        &lt;/action&gt;</div><div class="line">    &lt;/package&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="DTD的查询和配置"><a href="#DTD的查询和配置" class="headerlink" title="DTD的查询和配置"></a>DTD的查询和配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 到struts的核心包中可以找到struts-2.3.dtd文件</div><div class="line">2. 到xml catelog中配置离线提示</div><div class="line">包，行动，结果标签</div></pre></td></tr></table></figure>
+<h5 id="package、action、result标签"><a href="#package、action、result标签" class="headerlink" title="package、action、result标签"></a>package、action、result标签</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">    package标签：用来管理配置包配置和Action， 实现包内配置复用 （通过包继承实现 ）</div><div class="line">    name : 包名,在struts容器中具有唯一性（在开发中可以用模块名称作为包名）</div><div class="line">    extends : 继承父package（中的功能），通常都继承struts-default（默认包内定义大量结果集类型和拦截器）</div><div class="line">    namespace : 名称空间用来标识一个路径，来区分不同action的访问路径。一般使用&quot;/&quot;</div><div class="line">               和Action标签的name和method搭配来确定访问的url</div><div class="line">     abstract：抽象。用来被其他package继承的</div><div class="line">-----------------------------------------------------------------------</div><div class="line">action标签 ： 用来建立请求与Strtus2的Action之间的联系的。</div><div class="line">    name : 用于配置请求。</div><div class="line">        相当于Servlet中的映射路径url-pattern，通过namespace+name可以访问与它对应的Action类</div><div class="line">    class : action对应的类,全包名。该类编写了action具体业务逻辑代码。</div><div class="line">    method: action类中的方法名称，访问此action时调用的action类中的方法</div><div class="line">-----------------------------------------------------------------------</div><div class="line">result标签 ： 结果集视图，用于配置响应，标签内的值是响应的地址。</div><div class="line">    name : 结果集（结果集视图）的名字，action会根据该名字跳转到对应的地址。</div><div class="line">小结：namespace主要用来区分action，影响到action的访问路径。</div></pre></td></tr></table></figure>
+<h5 id="Constant标签【会配置】"><a href="#Constant标签【会配置】" class="headerlink" title="Constant标签【会配置】"></a>Constant标签【会配置】</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">要修改这些常量，可以通过自定义核心配置```struts.xml```来覆盖默认的值(后加载的配置文件常量，可以对先加载配置文件进行覆盖)，有如下三种方式(开启开发者模式)：</div><div class="line">        &lt;constant name = “struts.devMode” value=”true”/&gt;</div><div class="line">* 配置src/struts.properties</div><div class="line">    struts.devModel = false</div></pre></td></tr></table></figure>
+<h5 id="配置web-xml"><a href="#配置web-xml" class="headerlink" title="配置web.xml"></a>配置web.xml</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">  注意：要写在filter标签内</div><div class="line">  &lt;filter&gt;</div><div class="line">  &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">  &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line"></div><div class="line">  &lt;!-- web.xml 配置常量覆盖之前的,这是最后执行的配置文件--&gt;</div><div class="line">  &lt;init-param&gt;</div><div class="line">      &lt;param-name&gt;struts2.devMode&lt;/param-name&gt;</div><div class="line">      &lt;param-value&gt;true&lt;/param-value&gt;</div><div class="line">  &lt;/init-param&gt;</div><div class="line">&lt;/filter&gt;</div></pre></td></tr></table></figure>
+<h5 id="常用常量："><a href="#常用常量：" class="headerlink" title="常用常量："></a>常用常量：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">struts.i18n.encoding=UTF-8 ：</div><div class="line">    相当于 request.setCharacterEncoding(“utf-8”);  解决post 请求乱码问题。 </div><div class="line">    因此，在Struts2开发时，尽量使用post请求，无需关注post 乱码问题。</div><div class="line">**struts.devMode=true ：**</div><div class="line">    开发模式下使用,这样可以打印出更详细、友好的错误信息</div><div class="line">    当设置开发者模式devMode =true 会激活xml配置文件自动重新加载功能。</div><div class="line">-----------------------------------------------------------------</div><div class="line">struts.configuration.xml.reload=true ：</div><div class="line">    修改struts.xml 配置后，无需重启服务器；配置开发者模式后自动开启</div><div class="line">struts.i18n.reload = true ：</div><div class="line">    国际化文件修改之后也不需要重启服务器。会自动加载生效。</div><div class="line">struts.action.extension=action ：</div><div class="line">    Action请求映射路径 默认扩展名 </div><div class="line">    问题： http://localhost:8080/struts2_day1/hello 也可以访问 HelloAction  </div><div class="line">          如果请求路径 必须以.action结尾</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/5303154-714e201ce44f1224.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img07.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">struts.ui.theme=xhtml ：</div><div class="line">    设置页面标签显示样式 </div><div class="line"></div><div class="line">struts.enable.DynamicMethodInvocation=true ：</div><div class="line">    访问Action 支持 动态方法调用</div><div class="line"></div><div class="line">struts.multipart.maxSize=2097152 ： </div><div class="line">    上传文件的大小限制</div><div class="line">==============================================================</div><div class="line">小结：</div><div class="line">如果需要更改某个常量的值，在default.properties中找到变量，将名字复制到struts.xml中进行覆盖它的值。</div></pre></td></tr></table></figure>
+<h5 id="include标签，配置文件的分离【了解】"><a href="#include标签，配置文件的分离【了解】" class="headerlink" title="include标签，配置文件的分离【了解】"></a>include标签，配置文件的分离【了解】</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">【开发场景】</div><div class="line">在大部分应用里，随着应用规模的增加，系统中Action的数量也会大量增加，导致struts.xml配置文件变得非常臃肿。</div><div class="line">为了避免struts.xml文件过于庞大、臃肿，提高struts.xml文件的可读性，我们可以将一个struts.xml配置文件分解成多个配置文件，</div><div class="line">然后在struts.xml文件中包含其他配置文件。下面的struts.xml通过&lt;include&gt;元素指定多个配置文件：</div><div class="line">&lt;!-- include标签引入其他配置文件 --&gt;</div><div class="line">&lt;include file=&quot;struts2.xml&quot;&gt;&lt;/include&gt;</div></pre></td></tr></table></figure>
+<h3 id="四，Action类的编写与访问"><a href="#四，Action类的编写与访问" class="headerlink" title="四，Action类的编写与访问"></a>四，Action类的编写与访问</h3><h4 id="动作类的编写"><a href="#动作类的编写" class="headerlink" title="动作类的编写"></a>动作类的编写</h4><p>自定义POJO（普通Java对象简单的Java对象），实际就是普通的JavaBean。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">编写excute方法必须满足一下条件：</div><div class="line">    public修饰符</div><div class="line">    String返回值</div><div class="line">    无参数</div></pre></td></tr></table></figure></p>
+<h5 id="实现操作接口"><a href="#实现操作接口" class="headerlink" title="实现操作接口"></a>实现操作接口</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Action 接口提供 execute 处理业务逻辑方法</div><div class="line"></div><div class="line">【内置的视图名称】:</div><div class="line"> Action 接口提供一组 常用的内置的逻辑视图名称：</div><div class="line"></div><div class="line">    SUCCESS  成功视图</div><div class="line">    NONE 没有结果视图，用户自己生成响应数据</div><div class="line">    ERROR 错误视图 </div><div class="line">    INPUT 输入视图 （数据输入非法，要求用户重新输入）</div><div class="line">    LOGIN 登陆视图 （如果用户未登陆，使用登陆视图）</div></pre></td></tr></table></figure>
+<h5 id="继承了ActionSupport类"><a href="#继承了ActionSupport类" class="headerlink" title="继承了ActionSupport类"></a>继承了ActionSupport类</h5><blockquote>
+<p>继承ActionSupport相当于间接实现Action接口，该类提供了更多功能，如数据校验、 国际化等，<br>  用的最多，使用的时候需要手动覆盖execute()。<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 自定义POJO </div><div class="line"> */</div><div class="line">public class ActionDemo1 &#123;</div><div class="line"></div><div class="line">    public String execute() &#123;</div><div class="line"></div><div class="line">        System.out.println(&quot;POJO。。。。。。&quot;);</div><div class="line">        return &quot;none&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 实现Action接口</div><div class="line"> */</div><div class="line">public class ActionDemo2 implements Action &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String execute() throws Exception &#123;</div><div class="line"></div><div class="line">        System.out.println(&quot;继承了Action接口.........&quot;);</div><div class="line">        return NONE;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">/**</div><div class="line"> * 继承ActionSupport类</div><div class="line"> */</div><div class="line">public class ActionDemo3 extends ActionSupport &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String execute() throws Exception &#123;</div><div class="line"></div><div class="line">        System.out.println(&quot;继承了ActionSupport............&quot;);</div><div class="line">        return NONE;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="Action类的访问："><a href="#Action类的访问：" class="headerlink" title="Action类的访问："></a>Action类的访问：</h5><p>在开发中，我们在一个动作类中不止一个执行方法，往往需要实现多个方法。</p>
+<blockquote>
+<p>在struts.xml中的action标签中配置method属性即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">    &lt;action name=&quot;hello2_save&quot; class=&quot;com.itdream.test.HelloAction2&quot; method=&quot;save&quot;&gt;&lt;/action&gt;</div><div class="line">    &lt;action name=&quot;hello2_delete&quot; class=&quot;com.itdream.test.HelloAction2&quot; method=&quot;delete&quot;&gt;&lt;/action&gt;</div><div class="line">    &lt;action name=&quot;hello2_update&quot; class=&quot;com.itdream.test.HelloAction2&quot; method=&quot;update&quot;&gt;&lt;/action&gt;</div><div class="line">    &lt;action name=&quot;hello2_query&quot; class=&quot;com.itdream.test.HelloAction2&quot; method=&quot;query&quot;&gt;&lt;/action&gt;</div><div class="line">但是这样配置的话，每一个方法都要配置实在太麻烦了，因此使用通配符进行配置</div><div class="line">&lt;!-- 使用通配符访问Action中对应方法 --&gt;</div><div class="line">&lt;!-- </div><div class="line">    hello_* : 这个*代表任意字符</div><div class="line">    method属性中的 : &#123;1&#125;    代表 与name 属性中的第一个 * 一样 。</div><div class="line">&lt;action name=&quot;hello2_*&quot; class=&quot;com.itdream.test.HelloAction2&quot; method=&quot;&#123;1&#125;&quot;&gt;&lt;/action&gt;</div><div class="line">还有一种访问方式：动态方法访问：</div><div class="line">在struts.xml中进行常量配置，将动态方法访问的配置改为true覆盖默认的false</div><div class="line">&lt;!-- 开启动态方法调用 --&gt;</div><div class="line">&lt;!-- &lt;constant name=&quot;struts.enable.DynamicMethodInvocation&quot; value=&quot;true&quot;&gt;&lt;/constant&gt; --&gt;</div><div class="line">开启后,在配置action时,无需指定method属性：</div><div class="line">    &lt;action name=&quot;hello2&quot; class=&quot;com.itdream.test.HelloAction2&quot;&gt;&lt;/action&gt;</div><div class="line">访问浏览器时： </div><div class="line">    http://localhost:8080/Day34_Struts2_HelloWorld/hello2!save.action</div><div class="line">    http://localhost:8080/Day34_Struts2_HelloWorld/hello2!delete.action</div><div class="line">        ...................</div><div class="line">就可以调用对应感叹号后面的方法。</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="五，整合Hibernate与Struts2完成CRM查询所有客户的操作"><a href="#五，整合Hibernate与Struts2完成CRM查询所有客户的操作" class="headerlink" title="五，整合Hibernate与Struts2完成CRM查询所有客户的操作"></a>五，整合Hibernate与Struts2完成CRM查询所有客户的操作</h3><h4 id="1-思路"><a href="#1-思路" class="headerlink" title="1.思路"></a>1.思路</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">创建网络工程</div><div class="line">导入休眠所需的jar包，数据库表，实体类，utils的工具类</div><div class="line">完成休眠的相应配置，并测试</div><div class="line">导入Struts2的所需的jar包，完成相应配置</div><div class="line">更改引入了menu.jsp让其请求访问的Struts2的行动</div><div class="line">操作接收请求，处理业务逻辑返回数据转发到页面</div><div class="line">修改Strurts2配置的文件struts.xml完成请求Struts2的Action的的对应及响应后的跳转</div></pre></td></tr></table></figure>
+<h4 id="搭搭环境"><a href="#搭搭环境" class="headerlink" title="搭搭环境"></a>搭搭环境</h4><h4 id="2-1。创建网络工程"><a href="#2-1。创建网络工程" class="headerlink" title="2.1。创建网络工程"></a>2.1。创建网络工程</h4><h4 id="2-2。导入休眠所需的jar包"><a href="#2-2。导入休眠所需的jar包" class="headerlink" title="2.2。导入休眠所需的jar包"></a>2.2。导入休眠所需的jar包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. hibernate必须jar包 ： hibernate安装文件中required下的所有jar包</div><div class="line">2. jdbc数据库驱动 </div><div class="line">3. hibernate中优化连接池的c3p0的jar包</div></pre></td></tr></table></figure>
+<h4 id="2-3。创建数据库表R，实体类o"><a href="#2-3。创建数据库表R，实体类o" class="headerlink" title="2.3。创建数据库表R，实体类ö"></a>2.3。创建数据库表R，实体类ö</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">R : Relational 关系型数据库</div><div class="line">CREATE DATABASE struts2_crm;</div><div class="line">USE struts2_crm;</div><div class="line">CREATE TABLE `cst_customer` (</div><div class="line">  `cust_id` BIGINT(32) NOT NULL AUTO_INCREMENT COMMENT &apos;客户编号(主键)&apos;,</div><div class="line">  `cust_name` VARCHAR(32) NOT NULL COMMENT &apos;客户名称(公司名称)&apos;,</div><div class="line">  `cust_user_id` BIGINT(32) DEFAULT NULL COMMENT &apos;负责人id&apos;,</div><div class="line">  `cust_create_id` BIGINT(32) DEFAULT NULL COMMENT &apos;创建人id&apos;,</div><div class="line">  `cust_source` VARCHAR(32) DEFAULT NULL COMMENT &apos;客户信息来源&apos;,</div><div class="line">  `cust_industry` VARCHAR(32) DEFAULT NULL COMMENT &apos;客户所属行业&apos;,</div><div class="line">  `cust_level` VARCHAR(32) DEFAULT NULL COMMENT &apos;客户级别&apos;,</div><div class="line">  `cust_linkman` VARCHAR(64) DEFAULT NULL COMMENT &apos;联系人&apos;,</div><div class="line">  `cust_phone` VARCHAR(64) DEFAULT NULL COMMENT &apos;固定电话&apos;,</div><div class="line">  `cust_mobile` VARCHAR(16) DEFAULT NULL COMMENT &apos;移动电话&apos;,</div><div class="line">  PRIMARY KEY (`cust_id`)</div><div class="line">) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;</div><div class="line">--------------------------------------------------------------------</div><div class="line">O ： Object 与R对应的持久化类(根据R完成)</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/5303154-57ffb1cbefd87334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img08.png"></p>
+<h4 id="2-4-完成ORM框架中的M-建立持久化类与数据库表的映射关系"><a href="#2-4-完成ORM框架中的M-建立持久化类与数据库表的映射关系" class="headerlink" title="2.4. 完成ORM框架中的M,建立持久化类与数据库表的映射关系"></a>2.4. 完成ORM框架中的M,建立持久化类与数据库表的映射关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">与实体类在同级目录下创建 类名+.hbm.xml ，这里为 Customer.hbm.xml :</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!-- 导入DTD约束 --&gt;</div><div class="line">&lt;!DOCTYPE hibernate-mapping PUBLIC </div><div class="line">    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;</div><div class="line">    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;</div><div class="line">&lt;hibernate-mapping&gt;</div><div class="line">    &lt;!-- 建立持久化类Customer与数据库表customer的映射 --&gt;</div><div class="line">    &lt;class name=&quot;com.itdream.crm.domain.Customer&quot; table=&quot;cst_customer&quot;&gt;</div><div class="line">        &lt;!-- 配置持久化类标识符OID与数据库表的主键的映射关系，name和column相同省略column --&gt;</div><div class="line">        &lt;id name=&quot;cust_id&quot;&gt;</div><div class="line">            &lt;!-- 主键生成策略,native根据数据库底层自动三选1 ： increment(MySQL),sequence(Oracle),hilo(Hibernate自定义的一种) --&gt;</div><div class="line">            &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;</div><div class="line">        &lt;/id&gt;</div><div class="line">        &lt;!-- 配置普通属性与字段的映射 --&gt;</div><div class="line">        &lt;property name=&quot;cust_name&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_user_id&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_create_id&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_source&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_industry&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_level&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_linkman&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_phone&quot;&gt;&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;cust_mobile&quot;&gt;&lt;/property&gt;</div><div class="line">    &lt;/class&gt;</div><div class="line">&lt;/hibernate-mapping&gt;</div></pre></td></tr></table></figure>
+<h4 id="2-5-完成Hibernate的核心配置文件hibernate-cfg-xml"><a href="#2-5-完成Hibernate的核心配置文件hibernate-cfg-xml" class="headerlink" title="2.5. 完成Hibernate的核心配置文件hibernate.cfg.xml"></a>2.5. 完成Hibernate的核心配置文件hibernate.cfg.xml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">在src目录下创建hibernate.cfg.xml</div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!-- 导入Hibernate核心配置的DTD约束 --&gt;</div><div class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</div><div class="line">    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;</div><div class="line">    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;</div><div class="line">&lt;hibernate-configuration&gt;</div><div class="line">    &lt;session-factory&gt;</div><div class="line">        &lt;!--1. 基本配置 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql://localhost:3306/hibernate_day02&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;hibernate.connection.password&quot;&gt;root&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!--2. 与本地线程绑定 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.current_session_context_class&quot;&gt;thread&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!--3. Hibernate的属性 --&gt;</div><div class="line">        &lt;!--Hibernate的方言配置,实现了跨数据库  --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQL5Dialect&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!-- 显示sql语句 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;</div><div class="line">        &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!-- Hibernate表格的创建方式 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!-- </div><div class="line">            设置隔离级别:</div><div class="line">                hibernate.connection.isolation = 4</div><div class="line">                1-Read uncommitted isolation</div><div class="line">                2-Read committed isolation</div><div class="line">                4-Repeatable read isolation</div><div class="line">                8-Serializable isolation </div><div class="line">        --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.connection.isolation&quot;&gt;4&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!-- C3P0的供应商 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.connection.provider_class&quot;&gt;org.hibernate.c3p0.internal.C3P0ConnectionProvider&lt;/property&gt;</div><div class="line">        &lt;!-- 最小连接 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.min_size&quot;&gt;5&lt;/property&gt;</div><div class="line">        &lt;!-- 最大连接数 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.max_size&quot;&gt;20&lt;/property&gt;</div><div class="line">        &lt;!-- 连接超时时长 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.timeout&quot;&gt;120&lt;/property&gt;</div><div class="line">        &lt;!-- 每120秒检查空闲连接 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.idle_test_period&quot;&gt;120&lt;/property&gt;</div><div class="line">        &lt;!-- 最大statments数量 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.max_statements&quot;&gt;120&lt;/property&gt;</div><div class="line">        &lt;!-- 连接用完后，每次增加的连接数 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.acquire_increment&quot;&gt;2&lt;/property&gt;</div><div class="line">        &lt;!-- 每次都验证连接是否可用 --&gt;</div><div class="line">        &lt;property name=&quot;hibernate.c3p0.validate&quot;&gt;false&lt;/property&gt;</div><div class="line"></div><div class="line">        &lt;!--4. 加载映射文件 --&gt;</div><div class="line">        &lt;mapping resource=&quot;com/itdream/domain/crm/domain/Customer.hbm.xml&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/session-factory&gt;</div><div class="line"></div><div class="line">&lt;/hibernate-configuration&gt;</div></pre></td></tr></table></figure>
+<h4 id="2-6-建立包结构，编写HibernateUtils工具类，导入log4j-properties日志配置文件"><a href="#2-6-建立包结构，编写HibernateUtils工具类，导入log4j-properties日志配置文件" class="headerlink" title="2.6 建立包结构，编写HibernateUtils工具类，导入log4j.properties日志配置文件"></a>2.6 建立包结构，编写HibernateUtils工具类，导入log4j.properties日志配置文件</h4><p><img src="http://upload-images.jianshu.io/upload_images/5303154-789ad421b8e00244.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img09.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Hibernate工具类</div><div class="line"> * 初始化SessionFactory工厂,提供获取Session对象的方法</div><div class="line"> */</div><div class="line">public class HibernateUtils &#123;</div><div class="line"></div><div class="line">    //单例模式的SessionFactory,确保只有一个工厂对象</div><div class="line">    private static SessionFactory sf = null;</div><div class="line"></div><div class="line">    static &#123;</div><div class="line">        //创建Hibernate的配置对象Configuration,并加载核心配置文件hibernate.cfg.xml</div><div class="line">        Configuration configuration = new Configuration().configure();</div><div class="line"></div><div class="line">        //创建SessionFactory工厂对象</div><div class="line">        sf = configuration.buildSessionFactory();</div><div class="line"></div><div class="line">        //程序结束销毁SessionFactory对象释放资源</div><div class="line">        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() &#123;</div><div class="line"></div><div class="line">            @Override</div><div class="line">            public void run() &#123;</div><div class="line">                System.out.println(&quot;程序结束,销毁SessionFactory&quot;);</div><div class="line">                sf.close();</div><div class="line">            &#125;</div><div class="line">        &#125;));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取新的Session的方法</div><div class="line">     */</div><div class="line">    public static Session openSession() &#123;</div><div class="line">        return sf.openSession();</div><div class="line">    &#125; </div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取与当前线程绑定的Session对象</div><div class="line">     */</div><div class="line">    public static Session getCurrentSession() &#123;</div><div class="line">        return sf.getCurrentSession();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">===========================================================================</div><div class="line"></div><div class="line">log4j.properties日志配置文件 :</div><div class="line"></div><div class="line">### direct log messages to stdout ###</div><div class="line">log4j.appender.stdout=org.apache.log4j.ConsoleAppender</div><div class="line">log4j.appender.stdout.Target=System.err</div><div class="line">log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.stdout.layout.ConversionPattern=%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</div><div class="line"></div><div class="line">### direct messages to file mylog.log ###</div><div class="line">log4j.appender.file=org.apache.log4j.FileAppender</div><div class="line">log4j.appender.file.File=d:\\mylog.log</div><div class="line">log4j.appender.file.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.file.layout.ConversionPattern=%d&#123;ABSOLUTE&#125; %5p %c&#123;1&#125;:%L - %m%n</div><div class="line"></div><div class="line">### set log levels - for more verbose logging change &apos;info&apos; to &apos;debug&apos; ###</div><div class="line">log4j.rootLogger=info, stdout,file</div></pre></td></tr></table></figure></p>
+<h4 id="2-7-Copy前端页面到WebContent包下，测试Hibernate是否成功导入成功"><a href="#2-7-Copy前端页面到WebContent包下，测试Hibernate是否成功导入成功" class="headerlink" title="2.7. Copy前端页面到WebContent包下，测试Hibernate是否成功导入成功"></a>2.7. Copy前端页面到WebContent包下，测试Hibernate是否成功导入成功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">copycopy前端页面到```WebContent```包下,导入jstl标签库的相应jar包</div><div class="line"></div><div class="line">@Test</div><div class="line">//测试Hibernate是否连通</div><div class="line">//如果数据库中建表成功代表成功</div><div class="line">public void test() &#123;</div><div class="line">    Session session = HibernateUtils.getCurrentSession();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-8-Struts2的环境搭建，添加Struts2的JAR的包"><a href="#2-8-Struts2的环境搭建，添加Struts2的JAR的包" class="headerlink" title="2.8. Struts2的环境搭建，添加Struts2的JAR的包"></a>2.8. Struts2的环境搭建，添加Struts2的JAR的包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">这里我们解压Struts2的空白模板,获得其需要的最少的jar包,13个。</div><div class="line">由于log4j的日志jar包,之前我们已经在hibernate中已经使用了1.x的版本,这里Struts2的log4j 2.x.jar的版本我们就不需要了。</div><div class="line"></div><div class="line">除此之外,Hibernate与Struts2有两个jar包冲突,选择最新的版本，旧版本删除</div></pre></td></tr></table></figure>
+<h4 id="2-9-在web-xml中完成Struts2的前端控制器配置"><a href="#2-9-在web-xml中完成Struts2的前端控制器配置" class="headerlink" title="2.9 在web.xml中完成Struts2的前端控制器配置"></a>2.9 在web.xml中完成Struts2的前端控制器配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">同样在空白模板struts2-blank中直接找到web.xml的文件复制其中fiter标签即可。</div><div class="line"></div><div class="line">&lt;!--Struts2的前端控制器配置  --&gt;</div><div class="line">&lt;filter&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;</div><div class="line">&lt;/filter&gt;</div><div class="line"></div><div class="line">&lt;filter-mapping&gt;</div><div class="line">    &lt;filter-name&gt;struts2&lt;/filter-name&gt;</div><div class="line">    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</div><div class="line">&lt;/filter-mapping&gt;</div></pre></td></tr></table></figure>
+<p>到这里环境搭建就基本完成了，接下来从页面开始完成代码操作</p>
+<h4 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3.代码实现"></a>3.代码实现</h4><h4 id="3-1-修改menu-jsp页面"><a href="#3-1-修改menu-jsp页面" class="headerlink" title="3.1 修改menu.jsp页面"></a>3.1 修改menu.jsp页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;TD class=menuSmall&gt;</div><div class="line">    &lt;A class=style2 href=&quot;$&#123;pageContext.request.contextPath&#125;/customer_findListCustomer.action&quot; target=&quot;main&quot;&gt;－ 客户列表&lt;/A&gt;</div><div class="line">&lt;/TD&gt;</div></pre></td></tr></table></figure>
+<p>这里让a标签点击之后,请求Struts2的Action类,Action类做出响应</p>
+<h4 id="3-2编写Action类对请求做出响应"><a href="#3-2编写Action类对请求做出响应" class="headerlink" title="3.2编写Action类对请求做出响应"></a>3.2编写Action类对请求做出响应</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line">编写CustomerAction类继承ActionSupport类</div><div class="line"></div><div class="line">public class CustomerAction extends ActionSupport &#123;</div><div class="line">    private static final long serialVersionUID = 1L;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 查找所有Customer</div><div class="line">     */</div><div class="line">    public String findListCustomer() &#123;</div><div class="line"></div><div class="line">        //收到请求,调用Service业务层</div><div class="line">        CustomerService service = new CustomerServiceImpl();</div><div class="line">        //获取到了所有客户Customer数据</div><div class="line">        List&lt;Customer&gt; listCustomer = service.findListCustomer();</div><div class="line"></div><div class="line">        //获取到request对象将listCusomter数据存入request域</div><div class="line">        ServletActionContext.getRequest().setAttribute(&quot;list&quot;, listCustomer);</div><div class="line"></div><div class="line">        //逻辑视图转发,在struts.xml配置文件中配置对应跳转页面</div><div class="line">        return SUCCESS;</div><div class="line">    &#125;</div><div class="line">&#125;    </div><div class="line"></div><div class="line">--------------------------------------------------------------</div><div class="line"></div><div class="line">service层业务逻辑： </div><div class="line"></div><div class="line">@Override</div><div class="line">//获取所有客户</div><div class="line">public List&lt;Customer&gt; findListCustomer() &#123;</div><div class="line">    //获取Session</div><div class="line">    Session session = HibernateUtils.getCurrentSession();</div><div class="line">    //开启事务</div><div class="line">    Transaction transaction = session.beginTransaction();</div><div class="line"></div><div class="line">    List&lt;Customer&gt; list = null;</div><div class="line">    try &#123;</div><div class="line">        //业务逻辑</div><div class="line">        CustomerDAO dao = new CustomerDAOImpl();</div><div class="line">        list = dao.findListCustomer();</div><div class="line"></div><div class="line">    &#125; catch (Exception e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">        //如果发生异常,Hibernate框架会帮我们处理回滚事务,无需手动回滚</div><div class="line">        //transaction.rollback();</div><div class="line"></div><div class="line">    &#125; finally &#123;</div><div class="line">        //最后无论如何都提交事务从而结束事务,如果发生异常就是回滚到初始状态再提交</div><div class="line">        transaction.commit();</div><div class="line">    &#125;</div><div class="line">    //返回值</div><div class="line">    return list;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-------------------------------------------------------------------</div><div class="line"></div><div class="line"></div><div class="line">dao层使用Hibernate查询 ：</div><div class="line"></div><div class="line">@Override</div><div class="line">//获取所有客户</div><div class="line">public List&lt;Customer&gt; findListCustomer() throws SQLException &#123;</div><div class="line">    //获取与当前线程绑定的Session对象</div><div class="line">    Session session = HibernateUtils.getCurrentSession();</div><div class="line"></div><div class="line">    //获取所有客户,这里我使用Criteria进行单表查询</div><div class="line">    Criteria criteria = session.createCriteria(Customer.class);</div><div class="line">    return criteria.list();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3-3-struts-xml配置请求对应的Action及响应后的跳转页面等"><a href="#3-3-struts-xml配置请求对应的Action及响应后的跳转页面等" class="headerlink" title="3.3 struts.xml配置请求对应的Action及响应后的跳转页面等"></a>3.3 struts.xml配置请求对应的Action及响应后的跳转页面等</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">同样从struts2的解压包中找到sturts2-blank的模板,赋值struts.xml到项目</div><div class="line"></div><div class="line">删除多余的标签。</div><div class="line">留下&lt;constant&gt;常量标签中的 开启开发者模式,这样修改配置可以无需手动重启服务器,同时错误提示更友好</div><div class="line"></div><div class="line">留下&lt;package&gt;&lt;action&gt;标签,配置请求对应Action</div><div class="line"></div><div class="line"></div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</div><div class="line">&lt;!DOCTYPE struts PUBLIC</div><div class="line">    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;</div><div class="line">    &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;</div><div class="line"></div><div class="line">&lt;struts&gt;</div><div class="line">    &lt;!-- 开启开发者模式 --&gt;</div><div class="line">    &lt;constant name=&quot;struts.devMode&quot; value=&quot;true&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;package name=&quot;default&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;</div><div class="line">        &lt;!-- 配置请求对应的Action --&gt;</div><div class="line">        &lt;action name=&quot;customer_*&quot; class=&quot;com.itdream.web.action.CustomerAction&quot; method=&quot;&#123;1&#125;&quot;&gt;</div><div class="line">            &lt;!-- 配置逻辑视图跳转页面 --&gt;</div><div class="line">            &lt;result name=&quot;success&quot; &gt;/jsp/customer/list.jsp&lt;/result&gt;</div><div class="line">        &lt;/action&gt;</div><div class="line">    &lt;/package&gt;</div><div class="line">&lt;/struts&gt;</div></pre></td></tr></table></figure>
+<h4 id="3-6案例总结"><a href="#3-6案例总结" class="headerlink" title="3.6案例总结"></a>3.6案例总结</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">1. 配置文件时小心出错,我在配置struts.xml配置文件的action中的result标签时，出了个错误,使用了模板中的type,其实应该用name逻辑视图对应的跳转页面</div><div class="line"></div><div class="line">&lt;!-- 配置逻辑视图跳转页面 --&gt;</div><div class="line">        &lt;result name=&quot;success&quot; &gt;/jsp/customer/list.jsp&lt;/result&gt;</div><div class="line"></div><div class="line">2. 使用action配置对应action方法时，如果没有method标签,那么Struts2默认执行execute方法。</div><div class="line"></div><div class="line">3. 超链接上的a标签访问customer_findListCustomer.action，经过前端控制器到struts.xml中寻找customer_*的action</div><div class="line"></div><div class="line">4. 找到这个action后，通过class找到对应的Action类,通过Method找到对应的方法.执行完Action后返回result逻辑视图</div><div class="line"></div><div class="line">5. 返回的result再回到struts.xml中寻找该action标签下的result标签，找到对应逻辑视图需要跳转的页面进行跳转</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/悟-OC/regular/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/悟-Java/Terminal/" rel="prev" title="Terminal">
+                Terminal <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/blog/archives/">
+            
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="MC 简书" target="_blank">MC 简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://github.com/mcqingxian" title="MC GitHub" target="_blank">MC GitHub</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一，Struts2概述"><span class="nav-number">1.</span> <span class="nav-text">一，Struts2概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三层结构体系（来自于JavaEE的规范）："><span class="nav-number">1.0.1.</span> <span class="nav-text">三层结构体系（来自于JavaEE的规范）：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二，入门案例-Hello世界"><span class="nav-number">2.</span> <span class="nav-text">二，入门案例_Hello世界</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-入门案例步骤"><span class="nav-number">2.1.</span> <span class="nav-text">1.入门案例步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-实现"><span class="nav-number">2.2.</span> <span class="nav-text">2.实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-创建Web工厂"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 创建Web工厂</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-导入Struts2的jar包"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 导入Struts2的jar包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-3-配置Struts2的前端控制器"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.3 配置Struts2的前端控制器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-4-模拟页面请求，编写hello-jsp"><span class="nav-number">2.2.4.</span> <span class="nav-text">2.4 模拟页面请求，编写hello.jsp</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-编写表现层Action-响应返回跳转到result-jsp"><span class="nav-number">2.2.5.</span> <span class="nav-text">2.5. 编写表现层Action,响应返回跳转到result.jsp</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-根据请求与响应跳转，配置Struts2的核心配置文件struts-xml"><span class="nav-number">2.2.6.</span> <span class="nav-text">2.6 根据请求与响应跳转，配置Struts2的核心配置文件struts.xml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三，入门案例的细节解析"><span class="nav-number">3.</span> <span class="nav-text">三，入门案例的细节解析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前端控制器"><span class="nav-number">3.0.1.</span> <span class="nav-text">前端控制器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Interceptor拦截器【了解】"><span class="nav-number">3.0.2.</span> <span class="nav-text">Interceptor拦截器【了解】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在struts-xml中的配置"><span class="nav-number">3.0.3.</span> <span class="nav-text">在struts.xml中的配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DTD的查询和配置"><span class="nav-number">3.0.4.</span> <span class="nav-text">DTD的查询和配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#package、action、result标签"><span class="nav-number">3.0.5.</span> <span class="nav-text">package、action、result标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Constant标签【会配置】"><span class="nav-number">3.0.6.</span> <span class="nav-text">Constant标签【会配置】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置web-xml"><span class="nav-number">3.0.7.</span> <span class="nav-text">配置web.xml</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用常量："><span class="nav-number">3.0.8.</span> <span class="nav-text">常用常量：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#include标签，配置文件的分离【了解】"><span class="nav-number">3.0.9.</span> <span class="nav-text">include标签，配置文件的分离【了解】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四，Action类的编写与访问"><span class="nav-number">4.</span> <span class="nav-text">四，Action类的编写与访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#动作类的编写"><span class="nav-number">4.1.</span> <span class="nav-text">动作类的编写</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#实现操作接口"><span class="nav-number">4.1.1.</span> <span class="nav-text">实现操作接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#继承了ActionSupport类"><span class="nav-number">4.1.2.</span> <span class="nav-text">继承了ActionSupport类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action类的访问："><span class="nav-number">4.1.3.</span> <span class="nav-text">Action类的访问：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五，整合Hibernate与Struts2完成CRM查询所有客户的操作"><span class="nav-number">5.</span> <span class="nav-text">五，整合Hibernate与Struts2完成CRM查询所有客户的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-思路"><span class="nav-number">5.1.</span> <span class="nav-text">1.思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭搭环境"><span class="nav-number">5.2.</span> <span class="nav-text">搭搭环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1。创建网络工程"><span class="nav-number">5.3.</span> <span class="nav-text">2.1。创建网络工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2。导入休眠所需的jar包"><span class="nav-number">5.4.</span> <span class="nav-text">2.2。导入休眠所需的jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3。创建数据库表R，实体类o"><span class="nav-number">5.5.</span> <span class="nav-text">2.3。创建数据库表R，实体类ö</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-完成ORM框架中的M-建立持久化类与数据库表的映射关系"><span class="nav-number">5.6.</span> <span class="nav-text">2.4. 完成ORM框架中的M,建立持久化类与数据库表的映射关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-完成Hibernate的核心配置文件hibernate-cfg-xml"><span class="nav-number">5.7.</span> <span class="nav-text">2.5. 完成Hibernate的核心配置文件hibernate.cfg.xml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-建立包结构，编写HibernateUtils工具类，导入log4j-properties日志配置文件"><span class="nav-number">5.8.</span> <span class="nav-text">2.6 建立包结构，编写HibernateUtils工具类，导入log4j.properties日志配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-Copy前端页面到WebContent包下，测试Hibernate是否成功导入成功"><span class="nav-number">5.9.</span> <span class="nav-text">2.7. Copy前端页面到WebContent包下，测试Hibernate是否成功导入成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-8-Struts2的环境搭建，添加Struts2的JAR的包"><span class="nav-number">5.10.</span> <span class="nav-text">2.8. Struts2的环境搭建，添加Struts2的JAR的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-9-在web-xml中完成Struts2的前端控制器配置"><span class="nav-number">5.11.</span> <span class="nav-text">2.9 在web.xml中完成Struts2的前端控制器配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-代码实现"><span class="nav-number">5.12.</span> <span class="nav-text">3.代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-修改menu-jsp页面"><span class="nav-number">5.13.</span> <span class="nav-text">3.1 修改menu.jsp页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2编写Action类对请求做出响应"><span class="nav-number">5.14.</span> <span class="nav-text">3.2编写Action类对请求做出响应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-struts-xml配置请求对应的Action及响应后的跳转页面等"><span class="nav-number">5.15.</span> <span class="nav-text">3.3 struts.xml配置请求对应的Action及响应后的跳转页面等</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6案例总结"><span class="nav-number">5.16.</span> <span class="nav-text">3.6案例总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/particle.js" count="50" zindex="-2" opacity="1" color="0,100,163"></script>
+</html>
