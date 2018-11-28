@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/mcqingxian.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/mcqingxian.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mcqingxian.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/mcqingxian.github.io/uploads/images/dengta.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Masonry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Masonry基础理解">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2018/03/19/悟-OC/Masonry/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="Masonry">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-19T09:29:15.534Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Masonry基础理解">
+<meta name="twitter:description" content="Masonry">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mcqingxian.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2018/03/19/悟-OC/Masonry/">
+
+
+
+
+
+  <title>Masonry基础理解 | Mc</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mcqingxian.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mcqingxian.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/mcqingxian.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mcqingxian.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2018/03/19/悟-OC/Masonry/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mcqingxian.github.io/uploads/images/dengta.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Masonry基础理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-19T17:26:21+08:00">
+                2018-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/mcqingxian.github.io/categories/悟-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-OC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>Masonry<br></blockquote><br><a id="more"></a></p>
+<h3 id="Masonry"><a href="#Masonry" class="headerlink" title="Masonry"></a>Masonry</h3><p><a href="https://github.com/SnapKit/Masonry">https://github.com/SnapKit/Masonry</a></p>
+<h5 id="常用开发约束框架"><a href="#常用开发约束框架" class="headerlink" title="常用开发约束框架"></a>常用开发约束框架</h5><blockquote>
+<p>适配框架有：VFL、UIViewAutoresizing、Auto Layout、Size Classes等</p>
+</blockquote>
+<h5 id="什么是Masonry"><a href="#什么是Masonry" class="headerlink" title="什么是Masonry"></a>什么是Masonry</h5><blockquote>
+<p>Masonry是一个对系统NSLayoutConstraint进行封装的第三方自动布局框架，采用链式编程的方式提供给开发者API。</p>
+</blockquote>
+<p><strong>Masonry常用属性与NSLayoutAttrubute的对照表如下</strong></p>
+<table>
+<thead>
+<tr>
+<th>Masonry</th>
+<th>NSAutoLayout</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>NSLayoutAttributeLeft</td>
+<td>左侧</td>
+</tr>
+<tr>
+<td>right</td>
+<td>NSLayoutAttributeRight</td>
+<td>右侧</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>NSLayoutAttributeBottom</td>
+<td>下侧</td>
+</tr>
+<tr>
+<td>leading</td>
+<td>NSLayoutAttributeLeading</td>
+<td>首部</td>
+</tr>
+<tr>
+<td>trailing</td>
+<td>NSLayoutAttributeTrailing</td>
+<td>尾部</td>
+</tr>
+<tr>
+<td>width</td>
+<td>NSLayoutAttributeWidth</td>
+<td>宽</td>
+</tr>
+<tr>
+<td>height</td>
+<td>NSLayoutAttributeHeight</td>
+<td>高</td>
+</tr>
+<tr>
+<td>centerX</td>
+<td>NSLayoutAttributeCenterX</td>
+<td>横向中点</td>
+</tr>
+<tr>
+<td>centerY</td>
+<td>NSLayoutAttributeCenterY</td>
+<td>纵向中点</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>NSLayoutAttributeBaseline</td>
+<td>文本基线</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Masonry是同时支持Mac和iOS两个平台的，在这两个平台上都可以使用Masonry进行自动布局。我们可以从MASUtilities.h文件中，看到下面的定义，这就是Masonry通过宏定义的方式，区分两个平台独有的一些关键字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#if TARGET_OS_IPHONE </span><br><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">#define MAS_VIEW UIView </span><br><span class="line">#define MASEdgeInsets UIEdgeInsets </span><br><span class="line">#elif TARGET_OS_MAC</span><br><span class="line">#import &lt;AppKit/AppKit.h&gt;</span><br><span class="line">#define MAS_VIEW NSView </span><br><span class="line">#define MASEdgeInsets NSEdgeInsets </span><br><span class="line">#endif</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>Masonry支持CocoaPods，可以直接通过podfile文件进行集成，需要在CocoaPods中添加下面代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;Masonry&apos;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="Masonry基础使用"><a href="#Masonry基础使用" class="headerlink" title="Masonry基础使用"></a>Masonry基础使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mas_makeConstraints() 添加约束</span><br><span class="line">mas_remakeConstraints() 移除之前的约束，重新添加新的约束 </span><br><span class="line">mas_updateConstraints() 更新约束，写哪条更新哪条，其他约束不变 </span><br><span class="line">equalTo() 参数是对象类型，一般是视图对象或者mas_width这样的坐标系对象 mas_equalTo() 和上面功能相同，参数可以传递基础数据类型对象，可以理解为比上面的API更强大 width() 用来表示宽度，例如代表view的宽度 </span><br><span class="line">mas_width() 用来获取宽度的值。和上面的区别在于，一个代表某个坐标系对象，一个用来获取坐标系对象的值</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在引入#import “Masonry.h”之前,添加下面的宏,就不需要区分mas_前缀了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">定义这个常量，就可以不用在开发过程中使用&quot;mas_&quot;前缀。 </span><br><span class="line">#define MAS_SHORTHAND </span><br><span class="line"></span><br><span class="line">定义这个常量，就可以让Masonry帮我们自动把基础数据类型的数据，自动装箱为对象类型。 </span><br><span class="line">#define MAS_SHORTHAND_GLOBALS</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="更新约束和布局"><a href="#更新约束和布局" class="headerlink" title="更新约束和布局"></a>更新约束和布局</h5><blockquote>
+<p>关于更新约束布局相关的API，主要用以下四个API：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)updateConstraintsIfNeeded  调用此方法，如果有标记为需要重新布局的约束，则立即进行重新布局，内部会调用updateConstraints方法</span><br><span class="line">- (void)updateConstraints          重写此方法，内部实现自定义布局过程</span><br><span class="line">- (BOOL)needsUpdateConstraints     当前是否需要重新布局，内部会判断当前有没有被标记的约束</span><br><span class="line">- (void)setNeedsUpdateConstraints  标记需要进行重新布局</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>关于UIView重新布局相关的API，主要用以下三个API：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (void)setNeedsLayout  标记为需要重新布局</span><br><span class="line">- (void)layoutIfNeeded  查看当前视图是否被标记需要重新布局，有则在内部调用layoutSubviews方法进行重新布局</span><br><span class="line">- (void)layoutSubviews  重写当前方法，在内部完成重新布局操作</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>Masonry示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Masonry本质上就是对系统AutoLayout进行的封装，包括里面很多的API，都是对系统API进行了一次二次包装。 typedef NS_OPTIONS(NSInteger, MASAttribute) &#123; MASAttributeLeft = 1 &lt;&lt; NSLayoutAttributeLeft, MASAttributeRight = 1 &lt;&lt; NSLayoutAttributeRight, MASAttributeTop = 1 &lt;&lt; NSLayoutAttributeTop, MASAttributeBottom = 1 &lt;&lt; NSLayoutAttributeBottom, MASAttributeLeading = 1 &lt;&lt; NSLayoutAttributeLeading, MASAttributeTrailing = 1 &lt;&lt; NSLayoutAttributeTrailing, MASAttributeWidth = 1 &lt;&lt; NSLayoutAttributeWidth, MASAttributeHeight = 1 &lt;&lt; NSLayoutAttributeHeight, MASAttributeCenterX = 1 &lt;&lt; NSLayoutAttributeCenterX, MASAttributeCenterY = 1 &lt;&lt; NSLayoutAttributeCenterY, MASAttributeBaseline = 1 &lt;&lt; NSLayoutAttributeBaseline, &#125;;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//创建蓝色控件</span><br><span class="line">UIView *blueView = [[UIView alloc] init];</span><br><span class="line">blueView.backgroundColor = [UIColor blueColor];</span><br><span class="line">[self.view addSubview:blueView];</span><br><span class="line"></span><br><span class="line">//创建红色控件</span><br><span class="line">UIView *redView = [[UIView alloc] init];</span><br><span class="line">redView.backgroundColor = [UIColor redColor];</span><br><span class="line">[self.view addSubview:redView];</span><br><span class="line"></span><br><span class="line">// 添加blueView的约束</span><br><span class="line">[blueView makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.width.equalTo(redView.width).offset(0);</span><br><span class="line">    make.height.equalTo(redView.height).offset(0);</span><br><span class="line">    make.height.equalTo(100);</span><br><span class="line">    make.left.equalTo(blueView.superview.left).offset(20);</span><br><span class="line">    make.bottom.equalTo(blueView.superview.bottom).offset(-20);</span><br><span class="line">    make.right.equalTo(redView.left).offset(-20);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">// 添加redView的约束</span><br><span class="line">[redView makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.bottom.equalTo(redView.superview.bottom).offset(-20);</span><br><span class="line">    make.right.equalTo(redView.superview.right).offset(-20);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>设置内边距<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/** 设置yellow视图和self.view等大，并且有10的内边距。 注意根据UIView的坐标系，下面right和bottom进行了取反。</span><br><span class="line">所以不能写成下面这样，否则right、bottom这两个方向会出现问题。 make.edges.equalTo(self.view).with.offset(10); 除了下面例子中的offset()方法，还有针对不同坐标系的centerOffset()、sizeOffset()、valueOffset()之类的方法。 */ </span><br><span class="line">[self.yellowView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">make.left.equalTo(self.view).with.offset(10); </span><br><span class="line">make.top.equalTo(self.view).with.offset(10); </span><br><span class="line">make.right.equalTo(self.view).with.offset(-10); </span><br><span class="line">make.bottom.equalTo(self.view).with.offset(-10); </span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>等价于(使用insets)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 下面的方法和上面例子等价，区别在于使用insets()方法。 </span><br><span class="line">[self.blueView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">// 下、右不需要写负号，insets方法中已经为我们做了取反的操作了。 </span><br><span class="line">make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(10, 10, 10, 10)); </span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>更新约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 设置greenView的center和size，这样就可以达到简单进行约束的目的 </span><br><span class="line">[self.greenView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">make.center.equalTo(self.view); </span><br><span class="line">// 这里通过mas_equalTo给size设置了基础数据类型的参数，参数为CGSize的结构体 </span><br><span class="line">make.size.mas_equalTo(CGSizeMake(300, 300)); &#125;];</span><br><span class="line">// 为了更清楚的看出约束变化的效果，在显示两秒后更新约束。 </span><br><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^&#123; // </span><br><span class="line">指定更新size，其他约束不变。</span><br><span class="line">[self.greenView mas_updateConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">make.size.mas_equalTo(CGSizeMake(100, 100));</span><br><span class="line">&#125;]; </span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>大于等于和小于等于某个值的约束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[self.textLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">make.center.equalTo(self.view); // 设置宽度小于等于200 </span><br><span class="line">make.width.lessThanOrEqualTo(@200); // 设置高度大于等于10 </span><br><span class="line">make.height.greaterThanOrEqualTo(@(10)); &#125;]; </span><br><span class="line">self.textLabel.text = @&quot;这是测试的字符串。能看到1、2、3个步骤，第一步当然是上传照片了，要上传正面近照哦。上传后，网站会自动识别你的面部，如果觉得识别的不准，你还可以手动修改一下。左边可以看到16项修改参数，最上面是整体修改，你也可以根据自己的意愿单独修改某项，将鼠标放到选项上面，右边的预览图会显示相应的位置。&quot;;</span><br><span class="line">textLabel只需要设置一个属性即可</span><br><span class="line"></span><br><span class="line">self.textLabel.numberOfLines = 0;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>使用基础数据类型当做参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/** 如果想使用基础数据类型当做参数，Masonry为我们提供了&quot;mas_xx&quot;格式的宏定义。 </span><br><span class="line">这些宏定义会将传入的基础数据类型转换为NSNumber类型，这个过程叫做封箱(Auto Boxing)。</span><br><span class="line">&quot;mas_xx&quot;开头的宏定义，内部都是通过MASBoxValue()函数实现的。</span><br><span class="line">这样的宏定义主要有四个，分别是mas_equalTo()、mas_offset()和大于等于、小于等于四个。</span><br><span class="line">*/ </span><br><span class="line">[self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">make.center.equalTo(self.view); make.width.mas_equalTo(100); </span><br><span class="line">make.height.mas_equalTo(100);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>设置约束优先级<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/** </span><br><span class="line"> Masonry为我们提供了三个默认的方法，priorityLow()、priorityMedium()、priorityHigh()，这三个方法内部对应着不同的默认优先级。</span><br><span class="line"> 除了这三个方法，我们也可以自己设置优先级的值，可以通过priority()方法来设置。</span><br><span class="line"> */</span><br><span class="line">[self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.center.equalTo(self.view);</span><br><span class="line">    make.width.equalTo(self.view).priorityLow();</span><br><span class="line">    make.width.mas_equalTo(20).priorityHigh();</span><br><span class="line">    make.height.equalTo(self.view).priority(200);</span><br><span class="line">    make.height.mas_equalTo(100).priority(1000);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Masonry也帮我们定义好了一些默认的优先级常量，分别对应着不同的数值，优先级最大数值是1000。</span><br><span class="line">static const MASLayoutPriority MASLayoutPriorityRequired = UILayoutPriorityRequired;</span><br><span class="line">static const MASLayoutPriority MASLayoutPriorityDefaultHigh = UILayoutPriorityDefaultHigh;</span><br><span class="line">static const MASLayoutPriority MASLayoutPriorityDefaultMedium = 500;</span><br><span class="line">static const MASLayoutPriority MASLayoutPriorityDefaultLow = UILayoutPriorityDefaultLow;</span><br><span class="line">static const MASLayoutPriority MASLayoutPriorityFittingSizeLevel = UILayoutPriorityFittingSizeLevel;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>设置约束比例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 设置当前约束值乘以多少，例如这个例子是redView的宽度是self.view宽度的0.2倍。</span><br><span class="line">[self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.center.equalTo(self.view);</span><br><span class="line">    make.height.mas_equalTo(30);</span><br><span class="line">    make.width.equalTo(self.view).multipliedBy(0.2);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>子视图等高练习</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/** </span><br><span class="line"> 下面的例子是通过给equalTo()方法传入一个数组，设置数组中子视图及当前make对应的视图之间等高。</span><br><span class="line"></span><br><span class="line"> 需要注意的是，下面block中设置边距的时候，应该用insets来设置，而不是用offset。</span><br><span class="line"> 因为用offset设置right和bottom的边距时，这两个值应该是负数，所以如果通过offset来统一设置值会有问题。</span><br><span class="line"> */</span><br><span class="line">CGFloat padding = LXZViewPadding;</span><br><span class="line">[self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.right.top.equalTo(self.view).insets(UIEdgeInsetsMake(padding, padding, 0, padding));</span><br><span class="line">    make.bottom.equalTo(self.blueView.mas_top).offset(-padding);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[self.blueView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(0, padding, 0, padding));</span><br><span class="line">    make.bottom.equalTo(self.yellowView.mas_top).offset(-padding);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">/** </span><br><span class="line"> 下面设置make.height的数组是关键，通过这个数组可以设置这三个视图高度相等。其他例如宽度之类的，也是类似的方式。</span><br><span class="line"> */</span><br><span class="line">[self.yellowView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.right.bottom.equalTo(self.view).insets(UIEdgeInsetsMake(0, padding, padding, padding));</span><br><span class="line">    make.height.equalTo(@[self.blueView, self.redView]);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>子视图垂直居中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/** </span><br><span class="line"> 要求：(这个例子是在其他人博客里看到的，然后按照要求自己写了下面这段代码)</span><br><span class="line"> 两个视图相对于父视图垂直居中，并且两个视图以及父视图之间的边距均为10，高度为150，两个视图宽度相等。</span><br><span class="line"> */</span><br><span class="line">CGFloat padding = 10.f;</span><br><span class="line">[self.blueView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.centerY.equalTo(self.view);</span><br><span class="line">    make.left.equalTo(self.view).mas_offset(padding);</span><br><span class="line">    make.right.equalTo(self.redView.mas_left).mas_offset(-padding);</span><br><span class="line">    make.width.equalTo(self.redView);</span><br><span class="line">    make.height.mas_equalTo(150);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">[self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.centerY.equalTo(self.view);</span><br><span class="line">    make.right.equalTo(self.view).mas_offset(-padding);</span><br><span class="line">    make.width.equalTo(self.blueView);</span><br><span class="line">    make.height.mas_equalTo(150);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="动态获取cell的行高"><a href="#动态获取cell的行高" class="headerlink" title="动态获取cell的行高"></a>动态获取cell的行高</h5><blockquote>
+<p>实现方式<br>//需要设置tableView的rowHeight属性，这里设置为自动高度，告诉系统Cell的高度是不固定的，需要系统帮我们进行计算。然后设置tableView的estimatedRowHeight属性，设置一个估计的高度。(我这里用的代理方法，实际上都一样)</p>
+</blockquote>
+<p><strong>_tableView.rowHeight = UITableViewAutomaticDimension;</strong></p>
+<p><strong>- (CGFloat)tableView:(UITableView <em>)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath </em>)indexPath {</strong></p>
+<p>return 50.f;</p>
+<p>}</p>
+<blockquote>
+<p>原理//在tableView被创建之后，系统会根据estimatedRowHeight属性设置的值，为tableView设置一个估计的值。然后在Cell显示的时候再获取Cell的高度，并刷新tableView的contentSize。</p>
+</blockquote>
+<blockquote>
+<p>实现代码</p>
+</blockquote>
+<p><strong>UITableview方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (void)tableViewConstraints &#123; </span><br><span class="line">[self.tableView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.edges.equalTo(self.view); </span><br><span class="line">    </span><br><span class="line">&#125;];</span><br><span class="line">&#125; </span><br><span class="line">- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section &#123; </span><br><span class="line">    return self.dataList.count; </span><br><span class="line">    </span><br><span class="line">&#125; </span><br><span class="line">- (MasonryTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123; </span><br><span class="line">    MasonryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LXZTableViewCellIdentifier];</span><br><span class="line">    [cell reloadViewWithText:self.dataList[indexPath.row]]; </span><br><span class="line">    return cell; </span><br><span class="line">    </span><br><span class="line">&#125; </span><br><span class="line">// 需要注意的是，这个代理方法和直接返回当前Cell高度的代理方法并不一样。 </span><br><span class="line">// 这个代理方法会将当前所有Cell的高度都预估出来，而不是只计算显示的Cell，所以这种方式对性能消耗还是很大的。</span><br><span class="line">// 所以通过设置estimatedRowHeight属性的方式，和这种代理方法的方式，最后性能消耗都是一样的。 </span><br><span class="line">- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">return 50.f; </span><br><span class="line">    </span><br><span class="line">&#125; </span><br><span class="line">- (UITableView *)tableView &#123;</span><br><span class="line">if (!_tableView) &#123; </span><br><span class="line">    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain]; </span><br><span class="line">    _tableView.delegate = self; _tableView.dataSource = self; </span><br><span class="line">    // 设置tableView自动高度 </span><br><span class="line">    _tableView.rowHeight = UITableViewAutomaticDimension;</span><br><span class="line">    [_tableView registerClass:[MasonryTableViewCell class] forCellReuseIdentifier:LXZTableViewCellIdentifier];</span><br><span class="line">    [self.view addSubview:_tableView]; </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">return _tableView; </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></strong></p>
+<p><strong>UITableviewCell方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 自定义了一个UIImageView和UILabel控件，并且通过Masonry进行约束。 </span><br><span class="line">[self.avatarImageView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.size.mas_equalTo(CGSizeMake(40, 40)); make.top.left.equalTo(self.contentView).mas_offset(CellPadding); </span><br><span class="line">    </span><br><span class="line">&#125;]; </span><br><span class="line">    [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">        make.left.equalTo(self.avatarImageView.mas_right).mas_offset(CellPadding);</span><br><span class="line">        make.top.equalTo(self.contentView).mas_offset(CellPadding); </span><br><span class="line">        make.right.bottom.equalTo(self.contentView).mas_offset(-CellPadding); </span><br><span class="line">        make.height.greaterThanOrEqualTo(@30); </span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure></strong></p>
+<h5 id="UIScrollView自动布局"><a href="#UIScrollView自动布局" class="headerlink" title="UIScrollView自动布局"></a>UIScrollView自动布局</h5><blockquote>
+<p>布局小技巧：<br>给UIScrollView添加的约束是定义其frame，设置contentSize是定义其内部大小。UIScrollView进行addSubview操作，都是将其子视图添加到contentView上。<br>所以，添加到UIScrollView上的子视图，对UIScrollView添加的约束都是作用于contentView上的。只需要按照这样的思路给UIScrollView设置约束，就可以掌握设置约束的技巧了。</p>
+</blockquote>
+<p><strong>提前设置contentSize<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 提前设置好UIScrollView的contentSize，并设置UIScrollView自身的约束 </span><br><span class="line">self.scrollView.contentSize = CGSizeMake(1000, 1000); </span><br><span class="line">[self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.edges.equalTo(self.view);</span><br><span class="line">&#125;];</span><br><span class="line">// 虽然redView的get方法内部已经执行过addSubview操作，但是UIView始终以最后一次添加的父视图为准，也就是redView始终是在最后一次添加的父视图上。 </span><br><span class="line">[self.scrollView addSubview:self.redView]; </span><br><span class="line">    [self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.left.top.equalTo(self.scrollView); </span><br><span class="line">    make.width.height.mas_equalTo(200); </span><br><span class="line">        </span><br><span class="line">    &#125;]; </span><br><span class="line">    [self.scrollView addSubview:self.blueView]; </span><br><span class="line">[self.blueView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.equalTo(self.redView.mas_right); </span><br><span class="line">    make.top.equalTo(self.scrollView); </span><br><span class="line">    make.width.height.equalTo(self.redView); </span><br><span class="line">    </span><br><span class="line">&#125;]; </span><br><span class="line"></span><br><span class="line">[self.scrollView addSubview:self.greenView]; [self.greenView </span><br><span class="line">    mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.left.equalTo(self.scrollView); </span><br><span class="line">    make.top.equalTo(self.redView.mas_bottom); </span><br><span class="line">    make.width.height.equalTo(self.redView);</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure></strong></p>
+<p><strong>自动contentSize</strong></p>
+<blockquote>
+<p>上面的例子是提前设置好UIScrollView的contentSize的内部size，然后直接向里面addSubview。但是这有个要求就是，需要提前知道contentSize的大小，不然没法设置。<br>这个例子中将会展示动态改变contentSize的大小，内部视图有多少contentSize就自动扩充到多大。</p>
+</blockquote>
+<blockquote>
+<p>这种方式的实现，主要是依赖于创建一个containerView内容视图，并添加到UIScrollView上作为子视图。UIScrollView原来的子视图都添加到containerView上，并且和这个视图设置约束。<br>因为对UIScrollView进行addSubview操作的时候，本质上是往其contentView上添加。也就是containerView的父视图是contentView，通过containerView撑起contentView视图的大小，以此来实现动态改变contentSize。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// 在进行约束的时候，要对containerView的上下左右都添加和子视图的约束，以便确认containerView的边界区域。 </span><br><span class="line">[self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">make.edges.equalTo(self.view); </span><br><span class="line">    </span><br><span class="line">&#125;]; </span><br><span class="line">CGFloat padding = LXZViewPadding;</span><br><span class="line">[self.containerView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.edges.equalTo(self.scrollView).insets(UIEdgeInsetsMake(padding, padding, padding, padding)); </span><br><span class="line">    </span><br><span class="line">&#125;]; </span><br><span class="line">    [self.containerView addSubview:self.greenView]; </span><br><span class="line">[self.greenView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.top.left.equalTo(self.containerView).offset(padding); </span><br><span class="line">    make.size.mas_equalTo(CGSizeMake(250, 250)); </span><br><span class="line">    </span><br><span class="line">&#125;]; </span><br><span class="line">[self.containerView addSubview:self.redView]; </span><br><span class="line">[self.redView mas_makeConstraints:^(MASConstraintMaker *make) &#123; </span><br><span class="line">    make.top.equalTo(self.containerView).offset(padding); </span><br><span class="line">    make.left.equalTo(self.greenView.mas_right).offset(padding); </span><br><span class="line">    make.size.equalTo(self.greenView); </span><br><span class="line">    make.right.equalTo(self.containerView).offset(-padding); &#125;]; </span><br><span class="line">    [self.containerView addSubview:self.yellowView];</span><br><span class="line">    </span><br><span class="line"> [self.yellowView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.left.equalTo(self.containerView).offset(padding); </span><br><span class="line">    make.top.equalTo(self.greenView.mas_bottom).offset(padding); </span><br><span class="line">    make.size.equalTo(self.greenView); </span><br><span class="line">    make.bottom.equalTo(self.containerView).offset(-padding);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2017/09/29/悟-OC/iOS 11、iPhone X、Xcode9/" rel="next" title="iOS 11、iPhone X、Xcode9">
+                <i class="fa fa-chevron-left"></i> iOS 11、iPhone X、Xcode9
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/" rel="prev" title="Vim开发常用命令总结">
+                Vim开发常用命令总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image" src="/mcqingxian.github.io/uploads/images/dengta.jpg" alt="Mc">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/mcqingxian.github.io/archives/">
+            
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/mcqingxian.github.io/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/mcqingxian.github.io/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="简书" target="_blank">简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/5888b29d128fe1006c51b9e6" title="掘金iOS" target="_blank">掘金iOS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/59b22efb6fb9a024a04b3726" title="掘金Git" target="_blank">掘金Git</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://man.linuxde.net/sub/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4" title="Linux命令" target="_blank">Linux命令</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" title="知识点汇总" target="_blank">知识点汇总</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Masonry"><span class="nav-number">1.</span> <span class="nav-text">Masonry</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用开发约束框架"><span class="nav-number">1.0.1.</span> <span class="nav-text">常用开发约束框架</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是Masonry"><span class="nav-number">1.0.2.</span> <span class="nav-text">什么是Masonry</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Masonry基础使用"><span class="nav-number">1.1.</span> <span class="nav-text">Masonry基础使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#更新约束和布局"><span class="nav-number">1.1.1.</span> <span class="nav-text">更新约束和布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#动态获取cell的行高"><span class="nav-number">1.1.2.</span> <span class="nav-text">动态获取cell的行高</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#UIScrollView自动布局"><span class="nav-number">1.1.3.</span> <span class="nav-text">UIScrollView自动布局</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+  <div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/mcqingxian.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/mcqingxian.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/mcqingxian.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mcqingxian.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/mcqingxian.github.io/uploads/images/dengta.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="终端常用指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Terminal">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2017/08/02/悟-Java/Terminal/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="终端常用指令">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-08-02T02:47:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terminal">
+<meta name="twitter:description" content="终端常用指令">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mcqingxian.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2017/08/02/悟-Java/Terminal/">
+
+
+
+
+
+  <title>Terminal | Mc</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mcqingxian.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mcqingxian.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/mcqingxian.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mcqingxian.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2017/08/02/悟-Java/Terminal/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mcqingxian.github.io/uploads/images/dengta.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Terminal</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T08:00:00+08:00">
+                2017-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/mcqingxian.github.io/categories/悟-Java/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>终端常用指令<br></blockquote><br><a id="more"></a></p>
+<h2 id="终端常用命令"><a href="#终端常用命令" class="headerlink" title="终端常用命令"></a>终端常用命令</h2><hr>
+<h4 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">mkdir</span><br><span class="line">创建一个目录</span><br><span class="line">mkdir dirname</span><br><span class="line"></span><br><span class="line">rmdir</span><br><span class="line">删除一个目录</span><br><span class="line">rmdir dirname</span><br><span class="line"></span><br><span class="line">mvdir</span><br><span class="line">移动或重命名一个目录</span><br><span class="line">mvdir dir1 dir2</span><br><span class="line"></span><br><span class="line">cd</span><br><span class="line">改变当前目录</span><br><span class="line">cd dirname</span><br><span class="line"></span><br><span class="line">pwd</span><br><span class="line">显示当前目录的路径名</span><br><span class="line">pwd</span><br><span class="line"></span><br><span class="line">ls</span><br><span class="line">显示当前目录的内容</span><br><span class="line">ls -la</span><br><span class="line"></span><br><span class="line">dircmp</span><br><span class="line">比较两个目录的内容</span><br><span class="line">dircmp dir1 dir2</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br><span class="line">显示或连接文件</span><br><span class="line">cat filename</span><br><span class="line"></span><br><span class="line">pg</span><br><span class="line">分页格式化显示文件内容</span><br><span class="line">pg filename</span><br><span class="line"></span><br><span class="line">more</span><br><span class="line">分屏显示文件内容</span><br><span class="line">more filename</span><br><span class="line"></span><br><span class="line">od</span><br><span class="line">显示非文本文件的内容</span><br><span class="line">od -c filename</span><br><span class="line"></span><br><span class="line">cp</span><br><span class="line">复制文件或目录</span><br><span class="line">cp file1 file2</span><br><span class="line">cp 参数 源文件 目标文件</span><br><span class="line">例:cp -R /Users/XC/Desktop/testhow /Users/XC/Desktop/howwar</span><br><span class="line">注:参数R表示对目录进行递归操作</span><br><span class="line"></span><br><span class="line">rm</span><br><span class="line">删除文件或目录</span><br><span class="line">rm filename</span><br><span class="line"></span><br><span class="line">mv</span><br><span class="line">改变文件名或所在目录</span><br><span class="line">mv file1 file2</span><br><span class="line"></span><br><span class="line">ln</span><br><span class="line">联接文件</span><br><span class="line">ln -s file1 file2</span><br><span class="line"></span><br><span class="line">find</span><br><span class="line">使用匹配表达式查找文件</span><br><span class="line">find . -name &quot;*.c&quot; -print</span><br><span class="line"></span><br><span class="line">file</span><br><span class="line">显示文件类型</span><br><span class="line">file filename</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="选择操作"><a href="#选择操作" class="headerlink" title="选择操作"></a>选择操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">head</span><br><span class="line">显示文件的最初几行</span><br><span class="line">head -20 filename</span><br><span class="line"></span><br><span class="line">tail</span><br><span class="line">显示文件的最后几行</span><br><span class="line">tail -15 filename</span><br><span class="line"></span><br><span class="line">cut</span><br><span class="line">显示文件每行中的某些域</span><br><span class="line">cut -f1,7 -d: /etc/passwd</span><br><span class="line"></span><br><span class="line">colrm</span><br><span class="line">从标准输入中删除若干列</span><br><span class="line">colrm 8 20 file2</span><br><span class="line"></span><br><span class="line">paste</span><br><span class="line">横向连接文件</span><br><span class="line">paste file1 file2</span><br><span class="line"></span><br><span class="line">diff</span><br><span class="line">比较并显示两个文件的差异</span><br><span class="line">diff file1 file2</span><br><span class="line"></span><br><span class="line">sed</span><br><span class="line">非交互方式流编辑器</span><br><span class="line">sed &quot;s/red/green/g” filename</span><br><span class="line"></span><br><span class="line">grep</span><br><span class="line">在文件中按模式查找</span><br><span class="line">grep &quot;^[a-zA-Z]” filename</span><br><span class="line"></span><br><span class="line">awk</span><br><span class="line">在文件中查找并处理模式</span><br><span class="line">awk &apos;&#123;print $1 $1&#125;’ filename</span><br><span class="line"></span><br><span class="line">sort</span><br><span class="line">排序或归并文件</span><br><span class="line">sort -d -f -u file1</span><br><span class="line"></span><br><span class="line">uniq</span><br><span class="line">去掉文件中的重复行</span><br><span class="line">uniq file1 file2</span><br><span class="line"></span><br><span class="line">comm</span><br><span class="line">显示两有序文件的公共和非公共行</span><br><span class="line">comm file1 file2</span><br><span class="line"></span><br><span class="line">wc</span><br><span class="line">统计文件的字符数、词数和行数</span><br><span class="line">wc filename</span><br><span class="line"></span><br><span class="line">nl</span><br><span class="line">给文件加上行号</span><br><span class="line">nl file1 &gt;file2</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="安全操作"><a href="#安全操作" class="headerlink" title="安全操作"></a>安全操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br><span class="line">修改用户密码</span><br><span class="line">passwd</span><br><span class="line"></span><br><span class="line">chmod</span><br><span class="line">改变文件或目录的权限</span><br><span class="line">chmod ug+x filename</span><br><span class="line"></span><br><span class="line">umask</span><br><span class="line">定义创建文件的权限掩码</span><br><span class="line">umask 027</span><br><span class="line"></span><br><span class="line">chown</span><br><span class="line">改变文件或目录的属组</span><br><span class="line">chown newowner filename</span><br><span class="line"></span><br><span class="line">chgrp</span><br><span class="line">改变文件或目录的所属组</span><br><span class="line">chgrp staff filename</span><br><span class="line"></span><br><span class="line">xlock</span><br><span class="line">给终端上锁</span><br><span class="line">xlock -remote</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="编程操作"><a href="#编程操作" class="headerlink" title="编程操作"></a>编程操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">维护可执行程序的最新版本</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">touch</span><br><span class="line">更新文件的访问和修改时间</span><br><span class="line">touch -m 05202400 filename</span><br><span class="line"></span><br><span class="line">dbx</span><br><span class="line">命令行界面调试工具</span><br><span class="line">dbx a.out</span><br><span class="line"></span><br><span class="line">xde</span><br><span class="line">图形用户界面调试工具</span><br><span class="line">xde a.out</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="进程操作"><a href="#进程操作" class="headerlink" title="进程操作"></a>进程操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ps</span><br><span class="line">显示进程当前状态</span><br><span class="line">ps u</span><br><span class="line"></span><br><span class="line">kill</span><br><span class="line">终止进程</span><br><span class="line">kill -9 30142</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nice</span><br><span class="line">改变待执行命令的优先级</span><br><span class="line">nice cc -c *.c</span><br><span class="line"></span><br><span class="line">renice</span><br><span class="line">改变已运行进程的优先级</span><br><span class="line">renice +20 32768</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="时间操作"><a href="#时间操作" class="headerlink" title="时间操作"></a>时间操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">date</span><br><span class="line">显示系统的当前日期和时间</span><br><span class="line"></span><br><span class="line">cal</span><br><span class="line">显示日历</span><br><span class="line">cal 8 2017</span><br><span class="line"></span><br><span class="line">time</span><br><span class="line">统计程序的执行时间</span><br><span class="line">time a.out</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="网络与通信操作"><a href="#网络与通信操作" class="headerlink" title="网络与通信操作"></a>网络与通信操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">telnet</span><br><span class="line">远程登录</span><br><span class="line">telnet hpc.sp.net.edu.cn</span><br><span class="line"></span><br><span class="line">rlogin</span><br><span class="line">远程登录</span><br><span class="line">rlogin hostname -l username</span><br><span class="line"></span><br><span class="line">rsh</span><br><span class="line">在远程主机执行指定命令</span><br><span class="line">rsh f01n03 date</span><br><span class="line"></span><br><span class="line">ftp</span><br><span class="line">在本地主机与远程主机之间传输文件</span><br><span class="line">ftp ftp.sp.net.edu.cn</span><br><span class="line"></span><br><span class="line">rcp</span><br><span class="line">在本地主机与远程主机 之间复制文件</span><br><span class="line">rcp file1 host1:file2</span><br><span class="line"></span><br><span class="line">ping</span><br><span class="line">给一个网络主机发送 回应请求</span><br><span class="line">ping hpc.sp.net.edu.cn</span><br><span class="line"></span><br><span class="line">mail</span><br><span class="line">阅读和发送电子邮件</span><br><span class="line"></span><br><span class="line">write</span><br><span class="line">给另一用户发送报文</span><br><span class="line">write username pts/1</span><br><span class="line"></span><br><span class="line">mesg</span><br><span class="line">允许或拒绝接收报文</span><br><span class="line">mesg n</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Korn-Shell-命令"><a href="#Korn-Shell-命令" class="headerlink" title="Korn Shell 命令"></a>Korn Shell 命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">history</span><br><span class="line">列出最近执行过的 几条命令及编号</span><br><span class="line"></span><br><span class="line">r</span><br><span class="line">重复执行最近执行过的 某条命令</span><br><span class="line">r -2</span><br><span class="line"></span><br><span class="line">alias</span><br><span class="line">给某个命令定义别名</span><br><span class="line">alias del=rm -i</span><br><span class="line"></span><br><span class="line">unalias</span><br><span class="line">取消对某个别名的定义</span><br><span class="line">unalias del</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">uname</span><br><span class="line">显示操作系统的有关信息</span><br><span class="line">uname -a</span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line">清除屏幕或窗口内容</span><br><span class="line"></span><br><span class="line">env</span><br><span class="line">显示当前所有设置过的环境变量</span><br><span class="line"></span><br><span class="line">who</span><br><span class="line">列出当前登录的所有用户</span><br><span class="line"></span><br><span class="line">whoami</span><br><span class="line">显示当前正进行操作的用户名</span><br><span class="line"></span><br><span class="line">tty</span><br><span class="line">显示终端或伪终端的名称</span><br><span class="line"></span><br><span class="line">stty</span><br><span class="line">显示或重置控制键定义</span><br><span class="line">stty -a</span><br><span class="line"></span><br><span class="line">du</span><br><span class="line">查询磁盘使用情况</span><br><span class="line">du -k subdir</span><br><span class="line"></span><br><span class="line">df</span><br><span class="line">显示文件系统的总空间和可用空间</span><br><span class="line">df /tmp</span><br><span class="line"></span><br><span class="line">w</span><br><span class="line">显示当前系统活动的总信息</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="压缩文件-夹"><a href="#压缩文件-夹" class="headerlink" title="压缩文件/夹"></a>压缩文件/夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zip -e </span><br><span class="line">-e 压缩的是文件</span><br><span class="line">-er 压缩文件夹</span><br><span class="line">例:zip -e 压缩后.zip 压缩文件.txt</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2017/07/26/悟-Java/Struts2/" rel="next" title="Struts2">
+                <i class="fa fa-chevron-left"></i> Struts2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2017/08/03/悟- Mac快捷键/Idea/" rel="prev" title="Mac idea开发快捷键">
+                Mac idea开发快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image" src="/mcqingxian.github.io/uploads/images/dengta.jpg" alt="Mc">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/mcqingxian.github.io/archives/">
+            
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/mcqingxian.github.io/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/mcqingxian.github.io/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="简书" target="_blank">简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/5888b29d128fe1006c51b9e6" title="掘金iOS" target="_blank">掘金iOS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/59b22efb6fb9a024a04b3726" title="掘金Git" target="_blank">掘金Git</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://man.linuxde.net/sub/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4" title="Linux命令" target="_blank">Linux命令</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" title="知识点汇总" target="_blank">知识点汇总</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#终端常用命令"><span class="nav-number">1.</span> <span class="nav-text">终端常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#目录操作"><span class="nav-number">1.0.1.</span> <span class="nav-text">目录操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件操作"><span class="nav-number">1.0.2.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择操作"><span class="nav-number">1.0.3.</span> <span class="nav-text">选择操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安全操作"><span class="nav-number">1.0.4.</span> <span class="nav-text">安全操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编程操作"><span class="nav-number">1.0.5.</span> <span class="nav-text">编程操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程操作"><span class="nav-number">1.0.6.</span> <span class="nav-text">进程操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时间操作"><span class="nav-number">1.0.7.</span> <span class="nav-text">时间操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络与通信操作"><span class="nav-number">1.0.8.</span> <span class="nav-text">网络与通信操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Korn-Shell-命令"><span class="nav-number">1.0.9.</span> <span class="nav-text">Korn Shell 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他命令"><span class="nav-number">1.0.10.</span> <span class="nav-text">其他命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#压缩文件-夹"><span class="nav-number">1.0.11.</span> <span class="nav-text">压缩文件/夹</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+  <div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/mcqingxian.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

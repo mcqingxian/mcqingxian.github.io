@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/mcqingxian.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/mcqingxian.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mcqingxian.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Mac,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/mcqingxian.github.io/uploads/images/dengta.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="常用Vim命令">
+<meta name="keywords" content="Mac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim开发常用命令总结">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="常用Vim命令">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img.mukewang.com/5bb6bbef00016ddf10320452.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6bd030001328903710183.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6c5ff00019af211740861.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6c82f0001758209660410.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6c9520001ddf909780322.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6c95a0001a90b04350222.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cab90001b77609670457.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6ccc00001f16409870442.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cc550001251a10750343.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cd680001fb9f09910395.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cd7400012ef009710466.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cbde00016ffa10000383.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cd9700013f1009720446.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6ce4400013c7309350383.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cee6000154e609940400.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cf3a0001285209410346.png">
+<meta property="og:image" content="https://img.mukewang.com/5bb6cf7c00019c5709970291.png">
+<meta property="og:updated_time" content="2018-11-28T07:58:48.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim开发常用命令总结">
+<meta name="twitter:description" content="常用Vim命令">
+<meta name="twitter:image" content="https://img.mukewang.com/5bb6bbef00016ddf10320452.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mcqingxian.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/">
+
+
+
+
+
+  <title>Vim开发常用命令总结 | Mc</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mcqingxian.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mcqingxian.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/mcqingxian.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mcqingxian.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mcqingxian.github.io/uploads/images/dengta.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vim开发常用命令总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T08:00:00+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/mcqingxian.github.io/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>常用Vim命令<br></blockquote><br><a id="more"></a></p>
+<blockquote>
+<p>详细课程可见：<a href="https://www.imooc.com/learn/1049" target="_blank" rel="noopener">https://www.imooc.com/learn/1049</a><br>Vim起源:<br><img src="https://img.mukewang.com/5bb6bbef00016ddf10320452.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上图可以清晰的看到早期的vim作者使用的机器,此时的终端机键盘是没有独立上下左右键位的，所以在vim的设计之初，HJKL分别代表了(起到了光标移动)，其余字符基本一致。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h6 id="Vim四种模式"><a href="#Vim四种模式" class="headerlink" title="Vim四种模式:"></a>Vim四种模式:</h6><pre><code>1.普通模式 
+例如当我们编译文件a的时候 
+vim a
+</code></pre><p><img src="https://img.mukewang.com/5bb6bd030001328903710183.png" alt="image"></p>
+<pre><code>2,插入模式(编辑模式)
+    在普通模式的基础上,如果我想对文本进行插入操作,进入插入模式，只需要按下 i(insert),即可进行对原文本的标记!
+
+3,可视模式
+    对一整块区域进行操作
+</code></pre><blockquote>
+<p>在文本中,若想选择多行，我们可以进入可视模式，但是在插入模式下,需要先回到普通模式,所以需要我们按下Esc,再次按下v(visual)，可以看到下图:</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6c5ff00019af211740861.png" alt="image"></p>
+<pre><code>4,命令模式
+    和普通模式类似
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">命令模式是在普通模式下,按下冒号:，后面跟上命令的一种模式，如下图，我查看当前vim的版本信息(当前为可视模式,需要按下esc回到普通模式！)：</span><br><span class="line"></span><br><span class="line">:wq退出编辑页</span><br></pre></td></tr></table></figure>
+<h4 id="Vim中的移动操作"><a href="#Vim中的移动操作" class="headerlink" title="Vim中的移动操作"></a>Vim中的移动操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HJKL分别代表了左下上右</span><br><span class="line"></span><br><span class="line">^ 和 $ 这两个符号是分别移动到行首或者行尾，实际上设计是和正则表达式相似，正则表达式的起始匹配也是^，而</span><br><span class="line">末尾匹配是 $。</span><br><span class="line">工作中常用到的快捷键：个人认为上图都是常用命令。HLJK，以及^ ，\$.</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.mukewang.com/5bb6c82f0001758209660410.png" alt="image"></p>
+<blockquote>
+<p>单词和字符串移动</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6c9520001ddf909780322.png" alt="image"></p>
+<blockquote>
+<p>下图描述了具体键位：</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6c95a0001a90b04350222.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：w(移动到下一个单词词头)、b(移动到上一个单词词头)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>跳转(翻页)</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6cab90001b77609670457.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：gg(跳到文件首行),G(跳到文件最后一行),page up(上翻页，个人习惯用键盘翻页,当然命令也可以,Ctrl-b),Page Down(下翻页,命令Ctrl-d)</span><br></pre></td></tr></table></figure>
+<h6 id="Vim编辑操作"><a href="#Vim编辑操作" class="headerlink" title="Vim编辑操作"></a>Vim编辑操作</h6><blockquote>
+<p>基础操作</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6ccc00001f16409870442.png" alt="image"><br><img src="https://img.mukewang.com/5bb6cc550001251a10750343.png" alt="image"><br><img src="https://img.mukewang.com/5bb6cd680001fb9f09910395.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd对光标当前行进行剪切(也可以认为删除当前行的快捷键)，p粘贴。</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img.mukewang.com/5bb6cd7400012ef009710466.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yy复制当前行,p粘贴到光标位置。</span><br><span class="line"></span><br><span class="line">基础操作，对比windows而言,以上三点比较常用。</span><br><span class="line">工作中常用到的快捷键：d(delete删除)、y(yank复制)、yy(行复制)、dd(行剪切)、p(put粘贴)、u(undo撤销)</span><br><span class="line">一般而言,d、y这2个命令在可视模式下结合使用,p、u这两个命令在命令模式下使用。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>插入操作(增)</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6cbde00016ffa10000383.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：a(光标后一位插入),i(光标前一位插入)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>删除操作(删)</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6cd9700013f1009720446.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：dd(删除当前行)、&#123;n&#125;dd向下删除n行</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>替换操作(改)</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6ce4400013c7309350383.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上面的命令类似windows下文本编辑器经常用到的ctrl + f 后的替换操作</span><br><span class="line"></span><br><span class="line">用法：命令模式下，%s/文本内容/替换内容</span><br></pre></td></tr></table></figure>
+<p><img src="https://img.mukewang.com/5bb6cee6000154e609940400.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上图是常规替换，普通模式下操作。</span><br><span class="line"></span><br><span class="line">工作中常用到的快捷键：%s/文本内容/替换内容</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>查找操作(查)</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6cf3a0001285209410346.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：/查找的关键词(n向下查找下一个,N向上查找上一个)</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>缩进操作</p>
+</blockquote>
+<p><img src="https://img.mukewang.com/5bb6cf7c00019c5709970291.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">写代码的时候,经常给会有缩进的问题.所以也有对应的命令。</span><br><span class="line"></span><br><span class="line">快捷键：命令模式下操作： 70,80&gt;(70-80行光标处缩进)，普通模式下,&gt;&gt;向右缩进</span><br><span class="line"></span><br><span class="line">        2&gt;3 从第二行开始,全部向右缩进3格</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/mcqingxian.github.io/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2018/03/19/悟-OC/Masonry/" rel="next" title="Masonry基础理解">
+                <i class="fa fa-chevron-left"></i> Masonry基础理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2018/11/28/悟-OC/iOS 常用宏定义/" rel="prev" title="iOS 宏定义">
+                iOS 宏定义 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image" src="/mcqingxian.github.io/uploads/images/dengta.jpg" alt="Mc">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/mcqingxian.github.io/archives/">
+            
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/mcqingxian.github.io/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/mcqingxian.github.io/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="简书" target="_blank">简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/5888b29d128fe1006c51b9e6" title="掘金iOS" target="_blank">掘金iOS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/59b22efb6fb9a024a04b3726" title="掘金Git" target="_blank">掘金Git</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://man.linuxde.net/sub/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4" title="Linux命令" target="_blank">Linux命令</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" title="知识点汇总" target="_blank">知识点汇总</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vim四种模式"><span class="nav-number">1.</span> <span class="nav-text">Vim四种模式:</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim中的移动操作"><span class="nav-number"></span> <span class="nav-text">Vim中的移动操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vim编辑操作"><span class="nav-number">1.</span> <span class="nav-text">Vim编辑操作</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+  <div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/mcqingxian.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

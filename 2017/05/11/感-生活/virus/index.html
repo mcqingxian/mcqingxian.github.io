@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/mcqingxian.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/mcqingxian.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mcqingxian.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/mcqingxian.github.io/uploads/images/dengta.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="“网络安全-人机大战”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“网络安全">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2017/05/11/感-生活/virus/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="“网络安全-人机大战”">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-05-11T09:24:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="“网络安全">
+<meta name="twitter:description" content="“网络安全-人机大战”">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mcqingxian.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2017/05/11/感-生活/virus/">
+
+
+
+
+
+  <title>“网络安全 | Mc</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mcqingxian.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mcqingxian.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/mcqingxian.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mcqingxian.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2017/05/11/感-生活/virus/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mcqingxian.github.io/uploads/images/dengta.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">“网络安全</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-11T08:00:00+08:00">
+                2017-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/mcqingxian.github.io/categories/感-生活/" itemprop="url" rel="index">
+                    <span itemprop="name">感-生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center">
+
+<p><strong>“网络安全-人机大战”</strong></p>
+<p></p></blockquote><br><a id="more"></a><p></p>
+<h2 id="一、网络安全形式严峻"><a href="#一、网络安全形式严峻" class="headerlink" title="一、网络安全形式严峻"></a>一、网络安全形式严峻</h2><p>我国从事网络与电信诈骗人数：160万</p>
+<p>我国去年网络与电信涉案金额：1152亿</p>
+<p>大学生防网络与电信诈骗合格数不足：30%（其它人群估计负数了）</p>
+<p>网络与电信诈骗的源发地在境外约：90% </p>
+<p>网络上每分钟被手机病毒与木马攻击约：1000000次</p>
+<p>大数据与人工智能与其它方面带来的问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a)、我国的经济发展与物质文明的进步速度非常快，30年巨变，但人民的精神文明没有跟上，道德空间大。</span><br><span class="line"></span><br><span class="line">b)、网络与移动互联网空前繁荣，约8亿网民（估计更多）</span><br><span class="line"></span><br><span class="line">c)、大数据使诈骗变得非常精准</span><br><span class="line"></span><br><span class="line">d)、人民使用网络的频率越来越高，安全意识不高，投机者不少，手机与资金强耦合</span><br><span class="line"></span><br><span class="line">e)、人工智能让一些传统的身份识别手段变得无效，如语音采集后生成声音，高清相机采集指纹等</span><br></pre></td></tr></table></figure></p>
+<p>每天新增515万个病毒和6030个钓鱼网站，“网游大盗”、“熊猫烧香”、“QQ木马”、“灰鸽子”、“僵尸木马”、“XX神器”等病毒在网上肆意泛滥，纷纷入侵用户电脑，盗取密码账号、个人隐私、商业秘密、网络财产甚至国家机密等;2013年新增恶意程序病毒样本超过18.8亿个，新增钓鱼网站超过220.1万个，我国境内感染木马僵尸网络的主机1135万个，609.5万户手机用户感染移动互联网恶意程序;2013年我国网购用户规模超过3亿，而网络欺诈高达22259例，人均损失1449元，今天就更加多了。</p>
+<p>0.0、网络安全事件<br>两起恶性信息窃取事件：俄国黑客盗取了2.723亿邮箱信息，其中包括4,000万个雅虎邮箱、3,300万微软邮箱以及2,400万个谷歌邮箱；黑客利用漏洞，盗取3亿6,000万MySpace用户的电子邮件地址以及密码。</p>
+<p>升学季，准大学生徐玉玉遭电信诈骗后死亡。山东临沂的准大一新生徐玉玉，被一通诈骗电话骗走家人辛苦一年攒下的9,900元（1元人民币约合0.165美元）学费，两天后不幸离世。之后相继又爆出了“清华大学老师被冒充公检执法骗走1,760万元“”深圳老人被骗1,156万元“等事件。</p>
+<p>不法分子还将罪恶的双手伸向儿童，通过网上购买的软件工具，非法入侵免疫规划系统网络获取20万儿童信息并在网上公开售卖</p>
+<p>0.1、网络安全定义<br>危基百科上的网络定义如下：</p>
+<p>网络安全（Network security）包含网络设备安全、网络信息安全、网络软件安全。</p>
+<p>黑客通过基于网络的入侵来达到窃取敏感信息的目的，也有人以基于网络的攻击见长，被人收买通过网络来攻击商业竞争对手企业，造成网络企业无法正常营运，网络安全就是为了防范这种信息盗窃和商业竞争攻击所采取的措施。</p>
+<p>1.1、最高人民法院发布电信网络诈骗犯罪典型案例</p>
+<p>1.2、警惕升级的诈骗</p>
+<p>1.3、安全年度互联网安全报告<br>近日，腾讯安全基于海量大数据，发布了《2016年度互联网安全报告》（以下简称《报告》），从趋势、地域、人群等维度全方位揭秘了木马病毒、垃圾短信、骚扰诈骗等安全威胁，盘点了2016年十大木马病毒和十大电信网络诈骗，并分析指出2017年网络安全趋势。那么，这份 2016年度最重磅的互联网安全报告，有哪些看点值得关注？</p>
+<p>1.3.1、木马病毒数量持续攀升创新高<br>互联网的普及改变了人们的沟通方式，同时让病毒、木马、网络诈骗等风险不断增加。2016年木马病毒数量继续攀升，手机染毒用户更是达到5亿，创下历年新高。这些病毒一旦侵入手机和电脑，可能会自动捆绑下载相关应用影响使用体验，窃取网友社交账号、游戏账号等个人信息，甚至导向支付，瞄准用户钱包。而从“染毒”用户的构成来看，青少年群体最易遭遇电脑中毒，男性用户比女性用户的占比更高。</p>
+<p>（图：2016年手机病毒感染用户达5亿）</p>
+<p>1.3.2、诈骗短信超1亿，非法贷款占比最大<br>经常被垃圾广告、诈骗短信轰炸？头疼的不止你一人。2016年，腾讯手机管家用户举报的垃圾短信总量高达10.7亿次，而且呈现逐月递增的趋势。虽然这些垃圾短信中有8成以上都是广告，但危害最大的诈骗短信也不容小觑，它们借势非法贷款、网购、热门节目中奖、快递、冒充房东转账等五花八门的“套路”进行传播，给用户带来不同程度的损失。尤其是在当前金融行业资金紧张、互联网金融泛滥的现状下，诈骗短信中非法贷款类非常广泛，以17.53%的占比位列第一。</p>
+<p>（图：2016年诈骗短信类型占比）</p>
+<p>1.3.3、骚扰电话标记数量下降，诈骗电话依然是“巨头”<br>过去一年，电信网络诈骗一直社会舆论焦点，几乎达到人人自危的程度。从2016年全年来看，诈骗电话的形势的确不容乐观。《报告》显示，虽然2016年腾讯手机管家用户标记的骚扰电话达5.96亿次，同比下降44.77%，但诈骗电话依然是最大的巨头，占到了将近四分之一。</p>
+<p>而且随着个人信息泄露愈加严重，电信网络诈骗呈现精准化趋势。无论是准大学生徐玉玉被骗离世，还是深圳独居老人因接“公检法人员”电话被骗1156万的案件，均是因为骗子准确地说出了受害人的姓名、家庭住址、身份证号等信息，最大程度地“取信”受害人，才能够指使其操作ATM机转账或开通银行卡转账。</p>
+<p>（图：腾讯手机管家用户标记电话类型中，诈骗电话高达24.39%）</p>
+<p>1.3.4、2016年十大热门病毒盘点<br>很多用户不明白，为什么电脑正在用突然死机了，游戏账号密码并没有透露给别人，为什么被盗了？这可能木马病毒“从中作祟”。2016年，电脑端涌现了黑暗幽灵木马、苏克拉木马、暗云Ⅱ Bootkit木马、Peyta敲诈木马、“萝莉”蠕虫五大典型的木马病毒，它们通过不安全网络、热门游戏、盗版操作系统等方式进行传播，它们入侵用户电脑，窃取隐私信息，进行敲诈勒索等恶意行为。</p>
+<p>与此同时，手机端在2016年也出现了五大病毒：“粗口木马”、Android锁屏勒索、开学通知书、手机实名认证、刷单助手。它们均通过短信、恶意网址的形式传播，用户一旦点击短信中的链接，下载木马病毒，将导致手机中毒，甚至造成钱财损失。</p>
+<p>1.3.5、2016年十大电信网络诈骗解析<br>从山东准大学生徐玉玉被骗离世，到清华老师被冒充公检法不法分子骗走1760万，从著名演员黄晓明收到来自“孩子学校”的诈骗短信惹来网友热议，到ETC卡隔空被离奇盗刷…腾讯安全盘点了2016年十大电信网络诈骗案例，分析这些案例可以发现，如今的电信网络诈骗呈现出如下特征：首先，诈骗分子充分结合当前时事热点设计骗术，能够让受害人更轻易地上套；同时，社会工程学原理的熟练运用也让受害人难以辨别真伪；而这些案件的根源都是用户信息泄露，导致了精准诈骗的发生。</p>
+<p>1.3.6、2017年网络安全五大趋势，打击个人信息泄露犯罪成重点<br>2016年，互联网安全形势错综复杂，PC端流氓软件、木马病毒和钓鱼网址猖狂，手机端病毒和诈骗短信善于借势传播，信息泄露让电信网络诈骗越来越精准。2017年，“追热点”的诈骗形式将更多；打击个人信息泄露犯罪将成为重点；此外，得益于腾讯开放的安全能力和大数据资源，过去一年警方破获了多个大案，2017年大数据技术将在警方打击网络犯罪中起到更加重要的作用。</p>
+<p>1.4、企业信息安全<br>信息作为一种资产，是企业或组织进行正常商务运作和管理不可或缺的资源，也是企业财产和个人隐私等的重要载体。与此同时，信息安全的重要性也越加凸显：从最高层次来讲，信息安全关系到国家的安全；对组织机构来说，信息安全关系到正常运作和持续发展；就个人而言，信息安全是保护个人隐私和财产的必然要求。无论是个人、组织还是国家，保持关键的信息资产的安全性都是非常重要的。</p>
+<p>据统计，世界上每分钟就有2个企业因为信息安全问题倒闭，而在所有的信息安全事故中，只有20%—30%是因为黑客入侵或其他外部原因造成的，70%—80%是由于内部员工的疏忽或有意泄露造成的；同时78%的企业数据泄露是来自内部员工的不规范操作。 </p>
+<p>案例一：HBgary Federal邮件泄露</p>
+<p>2011年2月6日，HBGary Federal公司创始人Greg Hoglund尝试登录Google企业邮箱的时候，发现密码被人修改了，这位以研究”rootkit”而著称的安全业内资深人士立刻意识到了事态的严重性：作为一家为美国政府和500强企业提供安全技术防护的企业，自身被黑客攻陷了！更为糟糕的是，HBGary Federal企业邮箱里有涉及包括美商会、美国司法部、美洲银行和WikiLeak的大量异常敏感的甚至是见不得光的”商业机密”。</p>
+<p>案例二：索尼遭遇”数据门”</p>
+<p>索尼从2011年初开始，多次遭到黑客入侵，超过7000万玩家资料可能遭窃取，这些资料包括邮箱、密码、信用卡号等，索尼公司于4月20日关闭PSN和Qriocity服务。这让日进斗金的索尼游戏业务陷入瘫痪。此外，由于消费者资料泄露可能导致更为严重的网络钓鱼等大面积网络安全案件，美国、英国、澳大利亚和中国香港等国家和地区的政府已经开始对索尼PlayStation Network网络遭黑客攻击及用户数据失窃情况展开调查，一批游戏玩家已向美国法院提出上诉，控告索尼在保护PlayStation Network网络用户数据方面玩忽职守，违反了它与用户签订的服务合同，整个索尼品牌面临一次空前严重的灾难。</p>
+<p>普渡大学的Gene Spafford博士在美国众议院商务委员会的听证会上揭开了导致这次史上最严重的消费者数据泄漏事件的重要原因：索尼的服务器运行着一个过期的Apache Web server软件，没有打上补丁，也没有安装防火墙。而索尼早在几个月前已经知悉此事，因为问题早已在论坛上报告给索尼工作人员。很明显，不是黑客匿名组织的技术高超，而是索尼负责信息安全的员工在此次事件中犯下了低级错误，结果门户大开，引狼入室。</p>
+<p>案例三：LinkedIn用户密码公布于网上</p>
+<p>大约有650万个LinkedIn用户密码的散列密码字段被盗并被公布在互联网上。目前LinkedIn已经承认了该事件，但是他们并没有透露具体的数字。由于有部分是重复的，因此实际数字有可能低于外界猜测的数字。LinkedIn已经作废这了些受影响的用户的密码，公司称，他们已经通过电子邮件通知了用户，告之他们密码可能存在泄露的风险，用户可以通过点击电子邮件中的链接升级他们的密码。<br>LinkedIn的悲剧发生后，eHarmony交友网站也确认大约有150万密码被盗</p>
+<p>以上所举三个案例给所有企业和组织敲响了警钟，案例涉及企业管理层、技术人员及普通员工，可见上至企业老总、下到基层员工，安全意识的薄弱正在成为企业面临的最大风险，忽视信息安全意识教育，可能遭受灾难性的打击。<br>根据GooAnn发布的国内首份《中国企业员工信息安全意识调查报告（2010）》结果显示，受访者认为在所有企业的安全隐患中，信息安全意识缺乏是最大的安全隐患，占到42.8%的比例，提高全员信息安全意识的重要性由此可见。</p>
+<p>我国最近被泄漏的个人信息非常多，京东12个G数据遭泄露，身份证、密码、电话等敏感信息无一逃脱，1k就可以记录非常多的信息了，如果压缩量更加大；这样的例子时有发生。</p>
+<h2 id="二、常用的网络攻击手段"><a href="#二、常用的网络攻击手段" class="headerlink" title="二、常用的网络攻击手段"></a>二、常用的网络攻击手段</h2><p>2.1、新的诈骗形式<br>2.1.1、扫描二维码诈骗<br>不法分子将二维码植入病毒程序，再以返利或者降价或送礼品为饵，发送二维码。一旦轻易扫描安装，木马就会盗取应用账号、密码等个人隐私信息，再以短信验证的方式篡改用户密码，将账户资金转走。共享单车扫码请看清楚。</p>
+<p>2.1.2、虚假微信公众号AA诈骗<br>骗子假冒官方微信账号，宣称举办官方活动，诱骗消费者在假冒的微信账号购买商品，利用AA收款等微信支付功能骗取消费者钱财。</p>
+<p>2.1.3、微信提现诈骗<br>骗子在搜索引擎、社交网站等网络平台发布虚假消息，诱骗消费者误以为是微信公众平台的官方客服，咨询其微信提现遇到问题时，告知发生“卡单”，需要激活银行卡，从而诱骗消费者转账。</p>
+<p>2.1.4、微信传销诈骗<br>类似线下传销，以“互助交友、创业致富”等为名，依靠微信平台好友可互发红包功能，让受害人发展下线，形成传销网络。</p>
+<p>2.1.5、网络游戏诈骗<br>骗子利用微信、QQ等带有游戏功能的社交平台，针对“游戏党”发布充值、装备、点卡等信息，诱惑网友上钩，精心制作的系统提示界面很容易让网民信以为真。骗到网民的充值金额后，不法分子往往会以充值不成功、账号被冻结、系统认证失败甚至退款为由，要求网友先行支付保障金，从而骗取钱款。</p>
+<p>2.1.6、微信公众账号申请诈骗<br>骗子在网上利用假冒的微信公众号申请钓鱼平台，诱骗消费者在该网站进行认证，从而骗取所谓的“申请金额”。</p>
+<p>2.1.7、网购优惠券诈骗<br>骗子高度模仿正规电商中领取的优惠券、打折券等页面内容，通过社交平台网站发布钓鱼网站链接，诱骗消费者在领取优惠的同时，输入电商平台的账号、密码，甚至支付密码、短信验证码等信息，来盗取消费者账号资金。</p>
+<p>2.1.8、账户资金异常变动诈骗<br>骗子利用网银账号内部交易不需要验证码和U盾的特点，在受害者网银账号内部通过购买贵金属、活期转定期等操作，制造银行卡上有资金流出的假象。然后冒充银行工作人员，谎称受害者银行资金被盗刷，帮助其进行退款，诱骗受害者开通快捷支付或者骗取转账的动态验证码短信，盗取受害者银行卡内资金。</p>
+<p>2.1.9、短信保管箱盗刷<br>骗子首先通过购买、盗号等方式，获取受害者银行卡账号和密码，然后为受害者强行开启电信运营商提供的短信保管箱业务（可登录网络账号查看手机收到的短信内容），利用该功能，得到网银转账中的动态交易码，从而盗刷银行卡。</p>
+<p>2.1.10、支付宝“花呗”套现诈骗<br>骗子在社交平台上发布虚假的支付宝“花呗”套现服务，谎称受害者可利用“花呗”购买虚拟商品，扣除手续费后返还余下金额，以实现套现。但实际上，在受害者购买商品后，骗子并不退还任何钱款，随即消失不见。</p>
+<p>2.1.11、开通信用支付功能诈骗<br>骗子发布虚假购物消息，与受害人交易后以卡单为由，要求交纳保证金。为取得受害者的信任，骗子建议其在支付平台上开通信用支付来付这笔保证金，待交易激活后会退还保证金。受害人因不了解信用支付的开通过程，按照骗子的说法操作付款后，将钱款打给骗子。</p>
+<p>2.1.12、退款诈骗<br>骗子在二手交易中谎称发货的商品缺少某个配件，需要退还部分钱款，然后发给受害者退款的钓鱼链接，骗取其交易账号中登录密码和支付密码，获取后，登录受害者账号，点击“确认收货”，从而骗取钱财。</p>
+<p>2.1.13、跨境代购诈骗<br>骗子伪装成跨境代购电商，利用低价引诱消费者购买所谓的代购商品，然后发送虚假的物流信息，并谎称该商品在海关被扣押，需要交纳保证金后领取，从而骗取购物金额及保证金的诈骗</p>
+<p>2.1.14、购物退款诈骗<br>犯罪分子利用非法手段获取购物网站上的交易信息，以卖家或客服的身份电话联系受害人，谎称由于系统故障、订单出错等原因，将货款退还给受害人，进而诱导受害人打开其提供的所谓退款网页，骗取受害人的银行卡信息和密码，从而盗取受害人的银行资金。</p>
+<p>案例：虞某在淘宝网下了个网购订单，然后就接到了自称是淘宝客服的人打来的电话，称其网购订单有问题要向他退款，于是虞某把自己的工商银行卡卡号和手机收到的动态密码以及自己的密码都发给了对方，随后事主手机上收到银行卡内被转账785元的通知，虞某这才意识到被骗。</p>
+<p>防范提示：凡是接到陌生人要求退款、转账或汇款的电话或短信，在没核实情况之前，千万不要透漏自己的银行卡或淘宝账号和密码等私人信息，更不要按照对方发送的所谓网页链接地址进行操作。</p>
+<p>2.1.15、虚假网站购物诈骗<br>通过开设网址与真实网站极为相似的虚假购物网站或在知名大型电子商务网站进行注册，然后以虚假内容吸引网上消费者。犯罪分子会要求受害人预付货款或提出预付邮寄费、保证金款等，在收取众多的汇款之后，诈骗者不提供商品或者干脆“网上蒸发”。</p>
+<p>案例：前不久，谯某某上网时，发现一网址为“<a href="http://www.bxhg99.com”的网站(上海市某信化工有限公司)有廉价“生物油”出售，遂与对方电话联系购买事宜。对方先后多次以交纳定金、押金等为由骗谯某某银行现金汇款6000元。" target="_blank" rel="noopener">www.bxhg99.com”的网站(上海市某信化工有限公司)有廉价“生物油”出售，遂与对方电话联系购买事宜。对方先后多次以交纳定金、押金等为由骗谯某某银行现金汇款6000元。</a></p>
+<p>防范提示：选择有信誉度的购物网站，要坚持使用支付宝之类的第三方交易平台，绝不轻信价格便宜，可以用线下交易直接汇款等理由，拒绝先付订金；在网上购买需要核对对方身份；注意保存购物凭据及网上聊天记录，以便在维权的过程中向网上商家索赔；用银行卡支付，最好使用一个专用账户，卡内不宜存放太多资金。</p>
+<p>2.1.16、“QQ”盗号冒充熟人诈骗<br>犯罪分子通过欺骗或黑客手段盗取受害人亲友的QQ号码，冒充受害人亲友以交学费、借钱、帮忙购物等理由诱使受害人汇款。有的甚至通过剪切制作受害人亲人的视频聊天录像并播放给受害人观看，以达到取信受害人的目的。</p>
+<p>案例：薛某某在家中上网时，犯罪嫌疑人冒用其儿子的QQ号与其联系，称其在美国学校的“周教授”急需用钱，让其汇款4.5万美元至“周教授”的账号，薛某某便汇款人民币28.1万余元至该账户。汇款后，薛某某与其子取得联系发现被骗。</p>
+<p>防范提示：谨慎辨认对方身份，在遇到类似情况特别是要求汇款等涉及到财物问题时一定要用电话或其它方式联系对方，或在聊天时设置一些问题以辨别对方身份。如确认为诈骗，应在第一时间通知其他好友，让其防止被骗。</p>
+<p>2.1.17、兼职“刷客”诈骗<br>淘宝刷钻、手机充值卡刷信誉及游戏点卡刷信誉是最常见的三种兼职代刷骗局。犯罪分子首先在各大招聘网站上发布兼职信息，以给淘宝店铺刷信誉为由，让应聘者购买手机充值卡、游戏点卡等虚拟商品，谎称会返还购买的本金和佣金，利用受害人对淘宝虚拟商品购物流程不熟悉的弱点，诱骗受害人发送拍好的卡号和卡密，从而盗取钱财。</p>
+<p>案例：小吴在宿舍用手机QQ聊天中找到一家网上兼职广告的信息，与嫌疑人QQ取得联系，嫌疑人让小吴购买指定虚拟商品提高商家信誉度，承诺返还购物本金以及给予报酬。小吴在嫌疑人的授意下通过自己的支付宝支付了1300元购买了13张“完美一卡通”的充值卡并将截图及密码告知了对方，事后发现被骗。</p>
+<p>防范提示：一是通过截图方式证明交易成功的要求都有很强的欺诈嫌疑，真正卖家完全可以通过查看交易记录来证实交易是否成功，而不会要求顾客发截图。二是卡单、掉单、付费激活订单等多是欺诈专用术语，见到此类词语，基本可以断定对方是骗子。三是不要轻信所谓日赚百元的网络兼职，一定要登录正规的招聘网站寻找兼职，可使用一些软件系统对招聘网站进行可信任身份验证。</p>
+<p>2.1.18、网上投资理财诈骗<br>犯罪分子通过开设所谓的投资咨询网站，谎称掌握股票、期货交易内幕或能预测彩票开奖情况，以咨询费、押金、保密费为由诱骗受害者向其提供的账号汇款。</p>
+<p>案例：姚某上网看到一家叫“深圳某财富”的公司，姚看了公司介绍有短期投资，收益极高，便在公司网页上填写了个人信息及注册了会员，后又加了对方客服QQ联系，姚前后3次共计12万元购买该公司的理财产品。几天后，姚发现对方的公司网页打不开，客服电话也打不通，遂发觉被骗。</p>
+<p>防范提示：投资理财要通过正规渠道，切莫有“一夜暴富”等不切实际的想法。</p>
+<p>2.1.19、虚构中奖网络诈骗<br>利用传播软件随意向邮箱用户、网络游戏用户、即时通讯用户等发布虚假中奖提示信息，谎称其中了大奖，并提供一个和该网站网址非常相似的网址链接，要求其上网确认。随后以奖品邮寄费、奖金个人所得税、保证金等要求受害人向其指定的银行账户汇款。</p>
+<p>案例：前不久，董某上网时QQ上跳出一个网页，内容是“我要上xx”，发现网页上显示自己中了二等奖(奖品是9万8千元和一台苹果笔记本电脑)，后董某通过银行卡一次性转账1900元至犯罪嫌疑人账户，转完账后发现对方的联系号码已经暂停使用。</p>
+<p>防范提示：牢记“天上不会掉馅饼”，一些来历不明的中奖提示，不管内容有多么逼真诱人，请千万不能相信，更不要按照所谓的咨询电话或网页进行查证。</p>
+<p>2.1.20、网络征婚、交友诈骗<br>通过婚恋网、交友网等网络交友、相亲网站，以“高富帅”或“白富美”的虚假身份迷惑受害人，骗取信任、确立交往关系后，选择时机提出借钱周转、急需医疗、家庭遭遇变故等各种理由，骗取钱财后销声匿迹。</p>
+<p>案例：程某某上某婚恋网时，有一自称王子的男子与其联系希望和其交朋友，后双方互留电话号码，几天后，王子与程某某联系，称要开店希望其送花篮，并提供了花店电话，程某某将人民币2760元汇入对方提供的账号内，王子却“人间蒸发”了。</p>
+<p>防范提示：应认准正规的交友网站，交友过程中如对方提出汇款请求，一定要反复核实，切忌贸然汇款，谨防上当受骗。</p>
+<p>2.1.21、虚假招工诈骗<br>借用某些企事业单位或酒店的名义通过网络发布招工信息，待受害人联系后以缴纳押金、保险、服装费等多种借口要求受害人向指定账户汇款。</p>
+<p>案例：但某某与一个在网上搜到的招工电话联系，对方让他到国际饭店去，11时许，但某某到了国际饭店后就与对方联系，对方让他先汇400元服装费，他就向对方的账号汇了400元，汇完后给对方打电话，对方称还要汇400元皮鞋钱，于是他又汇了400元人民币，汇完后给对方打电话，对方称还要交1000元的公关费，但某某才发觉被骗。</p>
+<p>防范提示：找工作要到正规的招聘网站、劳务市场或有营业执照的中介所。对于先让交报名费、培训费的招工，要提高警惕，防止被骗。</p>
+<p>2.1.22、网络虚拟物品诈骗<br>此类案件的侵害对象较为明确，即广大网络游戏玩家。网络游戏中，犯罪分子以低价出卖游戏装备或帮玩家“练级”为诱饵，诱使受害者向其付款，等受害者付款后，不发货或中断和受害者联系，以达到诈骗目的。</p>
+<p>案例：小吴在QQ网络游戏(“游戏人生”)中看到一则卖“穿越火线”游戏装备的信息。便根据该信息中的QQ号与对方取得联系。对方一男子以“要买装备先付定金，网络支付信息出错、操作时间超时，需先付款后返还超出部分现金”为由，要小吴给其QQ账号充Q币。小吴按对方要求连续四次向对方QQ账号充入价值2800元的Q币时，对方再次提出购买要求，小吴发现自己受骗。</p>
+<p>防范提示：网络游戏虚拟世界里，不轻信网游中的一些“战友”，不轻易泄露银行账号和密码，尤其警惕先付款后交货的交易方式。游戏点卡、装备应通过官方指定渠道进行交易。</p>
+<p>2.2、病毒<br>计算机病毒（Computer Virus）是编制者在计算机程序中插入的破坏计算机功能或者数据的代码，能影响计算机使用，能自我复制的一组计算机指令或者程序代码。</p>
+<p>计算机病毒具有传播性、隐蔽性、感染性、潜伏性、可激发性、表现性或破坏性。计算机病毒的生命周期：开发期→传染期→潜伏期→发作期→发现期→消化期→消亡期。</p>
+<p>计算机病毒是一个程序，一段可执行码。就像生物病毒一样，具有自我繁殖、互相传染以及激活再生等生物病毒特征。计算机病毒有独特的复制能力，它们能够快速蔓延，又常常难以根除。它们能把自身附着在各种类型的文件上，当文件被复制或从一个用户传送到另一个用户时，它们就随同文件一起蔓延开来。</p>
+<p>熊猫烧香</p>
+<p>2.3、木马<br>电脑中的特洛伊木马：在计算机领域中，木马是一类恶意程序的伪装。</p>
+<p>一个完整的特洛伊木马套装程序含了两部分：服务端（服务器部分）和客户端（控制器部分）。植入对方电脑的是服务端，而黑客正是利用客户端进入运行了服务端的电脑。运行了木马程序的服务端以后，会产生一个有着容易迷惑用户的名称的进程，暗中打开端口，向指定地点发送数据（如网络游戏的密码，实时通信软件密码和用户上网密码等），黑客甚至可以利用这些打开的端口进入电脑系统。这时你电脑上的各种文件、程序，以及在你电脑上使用的账号、密码无安全可言了。</p>
+<p>木马程序不能算是一种病毒，但可以和最新病毒、漏洞利用工具一起使用，几乎可以躲过各大杀毒软件，尽管越来越多的新版的杀毒软件可以查杀一些防杀木马了，但是不要认为使用有名的杀毒软件电脑就绝对安全，木马永远是防不胜防的，除非你不上网。</p>
+<p>2.4、密码<br>指的是用来加密或解密的算法。使用密码，可以将一段明文的内容，经过特定程序，转换成无法理解的密文；或是反向，将密文转换成可以被理解的明文。<br>在现代密码系统中，密码可以可分为对称密钥加密与公开密钥加密两种。</p>
+<p>2.4.0、密码的由来<br>公元前405年，雅典和斯巴达之间的伯罗奔尼撒战争已进入尾声。斯巴达军队逐渐占据了优势地位，准备对雅典发动最后一击。这时，原来站在斯巴达一边的波斯帝国突然改变态度，停止了对斯巴达的援助，意图使雅典和斯巴达在持续的战争中两败俱伤，以便从中渔利。在这种情况下，斯巴达急需摸清波斯帝国的具体行动计划，以便采取新的战略方针。正在这时，斯巴达军队捕获了一名从波斯帝国回雅典送信的雅典信使。</p>
+<p>斯巴达士兵仔细搜查这名信使，可搜查了好大一阵，除了从他身上搜出一条布满杂乱无章的希腊字母的普通腰带外，别无他获。情报究竟藏在什么地方呢？斯巴达军队统帅莱桑德把注意力集中到了那条腰带上，情报一定就在那些杂乱的字母之中。他反复琢磨研究这些天书似的文字，把腰带上的字母用各种方法重新排列组合，怎么也解不出来。最后，莱桑德失去了信心，他一边摆弄着那条腰带，一边思考着弄到情报的其他途径。当他无意中把腰带呈螺旋形缠绕在手中的剑鞘上时，奇迹出现了。原来腰带上那些杂乱无章的字母，竟组成了一段文字。这便是雅典间谍送回的一份情报，它告诉雅典，波斯军队准备在斯巴达军队发起最后攻击时，突然对斯巴达军队进行袭击。斯巴达军队根据这份情报马上改变了作战计划，先以迅雷不及掩耳之势攻击毫无防备的波斯军队，并一举将它击溃，解除了后顾之忧。随后，斯巴达军队回师征伐雅典，终于取得了战争的最后胜利。</p>
+<p>第二次世界大战密码起了非常大的作用，图灵机，中途岛战役，日本被美国破译的密码等。</p>
+<p>2.4.1、恺撒密码<br>凯撒密码作为一种最为古老的对称加密体制，在古罗马的时候都已经很流行，他的基本思想是：通过把字母移动一定的位数来实现加密和解密。明文中的所有字母都在字母表上向后（或向前）按照一个固定数目进行偏移后被替换成密文。例如，当偏移量是3的时候，所有的字母A将被替换成D，B变成E，以此类推X将变成A，Y变成B，Z变成C。由此可见，位数就是凯撒密码加密和解密的密钥。</p>
+<p>2.4.2、对称加密DES<br>采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。</p>
+<p>对称加密算法的优点是算法公开、计算量小、加密速度快、加密效率高。<br>对称加密算法的缺点是在数据传送前，发送方和接收方必须商定好秘钥，然后使双方都能保存好秘钥。其次如果一方的秘钥被泄露，那么加密信息也就不安全了。另外，每对用户每次使用对称加密算法时，都需要使用其他人不知道的唯一秘钥，这会使得收、发双方所拥有的钥匙数量巨大，密钥管理成为双方的负担。<br>2.4.3、非对称加密RSA<br>RSA算法是一种非对称密码算法，所谓非对称，就是指该算法需要一对密钥，使用其中一个加密，则需要用另一个才能解密，不是同一个钥匙。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">（1） 对称加密加密与解密使用的是同样的密钥，所以速度快，但由于需要将密钥在网络传输，所以安全性不高。</span><br><span class="line"></span><br><span class="line">（2） 非对称加密使用了一对密钥，公钥与私钥，所以安全性高，但加密与解密速度慢。</span><br><span class="line"></span><br><span class="line">（3） 解决的办法是将对称加密的密钥使用非对称加密的公钥进行加密，然后发送出去，接收方使用私钥进行解密得到对称加密的密钥，然后双方可以使用对称加密来进行沟通。</span><br></pre></td></tr></table></figure>
+<p>2.4.4、消息摘要算法MD5、SHA1<br>计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护</p>
+<p>MD5的典型应用是对一段信息（Message）产生信息摘要（Message-Digest），以防止被篡改。比如，在Unix下有很多软件在下载的时候都有一个文件名相同，文件扩展名为.md5的文件，在这个文件中通常只有一行文本</p>
+<p>2009年谢涛和冯登国仅用了220.96的碰撞算法复杂度，破解了MD5的碰撞抵抗，该攻击在普通计算机上运行只需要数秒钟。</p>
+<p>MD5已经广泛使用在为文件传输提供一定的可靠性方面。例如，服务器预先提供一个MD5校验和，用户下载完文件以后，用MD5算法计算下载文件的MD5校验和，然后通过检查这两个校验和是否一致，就能判断下载的文件是否出错。</p>
+<p>MD5亦有应用于部分网上赌场以保证赌博的公平性，原理是系统先在玩家下注前已生成该局的结果，将该结果的字符串配合一组随机字符串利用MD5 加密，将该加密字符串于玩家下注前便显示给玩家，再在结果开出后将未加密的字符串显示给玩家，玩家便可利用MD5工具加密验证该字符串是否吻合。</p>
+<p>例子: 在玩家下注骰宝前，赌场便先决定该局结果，假设生成的随机结果为4、5、 6大，赌场便会先利用MD5 加密“4, 5, 6”此字符串并于玩家下注前告诉玩家；由于赌场是无法预计玩家会下什么注，所以便能确保赌场不能作弊；当玩家下注完毕后，赌场便告诉玩家该原始字符串，即“4, 5, 6”，玩家便可利用MD5工具加密该字符串是否与下注前的加密字符串吻合。</p>
+<p>该字符串一般会加上一组随机字符串 (Random string)，以防止玩家利用碰撞 (Collision) 解密字符串，但如使用超级电脑利用碰撞亦有可能从加上随机字符串的加密字符串中获取游戏结果。随机字符串的长度与碰撞的次数成正比关系，一般网上赌场使用的随机字符串是长于20字，有些网上赌场的随机字符串更长达500字，以增加解密难度。</p>
+<p>世界上没有不能被破解的密码，只是成本与效益的平衡问题，没有绝对安全的密码。</p>
+<p>2.5、撞库<br>撞库是黑客通过收集互联网已泄露的用户和密码信息，生成对应的字典表，尝试批量登陆其他网站后，得到一系列可以登录的用户。很多用户在不同网站使用的是相同的帐号密码，因此黑客可以通过获取用户在A网站的账户从而尝试登录B网址，这就可以理解为撞库攻击。</p>
+<p>2014年12月25日，12306网站用户信息在互联网上疯传。对此，12306官方网站称，网上泄露的用户信息系经其他网站或渠道流出。据悉，此次泄露的用户数据不少于131,653条。该批数据基本确认为黑客通过“撞库攻击”所获得。</p>
+<p>撞库可以通过数据库安全防护技术解决，数据库安全技术主要包括：数据库漏扫、数据库加密、数据库防火墙、数据脱敏、数据库安全审计系统。</p>
+<h2 id="三、网络安全防范"><a href="#三、网络安全防范" class="headerlink" title="三、网络安全防范"></a>三、网络安全防范</h2><p>3.0、常用防范手段</p>
+<p>3.0.1、量子技术、量子纠缠<br>量子纠缠技术是安全的传输信息的加密技术，与超光速传递信息无关。尽管知道这些粒子之间“交流”的速度很快，但我们却无法利用这种联系以如此快的速度控制和传递信息。因此爱因斯坦提出的规则，也即任何信息传递的速度都无法超过光速，仍然成立。</p>
+<p>3.1、安全意识<br>网络应用中出现的风险有多种，包括口令安全、系统账户权限、数据存储安全、电子邮件安全等问题。“个人网络安全防护，三分靠技术，七分靠意识，要防护这些问题，安全意识的提高不可忽视。最重要的是您有安全意识，比任何技术手段都重要，麻痹大意出事情。</p>
+<p>3.1.0、冷静<br>冷静出智慧，在跟骗子斗智斗勇的过程中一般都是被蒙，被吓得智商为零，不让他找到你的软肋；不做亏心事不怕鬼敲门，没有什么大不了的。</p>
+<p>3.1.1、保护个人隐私<br>大数据时代个人没有隐私，再不重视就是裸奔。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1)、不随便公开自己的姓名、肖像、住址和电话号码等信息</span><br><span class="line"></span><br><span class="line">2)、身份证复印件，写上仅XX使用</span><br><span class="line"></span><br><span class="line">3)、快递包裹上的单据</span><br><span class="line"></span><br><span class="line">4)、网站上注册时的个人信息</span><br><span class="line"></span><br><span class="line">5)、个人不用的资料、银行单据销毁</span><br><span class="line"></span><br><span class="line">6)、要管理好含有自己隐私的物品。</span><br><span class="line"></span><br><span class="line">7)、发现有人披露自己的个人隐私，要依法制止，学会运用法律的武器维护自己的隐私权。</span><br><span class="line"></span><br><span class="line">8)、尊重别人的隐私（最重要）</span><br></pre></td></tr></table></figure></p>
+<p>3.1.2、减少卡、密码、的使用次数<br>走多了夜路总会碰到鬼</p>
+<p>信用卡设置密码，不离开自己的视野，国外信用卡欺诈严重</p>
+<p>3.1.3、不设置相同的密码</p>
+<p>3.2、不贪<br>贪、嗔、痴中贪为三毒之首。</p>
+<p>基督教认为人性本恶，生来都有原罪，人性本来就是贪婪的</p>
+<p>被骗的人一般符合两个条件：贪婪+无知</p>
+<p>苍蝇不叮无缝蛋</p>
+<p>“知止而后有定；定而后能静；静而后能安；安而后能虑；虑而后能得。物有本末，事有终始，知所先后，则近道矣。”“物格而后智生，智生而后意诚，意诚而后心正，心正而后身修，身修而后家齐，家齐而后国治，国治而后天下平。自天子以至于庶人，一是皆以修身为本。”</p>
+<p>3.2.1、贪财</p>
+<p>3.2.2、贪色</p>
+<p>3.3.3、贪玩</p>
+<p>3.3.4、贪小便宜<br>扫码、加微信、投票、中奖、打折。。。</p>
+<p>3.3、口令（暗号）<br>与家人或有经济往来的人事先定义一个暗号，如：数字，变化的日期中的日或月，比如跟财务约好每次用2个数字加当前的天为口令，如今天是2017-05-08，则口令为:XX8，如198，888，788等</p>
+<p>3.4、密码管理器、分级制<br>开源密码管理软件，密码多了也不好记</p>
+<p>1Password（Mac 和 iOS 均有中文、收费，很贵）</p>
+<p>LastPass</p>
+<p>KeePass（免费，开源，下载地址在博客末尾）</p>
+<p>PasswordBox</p>
+<p>3.5、关于wifi<br>设置复杂的wifi密码</p>
+<p>不连接没有密码的wifi</p>
+<p>不随意连接公共，免费的wifi</p>
+<p>wifi密码的破解非常容易，可防一般人，防不了高手</p>
+<p>3.6、关于密码长度与复杂度</p>
+<p>3.7、银行<br>卡的类型（换掉磁条卡）</p>
+<p>网银工具（U盾比密码器安全）</p>
+<p>短信验证码打死不告诉别人</p>
+<p>APP与短信手机分开</p>
+<p>一类卡、二类卡、三类卡</p>
+<p>2016年12月1日起，银行为个人开立银行结算账户的，同一个人在同一家银行只能开立一个Ⅰ类户，已开立Ⅰ类户，再新开户的，应当开立Ⅱ类户或Ⅲ类户。</p>
+<p>限制、降低支付额度</p>
+<p>3.7.1、理财<br>承诺高收益低风险的都是骗子，天上不会掉馅饼</p>
+<p>现在年化7以上的就要非常小心了</p>
+<p>互联网金融如雨后春笋，一个身份证就可以网货，校园贷款，网上赌博。</p>
+<p>第一个隐忧是来自于各种套现，其实过去在传统的线下信用支付类产品也一直面临这套现难题，滋生了各种灰色产业，小到黄牛抢购、恶意注册领优惠券，大到代办信用卡、各类贷款、公积金提取等。如今京东白条、支付宝花呗以及各种校园、汽车等垂直细分领域的金融分期消费开始兴起，正是这种分期、赊账的消费方式给了很多不法分子新的可乘之机。</p>
+<p>第二个隐忧是信息泄露，对于信息泄露问题，前段时间闹得满城风雨的莫过于支付宝安全漏洞导致的大批信息泄露问题。而在众多的中小互联网金融理财平台中，比如P2P，个人信息泄露却是一个司空见惯的问题。一旦个人信息泄露，财产安全就会受到威胁。</p>
+<p>第三个隐忧是诈骗横行，目前在我国的网络诈骗产业链规模已经超过千亿，其中互联网金融相关的网络诈骗又成为了不法分子最猖獗的一个领域。大批打着高收益的P2P理财平台也是多如牛毛，去年曝光的45%收益理财产品就是一宗涉及资金超过100亿的互联网金融欺诈大案件。</p>
+<p>3.8、身份确认<br>通过语音，暗号确认身份，不轻信他人；文字、图片易伪造。大数据再发展，伪造声音与视频是不难的。</p>
+<p>3.9、手机安全</p>
+<p>3.9.1、设置有一定复杂性的开机密码<br>上海信息安全行业协会会长、众人科技创始人谈剑峰指出，如果可以选择，图形开机密码比数字更安全。另外，“在公共场所设置和使用开机密码时，也要注意遮挡，”他补充道。</p>
+<p>3.9.2.要从安全的渠道下载手机APP<br>不要在浏览器中下载软件，这样可以有效避免病毒软件。</p>
+<p>3.9.3.尽量使用安全的网络环境<br>在不使用WIFI和蓝牙时要及时关闭，避免信息泄漏。</p>
+<p>3.9.4.尽量隐藏自己的真实信息<br>不要用自己的名字、生日等个人信息设置用户名和密码，这样能有效避免别人猜到信息。</p>
+<p>3.9.5.各平台密码应都有所不同<br>避免平台窃取信息，可以设置一定的规律来记忆不同的密码。</p>
+<p>3.9.6.不要在手机上随意点击来源不明的链接<br>因为有些可能携带病毒造成损失。</p>
+<p>3.9.7.随着微信等软件的使用<br>二维码也成为了犯罪的新地，因此不要随意扫描不确定来源的二维码。</p>
+<p>3.9.8.把自己的经验分享给老人和孩子<br>因为相较于频繁使用手机的你，他们可能在这方面缺乏防护意识。</p>
+<p>3.9.9.一定不要轻易刷机<br>因为这样容易导致手机出现安全漏洞，给意图不轨的人以可乘之机。</p>
+<p>3.9.10.不要把QQ、微信、电话号存角色名<br>如不要存像老婆，爸爸，小三，二奶这样的名称，直接写名称如张如花，李刚，等</p>
+<p>3.9.11.睡觉前把所有的电子设备断网<br>你睡觉了，还有人没有睡觉，特别是想你的人，想从你那里得点什么东西的人</p>
+<p>3.9.12.别root、别越狱</p>
+<p>3.9.13.设置打开敏感应用程序密码<br>与钱有关的应用设置成打开就要输入密码</p>
+<p>3.9.14.没事别扫码<br>里面可能是木马</p>
+<p>3.9.15.留给大家补充，我随时添加</p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>随着人工智能与大数据的发展网络安全变得越来越重要。</p>
+<p>越来越多的手段可以获得您的敏感信息，安全意识与提高警惕、不贪是防范网络诈骗的基础。</p>
+<p>当然没有必要草木皆兵，您如果能按上面的提示加以防范一般不会有问题。</p>
+<p>健全的法律、人们不断提高的道德水平是网络安全的基石，从我做起，从现在开始。</p>
+<p>文章中有许多内容是来自网络，谢谢内容提供网站，因为太多就不一一列举了，谢谢！</p>
+<p>只希望160万人都去做别的，希望明天的网络世界碧海蓝天。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2017/05/11/感-生活/love/" rel="prev" title="Live">
+                Live <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image" src="/mcqingxian.github.io/uploads/images/dengta.jpg" alt="Mc">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/mcqingxian.github.io/archives/">
+            
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/mcqingxian.github.io/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/mcqingxian.github.io/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="简书" target="_blank">简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/5888b29d128fe1006c51b9e6" title="掘金iOS" target="_blank">掘金iOS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/59b22efb6fb9a024a04b3726" title="掘金Git" target="_blank">掘金Git</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://man.linuxde.net/sub/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4" title="Linux命令" target="_blank">Linux命令</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" title="知识点汇总" target="_blank">知识点汇总</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、网络安全形式严峻"><span class="nav-number">1.</span> <span class="nav-text">一、网络安全形式严峻</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、常用的网络攻击手段"><span class="nav-number">2.</span> <span class="nav-text">二、常用的网络攻击手段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、网络安全防范"><span class="nav-number">3.</span> <span class="nav-text">三、网络安全防范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">4.</span> <span class="nav-text">四、总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+  <div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/mcqingxian.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

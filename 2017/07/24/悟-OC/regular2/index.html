@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/mcqingxian.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/mcqingxian.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mcqingxian.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="技术博客,程序员,iOS,Java">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/mcqingxian.github.io/uploads/images/dengta.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="“正则表达式&amp;lt;二&amp;gt;”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2017/07/24/悟-OC/regular2/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="“正则表达式&amp;lt;二&amp;gt;”">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-24T03:03:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="“正则表达式&amp;lt;二&amp;gt;”">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mcqingxian.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2017/07/24/悟-OC/regular2/">
+
+
+
+
+
+  <title>正则表达式 | Mc</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mcqingxian.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mcqingxian.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/mcqingxian.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mcqingxian.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2017/07/24/悟-OC/regular2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mcqingxian.github.io/uploads/images/dengta.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T08:00:00+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/mcqingxian.github.io/categories/悟-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-OC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><br><br><strong>“正则表达式&lt;二&gt;”</strong><br><br></blockquote>
+
+<a id="more"></a>
+<h2 id="理解子表达式"><a href="#理解子表达式" class="headerlink" title="理解子表达式"></a>理解子表达式</h2><hr>
+<blockquote>
+<p>通过(和)括起来的就是子表达式。</p>
+</blockquote>
+<p>下面是一个例子：用来匹配IP 地址的正则表达式。 IP 地址是由” . “分隔的四组数字，如12.159.46.200。因为每个部分的数字都可以为一个、两个或者三个数字字符，这个匹配模式可以表示为\d{1,3}：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正则表达式：\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;\.\d&#123;1,3&#125;</span><br><span class="line">待匹配文本：12.159.46.200</span><br><span class="line">匹配后结果：12.159.46.200</span><br><span class="line">分析：每个\d&#123;1,3&#125;的实例都匹配了 IP 地址的一个数字。四个数字则是被\.表示的&quot; . &quot;分隔开的。\d&#123;1,3&#125;\.模式重复了三遍，因此可以使用重复操作来处理。</span><br></pre></td></tr></table></figure></p>
+<p>下面是相同例子的另外一个版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正则表达式：(\d&#123;1,3&#125;\.)&#123;3&#125;\d&#123;1,3&#125;</span><br><span class="line">待匹配文本：12.159.46.200</span><br><span class="line">匹配后结果：12.159.46.200</span><br><span class="line">分析：此模式可以和前面的效果是一样的。表达式\d&#123;1,3&#125;\.使用(和)括起来从而组成子表达式。(\d&#123;1,3&#125;\.)&#123;3&#125;重复了子表达式三次（也就是 IP 地址的前三个数字），最后的\d&#123;1,3&#125;匹配最后的数字。</span><br></pre></td></tr></table></figure></p>
+<p>使用子表达式来分组是很重要的，尽管这个例子中根本不包括重复。来看一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正则表达式：19|20\d&#123;2&#125;</span><br><span class="line">待匹配文本：1967-08-17</span><br><span class="line">匹配后结果：1967-08-17</span><br><span class="line">分析：19|20\d&#123;2&#125;用来定位一个前两个数字只能为 19或者20的四位数的年份。但是很显然这个正则并没有实现预想的效果。|操作符从左到右读取，将19|20\d&#123;2&#125;分析为要么19 ，要么20\d&#123;2&#125;，也就是匹配数字 19 或者20开头的四个数字字符。</span><br></pre></td></tr></table></figure></p>
+<p>解决方法是将19|20作为一个子表达式，(19|20)\d{2}就能够匹配所有19 和 20 开头的四个数字了。</p>
+<p>嵌套子表达式</p>
+<p>子表达式可以嵌套。实际上，子表达式可以一层一层嵌套在子表达式内。为了演示嵌套子表达式的用法，我们再来看看查找 IP 地址的例子。</p>
+<p>其实上面例子中(\d{1,3}.){3}\d{1,3}匹配IP 地址是有问题的，因为非法的 IP 地址也将被匹配。IP 地址中的每个数字都是小于 255 的。而上面的模式可以匹配 300甚至是999 ，而这些实际上都是非法的 IP 地址。</p>
+<p>下面定义了所有合法 IP 地址所需要满足的一种条件：</p>
+<p>所有的一位数和两位数<br>三位数的第一位为 1<br>如果三位数的第一位为 2 ，且第二位从 0 到 4<br>如果三位数的前二位为 25 ，且第三位从 0 到 5<br>当定义了需要匹配的情况后，就比较容易实现可以工作的模式。下面是个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(((\d&#123;1,2&#125;)|(1\d&#123;2&#125;)|(2[0-4]\d)|(25[0-5]))\.)&#123;3&#125;((\d&#123;1,2&#125;)|(1\d&#123;2&#125;)|(2[0-4]\d)|(25[0-5]))</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>分析：这个模式可以工作的原因是一系列的嵌套子表达式。首先从(((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5])).)子表达式开始。包含了四个嵌套子表达式。(\d{1,2})可以匹配一位数和两位数(0到99)。(1\d{2})匹配了任何第一位为 1 的三位数(100到199) 。(2[0-4]\d)匹配数字从 200 到 249 。(25[0-5])匹配数字从 250 到 255 。每个子表达式都是通过“ | ”包括在另一个子表达式中。在数字范围之后是.表示的” . “，然后这个系列括起来作为子表达式并重复三遍（使用{3}）。最后，((\d{1,2})|(1\d{2})|(2[0-4]\d)|(25[0-5]))被用来匹配最后一个 IP 地址的数字（没有了.后缀）。由于将四个数字都是限制在了 0 到 255 之间，所以此模式可以匹配所有的合法 IP 地址。</p>
+</blockquote>
+<p>理解后向引用</p>
+<blockquote>
+<p>HTML 开发者经常使用标题标签（H1-H6，包括相应的结束标签/H1-H6）。假设你需要定位所有的标题标签：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正则表达式：&lt;[hH][1-6]&gt;.*?&lt;/[hH][1-6]&gt;</span><br><span class="line">待匹配文本：&lt;H1&gt;title 1&lt;/H1&gt; — &lt;H6&gt;title 6&lt;/H6&gt;</span><br><span class="line">匹配后结果：&lt;H1&gt;title 1&lt;/H1&gt; — &lt;H6&gt;title 6&lt;/H6&gt;</span><br><span class="line">分析：&lt;[hH][1-6]&gt;可以匹配所有的开始标签，而&lt;/[hH][1-6]&gt;可以匹配所有的结束标签。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>接着看这个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正则表达式：&lt;[hH][1-6]&gt;.*?&lt;/[hH][1-6]&gt;</span><br><span class="line">待匹配文本：&lt;H1&gt;title&lt;/H6&gt;</span><br><span class="line">匹配后结果：&lt;H1&gt;title&lt;/H6&gt;</span><br><span class="line">分析：采用 &lt;H1&gt; 开始而采用 &lt;/H6&gt; 的标题标签是非法的，但是现在的模式可以匹配。问题在于匹配的第二个部分（匹配结束的标签）没有办法知道匹配第一部分（匹配开始的标签）是什么。这时候就需要后向引用了。</span><br></pre></td></tr></table></figure></p>
+<p>使用后向引用匹配</p>
+<p>后向应用就是引用前面的子表达式。你可以将后向应用理解成变量。例如\1匹配模式中第一个子表达式。同理，\2将匹配第二个子表达式，\3将匹配第三个。我们结合例子来理解。一个子表达式可以通过后向引用根据需要引用多次。</p>
+<blockquote>
+<p>在上个例子中，&lt;[hH][1-6]&gt;.*?&lt;/[hH][1-6]&gt;会匹配非法的标题。我们可以使用后向引用来解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正则表达式：&lt;[hH]([1-6])&gt;.*?&lt;/[hH]\1&gt;</span><br><span class="line">待匹配文本：&lt;H1&gt;title&lt;/H1&gt;—&lt;H1&gt;title&lt;/H6&gt;</span><br><span class="line">匹配后结果：&lt;H1&gt;title&lt;/H1&gt;—&lt;H1&gt;title&lt;/H6&gt;</span><br><span class="line">分析：就像以前一样，&lt;[hH]([1-6])&gt;将匹配任何的标题标签。但是和以前不一样的是，这里的[1-6]使用了小括号括起来成为了子表达式。这样，匹配结束标签的模式可以通过&lt;/[hH]\1&gt;中的\1来引用此子表达式。(1-6)是一个可以匹配数字 1 到 6 的子表达式，\1因此可以匹配相同的数字。在这种情况下，&quot;&lt;H1&gt;title&lt;/H6&gt;&quot;将不能匹配。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>注意：后向引用只能够引用子表达式（需要使用小括号括起来），后向引用语法在不同的正则表达式实现中可能是不一样的。引用的匹配一般是从 1 开始。在大多数的正则表达式实现中，0 可以用来引用整个表达式。</p>
+<p>执行替换操作</p>
+<p>到现在为止我们所看到的正则表达式都是进行搜索，在一段文本中定位单词。正则表达式还可以用来执行替换操作。举个例子，将CA 替换成California和将MI替换成Michigan 并不是正则表达式需要完成的工作。尽管使用正则表达式也是合法的，但是没有必要这么做。事实上，在这里如果使用简单的字符串操作函数的话过程将会变得更加容易。</p>
+<p>让我们来看一个例子，将313-555-1234格式的电话号码重新格式化为(313) 555-1234格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">查找表达式：(\d&#123;3&#125;)(-)(\d&#123;3&#125;)(-)(\d&#123;4&#125;)</span><br><span class="line">替换表达式：($1) $3-$5</span><br><span class="line"></span><br><span class="line">文本</span><br><span class="line">313-555-1234</span><br><span class="line">248-555-9999</span><br><span class="line"></span><br><span class="line">结果</span><br><span class="line">(313) 555-1234</span><br><span class="line">(248) 555-9999</span><br><span class="line">分析：(\d&#123;3&#125;)(-)(\d&#123;3&#125;)(-)(\d&#123;4&#125;)匹配了一个电话号码，并分成了五个子表达式。(\d&#123;3&#125;)匹配刚开始的三个数字并作为第一个子表达式，(-)匹配&quot; - &quot;并作为第二个子表达式，依此类推。这五个部分可以根据需要单独引用，($1) $3-$5只是使用了其中的三个子表达式。因此“313-555-1234”改变为了“(313) 555-1234”。</span><br></pre></td></tr></table></figure></p>
+<p>在Xcode中查找和替换文本：</p>
+<p>查找</p>
+<p>查找<br>替换</p>
+<p>替换<br>其实正则表达式还是很简单的，大家可以多找些例子熟悉一下。用的多了就熟了。</p>
+<h4 id="正则表达式在iOS中的使用。"><a href="#正则表达式在iOS中的使用。" class="headerlink" title="正则表达式在iOS中的使用。"></a>正则表达式在iOS中的使用。</h4><h5 id="NSPredicate"><a href="#NSPredicate" class="headerlink" title="NSPredicate"></a>NSPredicate</h5><blockquote>
+<p>NSPredicate通常用来验证一个字符串是不是符合某种格式，例如验证一个字符串是不是由数字和字母组成的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//待匹配字符串</span><br><span class="line">NSString *string = @&quot;song123&quot;;</span><br><span class="line">//正则表达式</span><br><span class="line">NSString *regex = @&quot;^[a-z0－9A-Z]*$&quot;;</span><br><span class="line">//创建predicate</span><br><span class="line">NSPredicate *predicate = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, regex];</span><br><span class="line">//用predicate匹配string。result为匹配结果，YES or NO。</span><br><span class="line">BOOL result = [predicate evaluateWithObject:string];</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>关于NSPredicate还有一些其他的可以使用方法们，具体可以查看官方API。</p>
+<h5 id="NSString"><a href="#NSString" class="headerlink" title="NSString"></a>NSString</h5><blockquote>
+<p>NSString可以用正则来查找自己当中符合要求的子字符串，例如查找字符串中的数字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//待匹配字符串</span><br><span class="line">NSString *string = @&quot;song123&quot;;</span><br><span class="line">//使用正则\d+去string中进行匹配，得到的时匹配到的range，在这里为&#123;4，3&#125;。</span><br><span class="line">NSRange range = [string rangeOfString:@&quot;\\d+&quot; options:NSRegularExpressionSearch];</span><br><span class="line">//如果匹配到就打印匹配到的子字符串，在这里为123。</span><br><span class="line">if (range.location != NSNotFound)</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;,[string substringWithRange:range]);</span><br><span class="line">&#125;</span><br><span class="line">分析：\d+用来查找数字，rangeOfString:options:会返回一个NSRange，用来接收匹配的范围。options必须要用NSRegularExpressionSearch，代表用正则去匹配。range.location==NSNotFound的话代表匹配不到结果。当写正则字符串时，\需要写成\\ ，所以，\d+需要写成\\d+。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h5 id="NSRegularExpression"><a href="#NSRegularExpression" class="headerlink" title="NSRegularExpression"></a>NSRegularExpression</h5><p>对于匹配字符串中的数字，我们也可以用到NSRegularExpression这个类实现。它可以用户来查找字符串中符合要求的第一个匹配结果或者所有匹配结果。</p>
+<p>查找字符串中第一个匹配结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//待匹配字符串</span><br><span class="line">NSString *string = @&quot;123abc45fgt7tyu&quot;;</span><br><span class="line">//正则表达式</span><br><span class="line">NSString *pattern = @&quot;\\d+&quot;;</span><br><span class="line">//创建NSRegularExpression对象并指定正则表达式</span><br><span class="line">NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern                       options:NSRegularExpressionCaseInsensitive                         </span><br><span class="line">error:nil];</span><br><span class="line">//查找第一个匹配结果，如果查找不到的话match会是nil</span><br><span class="line">NSTextCheckingResult *match = [regex firstMatchInString:string</span><br><span class="line">                                                options:NSMatchingReportCompletion</span><br><span class="line">                                                  range:NSMakeRange(0, [string length])];</span><br><span class="line">if (match)</span><br><span class="line">&#123;</span><br><span class="line">    //如果查找到就打印出来，结果为123</span><br><span class="line">    NSLog(@&quot;%@&quot;,[string substringWithRange:match.range]);</span><br><span class="line">&#125;</span><br><span class="line">分析：firstMatchInString:options:range会查找字符串中第一个匹配，所以123abc45fgt7tyu的匹配结果为123。</span><br></pre></td></tr></table></figure></p>
+<p>查找字符串中所有匹配结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//待匹配字符串</span><br><span class="line">NSString *string = @&quot;123abc45fgt7tyu&quot;;</span><br><span class="line">//正则表达式</span><br><span class="line">NSString *pattern = @&quot;\\d+&quot;;</span><br><span class="line">//创建NSRegularExpression对象并指定正则表达式</span><br><span class="line">NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern</span><br><span class="line">                                                                       options:NSRegularExpressionCaseInsensitive</span><br><span class="line">                                                                         error:nil];</span><br><span class="line">//查找所有匹配结果</span><br><span class="line">NSArray* matches = [regex matchesInString:string</span><br><span class="line">                                  options:NSMatchingReportProgress</span><br><span class="line">                                    range:NSMakeRange(0, [string length])];</span><br><span class="line"></span><br><span class="line">//如果有匹配就打印出来，结果为123 45 7</span><br><span class="line">if (matches.count &gt; 0)</span><br><span class="line">&#123;</span><br><span class="line">    for (NSTextCheckingResult *match in matches)</span><br><span class="line">    &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;,[string substringWithRange:match.range]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">分析：matchesInString:options:range:会查找字符串中的所有匹配，结果是一个包含NSTextCheckingResult的数组。所以123abc45fgt7tyu的匹配结果为123、45和7。</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">创建NSRegularExpression对象时的options参数为NSRegularExpressionOptions类型，可选值以及代表的意义如下：</span><br><span class="line"></span><br><span class="line">typedef NS_OPTIONS(NSUInteger, NSRegularExpressionOptions) &#123;</span><br><span class="line">    NSRegularExpressionCaseInsensitive             = 1 &lt;&lt; 0,  //不区分大小写</span><br><span class="line">    NSRegularExpressionAllowCommentsAndWhitespace  = 1 &lt;&lt; 1,  //忽略空白和注释</span><br><span class="line">    NSRegularExpressionIgnoreMetacharacters        = 1 &lt;&lt; 2,  //将所有的patter当作普通字符串</span><br><span class="line">    NSRegularExpressionDotMatchesLineSeparators    = 1 &lt;&lt; 3,  // 允许.匹配所有字符</span><br><span class="line">    NSRegularExpressionAnchorsMatchLines           = 1 &lt;&lt; 4,  // 允许^,$匹配每一行的开头和结尾</span><br><span class="line">    NSRegularExpressionUseUnixLineSeparators       = 1 &lt;&lt; 5,  // 只把\n识别为换行符</span><br><span class="line">    NSRegularExpressionUseUnicodeWordBoundaries    = 1 &lt;&lt; 6   // 使用 Unicode TR#29 规定的边界，否则，使用传统的正则表达式的词边界</span><br><span class="line">&#125;;</span><br><span class="line">关于NSRegularExpression还有一些其他的可以使用方法们，具体可以查看这里。</span><br></pre></td></tr></table></figure>
+<h3 id="一些常用的正则："><a href="#一些常用的正则：" class="headerlink" title="一些常用的正则："></a>一些常用的正则：</h3><pre><code>1.邮箱：^[a-zA-Z0-9]{4,}@[a-z0-9A-Z]{2,}\\.[a-zA-Z]{2,}$
+2.手机号码：^((13[0-9])|(15[^4\\D])|(18[0,2,5-9]))\\d{8}$
+3.大陆固定电话号码：^\\d{4}-|\\d{3}-)?(\\d{8}|\\d{7}$
+4.身份证号：\\d{14}[[0-9],0-9xX]
+5.Email地址：^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\.\\w+([-.]\\w+)*$
+6.纯数字：^[0-9]*$
+7.由数字和英文字母组成：^[A-Za-z0-9]+$
+8.QQ号：^[1-9][0-9]\{4,\}$
+9.中国邮政编码：^[1-9]\\d{5}(?!\\d)$
+10.URL：^http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&amp;=]*)?$
+11.纯汉字：^[\u4e00-\u9fa5]{0,}$
+12.汉字字母数字:^[\u4E00-\u9FA5A-Za-z0-9]+$
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2017/05/12/悟- Mac快捷键/macORXcode/" rel="next" title="Mac和Xcode快捷键">
+                <i class="fa fa-chevron-left"></i> Mac和Xcode快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2017/07/24/悟-OC/regular/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image" src="/mcqingxian.github.io/uploads/images/dengta.jpg" alt="Mc">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/mcqingxian.github.io/archives/">
+            
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/mcqingxian.github.io/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/mcqingxian.github.io/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="简书" target="_blank">简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/5888b29d128fe1006c51b9e6" title="掘金iOS" target="_blank">掘金iOS</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/59b22efb6fb9a024a04b3726" title="掘金Git" target="_blank">掘金Git</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://man.linuxde.net/sub/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4" title="Linux命令" target="_blank">Linux命令</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" title="知识点汇总" target="_blank">知识点汇总</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解子表达式"><span class="nav-number">1.</span> <span class="nav-text">理解子表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正则表达式在iOS中的使用。"><span class="nav-number">1.0.1.</span> <span class="nav-text">正则表达式在iOS中的使用。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NSPredicate"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">NSPredicate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NSString"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">NSString</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NSRegularExpression"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">NSRegularExpression</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些常用的正则："><span class="nav-number">1.1.</span> <span class="nav-text">一些常用的正则：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+  <div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共字</span>
+</div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/mcqingxian.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
