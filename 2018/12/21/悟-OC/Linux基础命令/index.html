@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/mcqingxian.github.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/mcqingxian.github.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mcqingxian.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="ReactNative,iOS,Swift,Java">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/mcqingxian.github.io/uploads/images/dengta.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础命令">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2018/12/21/悟-OC/Linux基础命令/index.html">
+<meta property="og:site_name" content="Mc">
+<meta property="og:description" content="Linux">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-21T08:06:08.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux基础命令">
+<meta name="twitter:description" content="Linux">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mcqingxian.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2018/12/21/悟-OC/Linux基础命令/">
+
+
+
+
+
+  <title>Linux基础命令 | Mc</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mcqingxian.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Live and learn</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/mcqingxian.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/mcqingxian.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/mcqingxian.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2018/12/21/悟-OC/Linux基础命令/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/mcqingxian.github.io/uploads/images/dengta.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux基础命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T16:04:22+08:00">
+                2018-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/mcqingxian.github.io/categories/悟-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-OC</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"><br>Linux<br></blockquote><br><a id="more"></a></p>
+<h3 id="Linux基础命令"><a href="#Linux基础命令" class="headerlink" title="Linux基础命令"></a>Linux基础命令</h3><h6 id="1、进入目录"><a href="#1、进入目录" class="headerlink" title="1、进入目录"></a>1、进入目录</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd 目录名</span><br></pre></td></tr></table></figure>
+<h6 id="2、显示当前路径"><a href="#2、显示当前路径" class="headerlink" title="2、显示当前路径"></a>2、显示当前路径</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd</span><br></pre></td></tr></table></figure>
+<h6 id="3、显示路径下的文件"><a href="#3、显示路径下的文件" class="headerlink" title="3、显示路径下的文件"></a>3、显示路径下的文件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">ls -a  显示隐藏文件。隐藏文件以 . 开头命名</span><br></pre></td></tr></table></figure>
+<h6 id="4、查看创建文本"><a href="#4、查看创建文本" class="headerlink" title="4、查看创建文本"></a>4、查看创建文本</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch abc.txt 查看abc.txt 如果不存在则自动创建</span><br></pre></td></tr></table></figure>
+<h6 id="5、创建文件夹"><a href="#5、创建文件夹" class="headerlink" title="5、创建文件夹"></a>5、创建文件夹</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir 文件名 			 		当前目录创建一个文件夹</span><br><span class="line">mkdir -p name1/name2  			当期目录递归创建name1/name2文件</span><br><span class="line">如 提示 mkdir: xxx: Permission denied</span><br><span class="line">则需要admin账号  sudo -i 输入密码 即可</span><br></pre></td></tr></table></figure>
+<h6 id="6、重命名操作"><a href="#6、重命名操作" class="headerlink" title="6、重命名操作"></a>6、重命名操作</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mv test test1						把test文件的名字修改为test1</span><br><span class="line">mv test1 /home/wechat/  			将test1文件 移动到/home/wechat 目录下</span><br></pre></td></tr></table></figure>
+<h6 id="7、删除操作"><a href="#7、删除操作" class="headerlink" title="7、删除操作"></a>7、删除操作</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rm file 						删除file文件(存在子文件时不可删除)</span><br><span class="line">rm -r /file				 	    删除file文件下的所有目录文件</span><br><span class="line">rm -rf ./*  					删库跑路专用命令</span><br></pre></td></tr></table></figure>
+<h6 id="8、复制"><a href="#8、复制" class="headerlink" title="8、复制"></a>8、复制</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp file /home  				    复制file命令至home目录下</span><br><span class="line">cp -r test /home/wechat  		复制test文件夹和其所有子文件 至 /home/wechat目录下</span><br><span class="line">cp -r test /home/wechat/test2  	复制test文件夹和其所有子文件 至 /home/wechat目录下并重命名为test2</span><br></pre></td></tr></table></figure>
+<h6 id="9、压缩、解压"><a href="#9、压缩、解压" class="headerlink" title="9、压缩、解压"></a>9、压缩、解压</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">解压tar</span><br><span class="line">tar xvf test.tar</span><br><span class="line">压缩tar</span><br><span class="line">tar cvf test1.tar name   		将name文件夹压缩为test1.tar</span><br><span class="line"></span><br><span class="line">解压tar.gz</span><br><span class="line">tar zxvf test.tar.gz</span><br><span class="line">压缩</span><br><span class="line">tar zxvf test.tar.gz name</span><br></pre></td></tr></table></figure>
+<h6 id="10、查找-amp-amp-日志"><a href="#10、查找-amp-amp-日志" class="headerlink" title="10、查找 &amp;&amp; 日志"></a>10、查找 &amp;&amp; 日志</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">1、cat、more、less命令</span><br><span class="line">    cat test.log  				查看test.log 的文件内容</span><br><span class="line">    cat -n test.log 			查看test.log的文件内容并显示行号</span><br><span class="line">    more、less和cat作用基本相同，只不过more可以按页码来查看。 都是按q退出查看</span><br><span class="line">    使用命令时，空格键翻页(显示下一屏内容)</span><br><span class="line">    回车：显示下一行内容</span><br><span class="line"></span><br><span class="line">2、find命令</span><br><span class="line">    .代表当前目录</span><br><span class="line">    find . -name &apos;*.txt&apos;  		查找当前目录及其子目录下扩展名为txt的文件</span><br><span class="line">    find . -mtime -2 			列出两天内修改过的文件</span><br><span class="line">    find . -atime -3 			列出三天内被存取的文件</span><br><span class="line">    find . -mmin +30 			半个小时内被修改过的文件</span><br><span class="line">    find . -amin +40  			四十分钟内被存取过的文件</span><br><span class="line">    find . -size +1M  			查找当前目录超过1M的文件</span><br><span class="line">    find .  -size -1M  		    查找当前目录小于1M的文件</span><br><span class="line">    find .  -size   +512k  	    超过512k的文件</span><br><span class="line">    find . -empty  			    查找当前目录为空的文件或者文件夹</span><br><span class="line">    </span><br><span class="line">3、whereis命令</span><br><span class="line">    whereis name/  搜索name文件的路径</span><br><span class="line">    </span><br><span class="line">4、grep命令</span><br><span class="line">    ps -ef|grep nginx  			    查看nginx的进程</span><br><span class="line">    ps -ef|grep nginx -c			查看nginx的进程个数</span><br><span class="line">    cat test.log | grep ^a  		查找test.log 中以o开头的内容</span><br><span class="line">    cat test.log | grep $k  		查找test.log中以K结尾的内容</span><br><span class="line">    cat test.log | grep &apos;bd4f63cc918611e8a14f7c04d0d7fdcc&apos; --color     在test.log中搜索bd4f63cc918611e8a14f7c04d0d7fdcc并高亮</span><br><span class="line">    等同于 grep &apos;bd4f63cc918611e8a14f7c04d0d7fdcc&apos; test.log --color</span><br><span class="line">    grep -n &apos;abc&apos; test.log  		搜索结果显示行数</span><br><span class="line">    grep &apos;abc&apos; test1.log test2.log  	从多个文件中查找abc</span><br><span class="line">    </span><br><span class="line">5、tail命令</span><br><span class="line">    tail -f  xxx.log   查看xxx.log 默认显示最后10行</span><br><span class="line">    tail -f 100 xx.log /tail -100f xx.log  查看100行</span><br><span class="line">    </span><br><span class="line">6、vim命令</span><br><span class="line">    vim</span><br><span class="line">    vim file 查看文本</span><br><span class="line">    vim file1 file2 ... 查看多个文本</span><br><span class="line">    正常模式/vim模式 通过ESC进行切换</span><br><span class="line">    vim模式下</span><br><span class="line">    i：在当前位置插入</span><br><span class="line">    dd： 删除光标所在行</span><br><span class="line">    D:删除光标所在行</span><br><span class="line">    2dd: 删除光标之后的2行</span><br><span class="line">    G：切换光标至末尾</span><br><span class="line">    w! 强制写入</span><br><span class="line">    wq 保存并退出</span><br><span class="line">    q！ 强制退出 不保存</span><br><span class="line">    /abc  在文本中查找abc</span><br><span class="line">    set nu 显示文本行数</span><br><span class="line">    移动光标 k(上)、j(下)、h(左)、l(右)</span><br><span class="line">    yy 复制光标所在行</span><br><span class="line">    p粘贴复制的</span><br><span class="line">    o:另起一行  </span><br><span class="line"></span><br><span class="line">其他常用操作</span><br><span class="line">1、查看用户信息</span><br><span class="line">    w</span><br><span class="line">    who</span><br><span class="line">    </span><br><span class="line">2、修改文件权限</span><br><span class="line">    chmod 777 file1 		每个人都可以对file文件进行读写和执行的权限</span><br><span class="line">    chmod 666 file1 		每个人都可以对file文件进行读写操作</span><br><span class="line">    </span><br><span class="line">3、系统级别</span><br><span class="line">    top 实时显示系统资源使用情况</span><br><span class="line">    dh -h 查看当前那磁盘使用情况</span><br><span class="line">    du -sh /usr 计算usr文件大小</span><br><span class="line">    netstat –a 列出 tcp, udp 和 unix 协议下所有套接字的所有连接</span><br><span class="line">    kill 端口号 终止该端口</span><br><span class="line">    kill -9 端口 立即强制终止端口</span><br><span class="line">    rz lz 上传 和下载文件</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mcqingxian.github.io/2018/11/29/悟-OC/ReactiveCocoa/" rel="next" title="iOS 之 ReactiveCocoa">
+                <i class="fa fa-chevron-left"></i> iOS 之 ReactiveCocoa
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image" src="/mcqingxian.github.io/uploads/images/dengta.jpg" alt="Mc">
+          
+            <p class="site-author-name" itemprop="name">Mc</p>
+            <p class="site-description motion-element" itemprop="description">感-人生苦短 ⏰ 悟-学海无涯</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/mcqingxian.github.io/archives/">
+            
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/mcqingxian.github.io/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/mcqingxian.github.io/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/users/d0b8d219bacb/timeline" title="简书" target="_blank">简书</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/xiao-love-meng/" title="cnblogs" target="_blank">cnblogs</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/5888b29d128fe1006c51b9e6" title="iOS资料" target="_blank">iOS资料</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://juejin.im/entry/59b22efb6fb9a024a04b3726" title="Git教程" target="_blank">Git教程</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://man.linuxde.net/sub/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4" title="Linux命令" target="_blank">Linux命令</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://hit-alibaba.github.io/interview/iOS/ObjC-Basic/Runloop.html" title="iOS面试题总结" target="_blank">iOS面试题总结</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux基础命令"><span class="nav-number">1.</span> <span class="nav-text">Linux基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、进入目录"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1、进入目录</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、显示当前路径"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2、显示当前路径</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、显示路径下的文件"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3、显示路径下的文件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、查看创建文本"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4、查看创建文本</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、创建文件夹"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5、创建文件夹</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6、重命名操作"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6、重命名操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7、删除操作"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7、删除操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8、复制"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8、复制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#9、压缩、解压"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">9、压缩、解压</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#10、查找-amp-amp-日志"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">10、查找 &amp;&amp; 日志</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 &mdash; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mc</span>
+
+  
+  <div class="theme-info">
+  <div class="powered-by"></div>
+</div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/mcqingxian.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/mcqingxian.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/mcqingxian.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
