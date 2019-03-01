@@ -84,7 +84,7 @@
 <link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Mac,">
+  <meta name="keywords" content="ReactNative,iOS,Swift,Java">
 
 
 
@@ -100,18 +100,17 @@
 
 
 
-<meta name="description" content="Homebrew">
-<meta name="keywords" content="Mac">
+<meta name="description" content="“通知、block、属性、NSUserDefaults,单例”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Homebrew 安装使用">
-<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2017/09/28/悟- Mac快捷键/Homebrew/index.html">
+<meta property="og:title" content="五种传值">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2019/03/01/悟-OC/五种传值/index.html">
 <meta property="og:site_name" content="Mc">
-<meta property="og:description" content="Homebrew">
+<meta property="og:description" content="“通知、block、属性、NSUserDefaults,单例”">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-28T09:50:29.000Z">
+<meta property="og:updated_time" content="2019-03-01T01:16:47.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Homebrew 安装使用">
-<meta name="twitter:description" content="Homebrew">
+<meta name="twitter:title" content="五种传值">
+<meta name="twitter:description" content="“通知、block、属性、NSUserDefaults,单例”">
 
 
 
@@ -141,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2017/09/28/悟- Mac快捷键/Homebrew/">
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2019/03/01/悟-OC/五种传值/">
 
 
 
 
 
-  <title>Homebrew 安装使用 | Mc</title>
+  <title>五种传值 | Mc</title>
   
 
 
@@ -264,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2017/09/28/悟- Mac快捷键/Homebrew/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2019/03/01/悟-OC/五种传值/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mc">
@@ -281,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Homebrew 安装使用</h1>
+          <h1 class="post-title" itemprop="name headline">五种传值</h1>
         
 
         <div class="post-meta">
@@ -293,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T08:00:00+08:00">
-                2017-09-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-01T08:00:00+08:00">
+                2019-03-01
               </time>
             
 
@@ -316,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/mcqingxian.github.io/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
+                  <a href="/mcqingxian.github.io/categories/悟-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-OC</span>
                   </a>
                 </span>
 
@@ -358,35 +357,36 @@
       
 
       
-        <p><blockquote class="blockquote-center"><br>Homebrew<br></blockquote><br><a id="more"></a></p>
-<h2 id="Homebrew-安装使用"><a href="#Homebrew-安装使用" class="headerlink" title="Homebrew 安装使用"></a>Homebrew 安装使用</h2><blockquote>
-<p>Homebrew是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</p>
+        <blockquote class="blockquote-center"><br><br><strong>“通知、block、属性、NSUserDefaults,单例”</strong><br><br></blockquote>
+
+<a id="more"></a>
+<h2 id="五种传值-（通知、block、属性、NSUserDefaults-单例）"><a href="#五种传值-（通知、block、属性、NSUserDefaults-单例）" class="headerlink" title="五种传值(（通知、block、属性、NSUserDefaults,单例）)"></a>五种传值(（通知、block、属性、NSUserDefaults,单例）)</h2><blockquote>
+<p>1.通知传值-一般常用于返回界面的时候，把返回前界面的值传到返回后界面。</p>
 </blockquote>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cd `brew --prefix`</span><br><span class="line">$ rm -rf Cellar</span><br><span class="line">$ brew prune</span><br><span class="line">$ rm `git ls-files`</span><br><span class="line">$ rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions</span><br><span class="line">$ rm -rf .git</span><br><span class="line">$ rm -rf ~/Library/Caches/Homebrew</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="Homebrew基本使用"><a href="#Homebrew基本使用" class="headerlink" title="Homebrew基本使用"></a>Homebrew基本使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">安装任意包</span><br><span class="line"></span><br><span class="line">$ brew install &lt;packageName&gt;</span><br><span class="line">示例：安装wget</span><br><span class="line"></span><br><span class="line">$ brew install wget</span><br><span class="line">卸载任意包</span><br><span class="line"></span><br><span class="line">$ brew uninstall &lt;packageName&gt;</span><br><span class="line">示例：卸载Git</span><br><span class="line"></span><br><span class="line">$ brew uninstall git</span><br><span class="line">查询可用包</span><br><span class="line"></span><br><span class="line">$ brew search &lt;packageName&gt;</span><br><span class="line">查看已安装包列表</span><br><span class="line"></span><br><span class="line">$ brew list</span><br><span class="line">查看任意包信息</span><br><span class="line"></span><br><span class="line">$ brew info &lt;packageName&gt;</span><br><span class="line">更新Homebrew</span><br><span class="line"></span><br><span class="line">$ brew update</span><br><span class="line">查看Homebrew版本</span><br><span class="line"></span><br><span class="line">$ brew -v</span><br><span class="line">Homebrew帮助信息</span><br><span class="line"></span><br><span class="line">$ brew -h</span><br><span class="line">输出示例:</span><br><span class="line"></span><br><span class="line">Example usage:</span><br><span class="line">  brew search [TEXT|/REGEX/]</span><br><span class="line">  brew (info|home|options) [FORMULA...]</span><br><span class="line">  brew install FORMULA...</span><br><span class="line">  brew update</span><br><span class="line">  brew upgrade [FORMULA...]</span><br><span class="line">  brew uninstall FORMULA...</span><br><span class="line">  brew list [FORMULA...]</span><br><span class="line"></span><br><span class="line">Troubleshooting:</span><br><span class="line">  brew config</span><br><span class="line">  brew doctor</span><br><span class="line">  brew install -vd FORMULA</span><br><span class="line"></span><br><span class="line">Brewing:</span><br><span class="line">  brew create [URL [--no-fetch]]</span><br><span class="line">  brew edit [FORMULA...]</span><br><span class="line">  https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Formula-Cookbook.md</span><br><span class="line"></span><br><span class="line">Further help:</span><br><span class="line">  man brew</span><br><span class="line">  brew help [COMMAND]</span><br><span class="line">  brew home</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><blockquote>
-<p>/usr/local/等系统目录下的文件读写是需要系统root权限的，以往的Homebrew安装如果没有指定安装路径，会默认安装在这些需要系统root用户读写权限的目录下，导致有些指令需要添加sudo前缀来执行，比如升级Homebrew需要：</p>
-</blockquote>
-<p>sudo brew update</p>
-<p>如果你不想每次都使用sudo指令，你有两种方法可以选择:</p>
-<p>对/usr/local 目录下的文件读写进行root用户授权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//前一个界面</span><br><span class="line">//注册通知</span><br><span class="line">    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:@&quot;notification&quot; object:nil];</span><br><span class="line">    // Do any additional setup after loading the view.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//执行通知方法</span><br><span class="line">- (void) notification:(NSNotification *)notifi&#123;</span><br><span class="line">    NSLog(@&quot;++++++&quot;);</span><br><span class="line">    NSLog(@&quot;%@&quot;,notifi.userInfo);</span><br><span class="line">&#125;</span><br><span class="line">//移除通知</span><br><span class="line">-(void) dealloc&#123;</span><br><span class="line">    //第一种 移除该控制器所有的通知</span><br><span class="line">    [[NSNotificationCenter defaultCenter] removeObserver:self];</span><br><span class="line">    //第二种 移除该控制器下名为&quot;notification&quot;的通知</span><br><span class="line">  //  [[NSNotificationCenter defaultCenter] removeObserver:self name:@&quot;notification&quot; object:nil];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//后一个界面</span><br><span class="line"> //创建传值信息</span><br><span class="line">    NSDictionary *dict=[[NSDictionary alloc]initWithObjectsAndKeys:@&quot;val1&quot;,@&quot;key1&quot;,@&quot;val2&quot;,@&quot;key2&quot;, nil];</span><br><span class="line">    //创建通知</span><br><span class="line">    NSNotification *notification=[NSNotification notificationWithName:@&quot;notification&quot; object:nil userInfo:dict];</span><br><span class="line">    //通过通知中心发送通知</span><br><span class="line">    [[NSNotificationCenter defaultCenter] postNotification:notification];</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>$ sudo chown -R $USER /usr/local</p>
+<p>2.block 反向传值,前一个界面获取后一个界面传过来的值</p>
 </blockquote>
-<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//后一个界面</span><br><span class="line">.h文件</span><br><span class="line">@interface jViewController : UIViewController</span><br><span class="line">//定义block</span><br><span class="line">@property (nonatomic,copy) void (^NextViewControllerBlock)(NSString *tfText);</span><br><span class="line">@end</span><br><span class="line">.m文件</span><br><span class="line">-(void) btnClick:(UIButton *)btn&#123;</span><br><span class="line">    </span><br><span class="line">    //判断block是否为空</span><br><span class="line">    if (self.NextViewControllerBlock) &#123;</span><br><span class="line">        self.NextViewControllerBlock(@&quot;我是后一个界面传的值&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    [self.navigationController popViewControllerAnimated:YES];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//前一个界面</span><br><span class="line">//.m文件</span><br><span class="line">-(void) btnClick:(UIButton *)btn&#123;</span><br><span class="line">    jViewController *nextVC = [[jViewController alloc]init];</span><br><span class="line">    nextVC.NextViewControllerBlock = ^(NSString *tfText)&#123;</span><br><span class="line">        NSLog(@&quot;++++%@&quot;,tfText);</span><br><span class="line">    &#125;;</span><br><span class="line">    [self.navigationController pushViewController:nextVC animated:YES];</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>$ sudo chown -R wentianen /usr/local</p>
+<ol start="3">
+<li>属性传值（一般适用于前一个界面传值给后一个界面）</li>
+</ol>
 </blockquote>
-<p>（推荐）安装Homebrew时对安装路径进行指定，直接安装在不需要系统root用户授权就可以自由读写的目录下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//后一个界面</span><br><span class="line">//首先在.h定义获值属性（就是要有接收传值过来的属性）</span><br><span class="line">@interface jViewController : UIViewController</span><br><span class="line">@property( copy,nonatomic)NSString *str;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">//.m</span><br><span class="line">-(void) btnClick:(UIButton *)btn&#123;</span><br><span class="line">    NSLog(@&quot;++++%@&quot;,_str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//前一个界面</span><br><span class="line">-(void) btnClick:(UIButton *)btn&#123;</span><br><span class="line">    //跳转到后一个界面，也把值传过去</span><br><span class="line">    jViewController *nextVC = [[jViewController alloc]init];</span><br><span class="line">    nextVC.str=@&quot;我是第一个界面传给第二个界面的值&quot;;</span><br><span class="line">    [self.navigationController pushViewController:nextVC animated:YES];</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><install path=""> -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a></install></p>
+<ol start="4">
+<li>NSUserDefaults是数据持久化的一种主要做存储使用(数据持久化)</li>
+</ol>
 </blockquote>
-<hr>
-<h5 id="解决mac安装homebrew后报错-bash-brew-command-not-found"><a href="#解决mac安装homebrew后报错-bash-brew-command-not-found" class="headerlink" title="解决mac安装homebrew后报错-bash: brew: command not found"></a>解决mac安装homebrew后报错-bash: brew: command not found</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vim .bash_profile</span><br><span class="line">添加：export PATH=/usr/local/bin:$PATH</span><br><span class="line">保存，source .bash_profile使配置修改生效。</span><br><span class="line">再次使用brew 命令就ok了。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];</span><br><span class="line">   //存储数据</span><br><span class="line">   [userDefaults setObject:&lt;#(nullable id)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults setInteger:&lt;#(NSInteger)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults setBool:&lt;#(BOOL)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults setURL:&lt;#(nullable NSURL *)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults setFloat:&lt;#(float)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults setDouble:&lt;#(double)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults setValue:&lt;#(nullable id)#&gt; forKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   //读取数据</span><br><span class="line">   [userDefaults objectForKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults integerForKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults boolForKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults URLForKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults floatForKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults doubleForKey:&lt;#(nonnull NSString *)#&gt;];</span><br><span class="line">   [userDefaults valueForKey:&lt;#(nonnull NSString *)#&gt;];</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="5">
+<li>单例传值(项目全局)</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//定义单例类</span><br><span class="line">+ (instancetype)shareManager</span><br><span class="line">&#123;</span><br><span class="line">    static ZLBUserManager *_instance;</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        _instance = [[self alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    return _instance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//在单例类中定义传值属性</span><br><span class="line">@property (nonatomic,assign)BOOL isNet;</span><br><span class="line"></span><br><span class="line">//赋值</span><br><span class="line">   [ZLBUserManager shareManager].isNet = YES;</span><br><span class="line">//取值</span><br><span class="line">   Bool is_net = [ZLBUserManager shareManager].isNet; </span><br><span class="line">注:只保存最后一次赋值的</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -401,12 +401,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/mcqingxian.github.io/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
-          
-        </div>
-      
 
       
       
@@ -416,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/mcqingxian.github.io/2017/09/27/悟-Java/JavaBase/" rel="next" title="Java(面试)基础解答">
-                <i class="fa fa-chevron-left"></i> Java(面试)基础解答
+              <a href="/mcqingxian.github.io/2018/12/21/悟-OC/Linux基础命令/" rel="next" title="Linux基础命令">
+                <i class="fa fa-chevron-left"></i> Linux基础命令
               </a>
             
           </div>
@@ -425,10 +419,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/mcqingxian.github.io/2017/09/29/悟-OC/iOS 11、iPhone X、Xcode9/" rel="prev" title="iOS 11、iPhone X、Xcode9">
-                iOS 11、iPhone X、Xcode9 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -597,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Homebrew-安装使用"><span class="nav-number">1.</span> <span class="nav-text">Homebrew 安装使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载"><span class="nav-number">1.0.2.</span> <span class="nav-text">卸载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Homebrew基本使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">Homebrew基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.0.4.</span> <span class="nav-text">注意:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决mac安装homebrew后报错-bash-brew-command-not-found"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">解决mac安装homebrew后报错-bash: brew: command not found</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#五种传值-（通知、block、属性、NSUserDefaults-单例）"><span class="nav-number">1.</span> <span class="nav-text">五种传值(（通知、block、属性、NSUserDefaults,单例）)</span></a></li></ol></div>
             
 
           </div>
