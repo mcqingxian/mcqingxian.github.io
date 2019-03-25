@@ -84,7 +84,7 @@
 <link href="/mcqingxian.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Mac,">
+  <meta name="keywords" content="ReactNative,iOS,Swift,Java">
 
 
 
@@ -100,36 +100,17 @@
 
 
 
-<meta name="description" content="常用Vim命令">
-<meta name="keywords" content="Mac">
+<meta name="description" content="代替代理 主要通过RACSubject 和 rac_signalForSelector 代替KVO 监听事件 代替通知 监听文本框 处理界面有多次请求，需要都请求到数据时，才能展示界面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim开发常用命令总结">
-<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/index.html">
+<meta property="og:title" content="iOS 之 RAC常用的六种场景">
+<meta property="og:url" content="https://github.com/mcqingxian/mcqingxian.github.io/2019/03/25/悟-OC/RAC常用的六种场景/index.html">
 <meta property="og:site_name" content="ジAlanベ">
-<meta property="og:description" content="常用Vim命令">
+<meta property="og:description" content="代替代理 主要通过RACSubject 和 rac_signalForSelector 代替KVO 监听事件 代替通知 监听文本框 处理界面有多次请求，需要都请求到数据时，才能展示界面">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img.mukewang.com/5bb6bbef00016ddf10320452.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6bd030001328903710183.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6c5ff00019af211740861.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6c82f0001758209660410.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6c9520001ddf909780322.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6c95a0001a90b04350222.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cab90001b77609670457.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6ccc00001f16409870442.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cc550001251a10750343.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cd680001fb9f09910395.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cd7400012ef009710466.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cbde00016ffa10000383.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cd9700013f1009720446.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6ce4400013c7309350383.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cee6000154e609940400.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cf3a0001285209410346.png">
-<meta property="og:image" content="https://img.mukewang.com/5bb6cf7c00019c5709970291.png">
-<meta property="og:updated_time" content="2018-11-28T07:58:48.444Z">
+<meta property="og:updated_time" content="2019-03-25T06:53:58.169Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim开发常用命令总结">
-<meta name="twitter:description" content="常用Vim命令">
-<meta name="twitter:image" content="https://img.mukewang.com/5bb6bbef00016ddf10320452.png">
+<meta name="twitter:title" content="iOS 之 RAC常用的六种场景">
+<meta name="twitter:description" content="代替代理 主要通过RACSubject 和 rac_signalForSelector 代替KVO 监听事件 代替通知 监听文本框 处理界面有多次请求，需要都请求到数据时，才能展示界面">
 
 
 
@@ -159,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/">
+  <link rel="canonical" href="https://github.com/mcqingxian/mcqingxian.github.io/2019/03/25/悟-OC/RAC常用的六种场景/">
 
 
 
 
 
-  <title>Vim开发常用命令总结 | ジAlanベ</title>
+  <title>iOS 之 RAC常用的六种场景 | ジAlanベ</title>
   
 
 
@@ -282,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2018/11/27/悟- Mac快捷键/vim命令总结/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mcqingxian/mcqingxian.github.io/mcqingxian.github.io/2019/03/25/悟-OC/RAC常用的六种场景/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ジAlanベ">
@@ -299,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vim开发常用命令总结</h1>
+          <h1 class="post-title" itemprop="name headline">iOS 之 RAC常用的六种场景</h1>
         
 
         <div class="post-meta">
@@ -311,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-27T08:00:00+08:00">
-                2018-11-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-25T14:51:15+08:00">
+                2019-03-25
               </time>
             
 
@@ -334,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/mcqingxian.github.io/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
+                  <a href="/mcqingxian.github.io/categories/悟-OC/" itemprop="url" rel="index">
+                    <span itemprop="name">悟-OC</span>
                   </a>
                 </span>
 
@@ -376,70 +357,34 @@
       
 
       
-        <p><blockquote class="blockquote-center"><br>常用Vim命令<br></blockquote><br><a id="more"></a></p>
+        <p><blockquote class="blockquote-center"></blockquote></p>
+<ol>
+<li>代替代理 主要通过RACSubject 和 rac_signalForSelector</li>
+<li>代替KVO</li>
+<li>监听事件</li>
+<li>代替通知</li>
+<li>监听文本框</li>
+<li>处理界面有多次请求，需要都请求到数据时，才能展示界面<br><a id="more"></a>
+</li>
+</ol>
+<h5 id="代替代理"><a href="#代替代理" class="headerlink" title="代替代理"></a>代替代理</h5><blockquote>
+<p>创建一个继承自UIView的TestView类，然后在.h文件中添加一个@property(nonatomic,strong)RACSubject *btnClickSingal;属性。<br>.m文件中，在这个TestView上添加一个按钮，然后初始化btnClickSingal这个属性，以及添加按钮的点击事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;TestView.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation TestView</span><br><span class="line"></span><br><span class="line">- (RACSubject *)btnClickSingal&#123;</span><br><span class="line">    if (_btnClickSingal == nil) &#123;</span><br><span class="line">        _btnClickSingal = [RACSubject subject];</span><br><span class="line">    &#125;</span><br><span class="line">    return _btnClickSingal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (IBAction)btnClick:(id)sender&#123;</span><br><span class="line">    //NSLog(@&quot;红色view监听到按钮点击&quot;);</span><br><span class="line">    //发送信号</span><br><span class="line">    [self.btnClickSingal sendNext:@&quot;按钮被点击了&quot;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <blockquote>
-<p>详细课程可见：<a href="https://www.imooc.com/learn/1049" target="_blank" rel="noopener">https://www.imooc.com/learn/1049</a><br>Vim起源:<br><img src="https://img.mukewang.com/5bb6bbef00016ddf10320452.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上图可以清晰的看到早期的vim作者使用的机器,此时的终端机键盘是没有独立上下左右键位的，所以在vim的设计之初，HJKL分别代表了(起到了光标移动)，其余字符基本一致。</span><br></pre></td></tr></table></figure></p>
+<p>在控制器中，导入TestView.h的头文件。初始化testView。并编写如下代码。</p>
 </blockquote>
-<h6 id="Vim四种模式"><a href="#Vim四种模式" class="headerlink" title="Vim四种模式:"></a>Vim四种模式:</h6><pre><code>1.普通模式 
-例如当我们编译文件a的时候 
-vim a
-</code></pre><p><img src="https://img.mukewang.com/5bb6bd030001328903710183.png" alt="image"></p>
-<pre><code>2,插入模式(编辑模式)
-    在普通模式的基础上,如果我想对文本进行插入操作,进入插入模式，只需要按下 i(insert),即可进行对原文本的标记!
-
-3,可视模式
-    对一整块区域进行操作
-</code></pre><blockquote>
-<p>在文本中,若想选择多行，我们可以进入可视模式，但是在插入模式下,需要先回到普通模式,所以需要我们按下Esc,再次按下v(visual)，可以看到下图:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //订阅信号</span><br><span class="line">    [testView.btnClickSingal subscribeNext:^(id x) &#123;</span><br><span class="line">        NSLog(@&quot;%@&quot;,x);</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="代替KVO"><a href="#代替KVO" class="headerlink" title="代替KVO"></a>代替KVO</h5><blockquote>
+<p>如果使用下面这个方法要导入头文件：#import “NSObject+RACKVOWrapper.h”,监听testView的frame属性两种实现方法</p>
 </blockquote>
-<p><img src="https://img.mukewang.com/5bb6c5ff00019af211740861.png" alt="image"></p>
-<pre><code>4,命令模式
-    和普通模式类似
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">命令模式是在普通模式下,按下冒号:，后面跟上命令的一种模式，如下图，我查看当前vim的版本信息(当前为可视模式,需要按下esc回到普通模式！)：</span><br><span class="line"></span><br><span class="line">:wq退出编辑页</span><br></pre></td></tr></table></figure>
-<h4 id="Vim中的移动操作"><a href="#Vim中的移动操作" class="headerlink" title="Vim中的移动操作"></a>Vim中的移动操作</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HJKL分别代表了左下上右</span><br><span class="line"></span><br><span class="line">^ 和 $ 这两个符号是分别移动到行首或者行尾，实际上设计是和正则表达式相似，正则表达式的起始匹配也是^，而</span><br><span class="line">末尾匹配是 $。</span><br><span class="line">工作中常用到的快捷键：个人认为上图都是常用命令。HLJK，以及^ ，\$.</span><br></pre></td></tr></table></figure>
-<p><img src="https://img.mukewang.com/5bb6c82f0001758209660410.png" alt="image"></p>
-<blockquote>
-<p>单词和字符串移动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[testView rac_observeKeyPath:@&quot;frame&quot; options:NSKeyValueObservingOptionNew observer:nil block:^(id value, NSDictionary *change, BOOL causedByDealloc, BOOL affectedOnlyLastComponent) &#123;</span><br><span class="line">       //</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">[[_redView rac_valuesForKeyPath:@&quot;frame&quot; observer:nil]   subscribeNext:^(id x) &#123;</span><br><span class="line">  //x 修改的值  NSRect</span><br><span class="line">   NSLog(@&quot;%@&quot;,x);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h5 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件"></a>监听事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[[_btn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) &#123;</span><br><span class="line">        NSLog(@&quot;点击了按钮&quot;);</span><br><span class="line">        NSLog(@&quot;%@&quot;,x);</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
+<h5 id="监听通知"><a href="#监听通知" class="headerlink" title="监听通知"></a>监听通知</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[[NSNotificationCenter defaultCenter]rac_addObserverForName:UIKeyboardWillShowNotification object:nil] subscribeNext:^(id x) &#123;</span><br><span class="line">       NSLog(@&quot;%@&quot;,x);</span><br><span class="line">   &#125;];</span><br></pre></td></tr></table></figure>
+<h5 id="监听文本框"><a href="#监听文本框" class="headerlink" title="监听文本框"></a>监听文本框</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[_tf.rac_textSignal subscribeNext:^(id x) &#123;</span><br><span class="line">       NSLog(@&quot;%@&quot;,x);</span><br><span class="line">   &#125;];</span><br></pre></td></tr></table></figure>
+<h5 id="有多次请求，都请求到数据时，再刷新界面"><a href="#有多次请求，都请求到数据时，再刷新界面" class="headerlink" title="有多次请求，都请求到数据时，再刷新界面"></a>有多次请求，都请求到数据时，再刷新界面</h5><blockquote>
+<p>说明：因为一个页面可能有多个模块，可能有些模块需要在其他界面上应用到，所以电商项目通常会这样设计。假如有热销模块和最新模块，当数据都请求到的时候再去刷新界面。</p>
 </blockquote>
-<p><img src="https://img.mukewang.com/5bb6c9520001ddf909780322.png" alt="image"></p>
-<blockquote>
-<p>下图描述了具体键位：</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6c95a0001a90b04350222.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：w(移动到下一个单词词头)、b(移动到上一个单词词头)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>跳转(翻页)</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6cab90001b77609670457.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：gg(跳到文件首行),G(跳到文件最后一行),page up(上翻页，个人习惯用键盘翻页,当然命令也可以,Ctrl-b),Page Down(下翻页,命令Ctrl-d)</span><br></pre></td></tr></table></figure>
-<h6 id="Vim编辑操作"><a href="#Vim编辑操作" class="headerlink" title="Vim编辑操作"></a>Vim编辑操作</h6><blockquote>
-<p>基础操作</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6ccc00001f16409870442.png" alt="image"><br><img src="https://img.mukewang.com/5bb6cc550001251a10750343.png" alt="image"><br><img src="https://img.mukewang.com/5bb6cd680001fb9f09910395.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd对光标当前行进行剪切(也可以认为删除当前行的快捷键)，p粘贴。</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://img.mukewang.com/5bb6cd7400012ef009710466.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yy复制当前行,p粘贴到光标位置。</span><br><span class="line"></span><br><span class="line">基础操作，对比windows而言,以上三点比较常用。</span><br><span class="line">工作中常用到的快捷键：d(delete删除)、y(yank复制)、yy(行复制)、dd(行剪切)、p(put粘贴)、u(undo撤销)</span><br><span class="line">一般而言,d、y这2个命令在可视模式下结合使用,p、u这两个命令在命令模式下使用。</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>插入操作(增)</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6cbde00016ffa10000383.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：a(光标后一位插入),i(光标前一位插入)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>删除操作(删)</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6cd9700013f1009720446.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：dd(删除当前行)、&#123;n&#125;dd向下删除n行</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>替换操作(改)</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6ce4400013c7309350383.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上面的命令类似windows下文本编辑器经常用到的ctrl + f 后的替换操作</span><br><span class="line"></span><br><span class="line">用法：命令模式下，%s/文本内容/替换内容</span><br></pre></td></tr></table></figure>
-<p><img src="https://img.mukewang.com/5bb6cee6000154e609940400.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">上图是常规替换，普通模式下操作。</span><br><span class="line"></span><br><span class="line">工作中常用到的快捷键：%s/文本内容/替换内容</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>查找操作(查)</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6cf3a0001285209410346.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">工作中常用到的快捷键：/查找的关键词(n向下查找下一个,N向上查找上一个)</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>缩进操作</p>
-</blockquote>
-<p><img src="https://img.mukewang.com/5bb6cf7c00019c5709970291.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">写代码的时候,经常给会有缩进的问题.所以也有对应的命令。</span><br><span class="line"></span><br><span class="line">快捷键：命令模式下操作： 70,80&gt;(70-80行光标处缩进)，普通模式下,&gt;&gt;向右缩进</span><br><span class="line"></span><br><span class="line">        2&gt;3 从第二行开始,全部向右缩进3格</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    //请求热销模块</span><br><span class="line">    RACSignal *hotSignal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">        //请求数据</span><br><span class="line">        NSLog(@&quot;请求热销模块数据&quot;);</span><br><span class="line">        [subscriber sendNext:@&quot;热销模块数据&quot;];</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;];</span><br><span class="line">    //请求最新模块</span><br><span class="line">    RACSignal *newSignal = [RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">         //请求数据</span><br><span class="line">        NSLog(@&quot;请求最新模块数据&quot;);</span><br><span class="line">        [subscriber sendNext:@&quot;最新模块数据&quot;];</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    //数组中存放的是信号，当数组中所有的信号都发送数据的时候，才会执行Selector</span><br><span class="line">    /************************************************/</span><br><span class="line">    //方法的参数必须要和数组的信号一一对应,否则会崩溃</span><br><span class="line">    //发放的参数：救赎每一个信号发送的数据</span><br><span class="line">    [self rac_liftSelector:@selector(updateUIWithHotData:newData:) withSignalsFromArray:@[hotSignal,newSignal]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)updateUIWithHotData:(NSString *)hotData newData:(NSString *)newData&#123;</span><br><span class="line">    //拿到请求的数据</span><br><span class="line">    NSLog(@&quot;更新UI 数据：%@  数据：%@&quot;,hotData,newData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,12 +400,6 @@ vim a
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/mcqingxian.github.io/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
-          
-        </div>
-      
 
       
       
@@ -470,8 +409,8 @@ vim a
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/mcqingxian.github.io/2018/03/19/悟-OC/Masonry/" rel="next" title="Masonry基础理解">
-                <i class="fa fa-chevron-left"></i> Masonry基础理解
+              <a href="/mcqingxian.github.io/2019/01/18/悟-OC/GCD 了解一下/" rel="next" title="GCD 相关'操作'">
+                <i class="fa fa-chevron-left"></i> GCD 相关'操作'
               </a>
             
           </div>
@@ -479,10 +418,6 @@ vim a
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/mcqingxian.github.io/2018/11/28/悟-OC/iOS 常用宏定义/" rel="prev" title="iOS 宏定义">
-                iOS 宏定义 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -651,7 +586,7 @@ vim a
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vim四种模式"><span class="nav-number">1.</span> <span class="nav-text">Vim四种模式:</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim中的移动操作"><span class="nav-number"></span> <span class="nav-text">Vim中的移动操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Vim编辑操作"><span class="nav-number">1.</span> <span class="nav-text">Vim编辑操作</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#代替代理"><span class="nav-number">1.</span> <span class="nav-text">代替代理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代替KVO"><span class="nav-number">2.</span> <span class="nav-text">代替KVO</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听事件"><span class="nav-number">3.</span> <span class="nav-text">监听事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听通知"><span class="nav-number">4.</span> <span class="nav-text">监听通知</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#监听文本框"><span class="nav-number">5.</span> <span class="nav-text">监听文本框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有多次请求，都请求到数据时，再刷新界面"><span class="nav-number">6.</span> <span class="nav-text">有多次请求，都请求到数据时，再刷新界面</span></a></li></ol></div>
             
 
           </div>
